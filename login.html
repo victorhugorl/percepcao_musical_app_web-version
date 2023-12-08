@@ -31,15 +31,15 @@
                       <input type="password" class="form-control rounded-3" id="passwordInput" placeholder="Password">
                       <label for="passwordInput">Password</label>
                     </div>
-                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-enter" type="submit">Entrar ou Cadastrar</button>
-                    <small class="text-body-secondary">Clicando em Entrar você aceita os termos e serviços <a href="#">saiba mais</a>.</small>
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-enter" type="submit" onclick="developing()">Entrar ou Cadastrar</button>
+                    <small class="text-body-secondary">Clicando em Entrar você aceita os termos e serviços <a href="#" data-bs-toggle="modal" data-bs-target="#saibaMaisModal">saiba mais</a>.</small>
                     <hr class="my-4">
                     <h2 class="fs-5 fw-bold mb-3">Você pode entrar com.</h2>
-                    <button class="w-100 py-2 mb-2 btn btn-outline-danger rounded-3" type="submit">
+                    <button class="w-100 py-2 mb-2 btn btn-outline-danger rounded-3" type="submit" onclick="developing()">
                       <!-- Abre uma pagina para escolher o email-->
                       Entrar com Google
                     </button>
-                    <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">
+                    <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit" onclick="developing()">
                       <!-- Abre a pagina do facebook -->
                       Entrar com Facebook
                     </button>
@@ -49,7 +49,58 @@
             </div>
           </div>
     </section>
+    <section> <!--Modal Terms and services-->  
+      <div class="modal fade" id="saibaMaisModal" tabindex="-1" aria-labelledby="modalTile" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="modalTile">Termos e serviços</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h4><strong>Termos de Serviço</strong></h4>
+              <p>
+                Bem-vindo aos nossos serviços. Ao utilizar nossos produtos ou serviços, você concorda com os seguintes termos. 
+                <strong>Leia com atenção</strong>.
+              </p>
+              <p>
+                <strong>Uso dos Serviços:</strong> Você concorda em utilizar nossos serviços apenas para os fins permitidos e de acordo com 
+                a legislação aplicável e os termos estabelecidos.
+              </p>
+              <p>
+                <strong>Privacidade:</strong> Respeitamos sua privacidade. Nossa Política de Privacidade explica como tratamos seus dados 
+                pessoais e protegemos sua privacidade ao utilizar nossos serviços. Ao utilizar nossos serviços, você concorda com a coleta, 
+                uso e compartilhamento de suas informações conforme descrito em nossa Política de Privacidade.
+              </p>
+              <p>
+                <strong>Conteúdo:</strong> Ao utilizar nossos serviços, você pode ser exposto a conteúdos. Entretanto, você concorda em 
+                não reproduzir, duplicar, copiar, vender, trocar, revender ou explorar qualquer parte dos nossos serviços sem a nossa 
+                autorização expressa.
+              </p>
+              <p>
+                <strong>Modificações:</strong> Reservamo-nos o direito de modificar ou encerrar nossos serviços a qualquer momento, sem 
+                aviso prévio. Você concorda que não seremos responsáveis perante você ou terceiros por qualquer modificação, 
+                suspensão ou encerramento dos nossos serviços.
+              </p>
+              <p>
+                <strong>Disposições Gerais:</strong> Estes termos de serviço serão regidos e interpretados de acordo com as leis. 
+                Se qualquer disposição destes termos for considerada inválida ou inexequível, tal disposição será eliminada e as 
+                demais disposições serão aplicadas.
+              </p>
+              
+              Ao utilizar nossos serviços, você concorda e aceita estes termos. Se tiver alguma dúvida sobre nossos termos de serviço, 
+              entre em contato conosco
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-primary" onclick="developing()">Duvida?</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Script Boostrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="assets/js/login.js"></script>
 </body>
 </html>
