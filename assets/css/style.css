@@ -1,3 +1,16 @@
 .font-h1-title {
-    font-family: normal; /* irei modificar a font ainda*/
+    font-family: 'Franklin Gothic Demi Cond' normal; /* irei modificar a font ainda*/
+}
+
+.body-blue {
+    background: rgb(25, 53, 92);
+}
+
+.btn-enter {
+    background: rgb(171, 214, 237);
+}
+
+.btn-enter:hover {
+    background: rgb(128, 160, 210);
+    color: white;
 }
