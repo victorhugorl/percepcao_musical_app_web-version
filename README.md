@@ -15,3 +15,4 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar
 
 # Autor
 Victor Hugo Rangel Lima
+Daniel tenório
