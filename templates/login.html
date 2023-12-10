@@ -24,12 +24,18 @@
                 <div class="modal-body p-5 pt-0">
                   <form> <!-- Se não me engano da pra colocar um backend por aqui -->
                     <div class="form-floating mb-3">
-                      <input type="email" class="form-control rounded-3" id="emailInput" placeholder="name@example.com">
+                      <input type="email" class="form-control rounded-3" id="emailInput" placeholder="name@example.com" required>
                       <label for="emailInput">Email address</label>
                     </div>
                     <div class="form-floating mb-3">
-                      <input type="password" class="form-control rounded-3" id="passwordInput" placeholder="Password">
+                      <input type="password" class="form-control rounded-3" id="passwordInput" placeholder="Password" required>
                       <label for="passwordInput">Password</label>
+                    </div>
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="checkbox" id="checkPassword" onclick="showPassword()">
+                      <label class="form-check-label" for="checkPassword">
+                        Mostrar senha
+                      </label>
                     </div>
                     <button class="w-100 mb-2 btn btn-lg rounded-3 btn-enter" type="submit" onclick="loginValidation()">Entrar ou Cadastrar</button>
                     <small class="text-body-secondary">Clicando em Entrar você aceita os termos e serviços <a href="#" data-bs-toggle="modal" data-bs-target="#saibaMaisModal">saiba mais</a>.</small>

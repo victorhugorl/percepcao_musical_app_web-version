@@ -6,8 +6,19 @@ function loginValidation() {
     let email_adress = document.querySelector('input#emailInput')
     let password = document.querySelector('input#passwordInput')
     if (email_adress.value.length == '' || password.value.length == '') {
+        email_adress.classList.add('border-danger')
         alert('digite valores validos')
     } else if (password.value.length < 8) {
         alert('Por favor digite uma senha com 8 ou mais caracteres')
+    }
+    // window.location.assign('http://127.0.0.1:5500/templates/index.html')
+}
+
+function showPassword() {
+    let password_text = document.querySelector('input#passwordInput')
+    if (password_text.type === 'password') {
+        password_text.setAttribute('type', 'text')
+    } else {
+        password_text.setAttribute('type', 'password')
     }
 }
