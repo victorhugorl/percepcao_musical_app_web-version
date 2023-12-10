@@ -7,11 +7,15 @@ function loginValidation() {
     let password = document.querySelector('input#passwordInput')
     if (email_adress.value.length == '' || password.value.length == '') {
         email_adress.classList.add('border-danger')
+        password.classList.add('border-danger')
         alert('digite valores validos')
     } else if (password.value.length < 8) {
         alert('Por favor digite uma senha com 8 ou mais caracteres')
+    } else {
+        email_adress.classList.add('border-danger')
+        password.classList.add('border-danger')
+        window.location.assign('http://127.0.0.1:5500/templates/index.html') // se houver tela de loaging arquivos estarão carregados
     }
-    // window.location.assign('http://127.0.0.1:5500/templates/index.html')
 }
 
 function showPassword() {
