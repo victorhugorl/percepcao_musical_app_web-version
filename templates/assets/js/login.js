@@ -12,7 +12,7 @@ function loginValidation() {
     } else if (password.value.length < 8) {
         alert('Por favor digite uma senha com 8 ou mais caracteres')
     } else {
-        email_adress.classList.add('border-danger')
+        email_adress.classList.add('border-danger') // Aqui os valores ja podem ser salvos em um banco de dados
         password.classList.add('border-danger')
         window.location.assign('http://127.0.0.1:5500/templates/index.html') // se houver tela de loaging arquivos estarão carregados
     }
