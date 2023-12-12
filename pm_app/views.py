@@ -17,3 +17,19 @@ def login(request):
         request,
         'pm_app/login.html'
     )
+
+
+def main(request):
+
+    return render(
+        request,
+        'pm_app/main.html'
+    )
+
+
+def game(request):
+
+    return render(
+        request,
+        'pm_app/main.html'
+    )
