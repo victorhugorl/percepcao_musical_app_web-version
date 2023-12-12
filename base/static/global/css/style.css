@@ -27,11 +27,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    height: 570px;
+    height: 590px;
     display: flex;
     align-items: center;
 }
 
-.big-p p { 
+.big-p {
     font-size: 2rem;
 }
