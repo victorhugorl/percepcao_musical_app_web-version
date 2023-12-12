@@ -14,7 +14,7 @@ function loginValidation() {
     } else {
         email_adress.classList.add('border-danger') // Aqui os valores ja podem ser salvos em um banco de dados
         password.classList.add('border-danger')
-        window.location.assign('http://127.0.0.1:5500/templates/index.html') // se houver tela de loaging arquivos estarão carregados
+        window.location.assign('http://127.0.0.1:5500/templates/main.html') // se houver tela de loaging arquivos estarão carregados
     }
 }
 
