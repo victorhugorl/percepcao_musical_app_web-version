@@ -7,15 +7,6 @@
     background: rgb(25, 53, 92);
 }
 
-.btn-enter {
-    background: rgb(171, 214, 237);
-}
-
-.btn-enter:hover {
-    background: rgb(128, 160, 210);
-    color: white;
-}
-
 /*Index estilo*/
 
 .bg-primary-black {

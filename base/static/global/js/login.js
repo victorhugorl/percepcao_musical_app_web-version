@@ -12,9 +12,9 @@ function loginValidation() {
     } else if (password.value.length < 8) {
         alert('Por favor digite uma senha com 8 ou mais caracteres')
     } else {
-        email_adress.classList.add('border-danger') // Aqui os valores ja podem ser salvos em um banco de dados
-        password.classList.add('border-danger')
-        window.location.assign('{%url "pm_app:main" %}') // se houver tela de loaging arquivos estarão carregados
+        email_adress.classList.add('border-success') // Aqui os valores ja podem ser salvos em um banco de dados
+        password.classList.add('border-success')
+        window.location.assign('/main') // se houver tela de loaging arquivos estarão carregados
     // amigo, tu tem que ver essa parte ai, pq eu não estou conseguindo usar a forma dinâmica de carregar uma url que
     // não esteja na 'login/', a url que tem para redirecionar é a
     // absoluta: '127.0.0.1:8000/main' ou {%url 'pm_app:main'%} (em django HTML)
