@@ -27,11 +27,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    height: 590px;
+    height: 600px;
     display: flex;
     align-items: center;
-}
-
-.big-p {
-    font-size: 2rem;
 }
