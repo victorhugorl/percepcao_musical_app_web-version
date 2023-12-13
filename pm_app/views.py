@@ -31,5 +31,5 @@ def game(request):
 
     return render(
         request,
-        'pm_app/main.html'
+        'pm_app/game.html'
     )
