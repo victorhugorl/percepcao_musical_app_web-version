@@ -1,51 +1,89 @@
 {%extends 'global/base.html'%}
 {%load static%}
 {%block content %}
-    <h1>Tudo é possível mano</h1>
-    <h3>, está fluindo kkkk</h3>
-    
-    <p>Coisas a fazer:<br>
-        todo o frontend dessa parte<br>
-        lógica para ser redirecionado para a main<br>
-        novamente<br>
-        implementar o dados no fim do treinamento
+    <header class="bg-primary-black">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-center">
+                <a href="/" class="d-flex align-items-center me-md-auto text-decoration-none text-light">
+                    <h1 class="fs-1 font-h1-title text-center">Percepção Musical App</h1>
+                </a>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-outline-light ms-3 m-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle fs-2"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Minha conta</a></li>
+                    <li><a class="dropdown-item" href="#">Configurações</a></li>
+                    <li><a class="dropdown-item border-top text-danger" href="#">Sair</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <section class="container font-h1-title"> <!--game-->
+        <div class="p-1"> <!-- pequeno contador -->
+            <p class="text-end fs-4">0/12</p>
+        </div>
+        <div>
+            <h3 class="text-center fs-1 p-5">CORRETO !!</h3>
+        </div>
+        <div class="bg-primary-black p-2">
+            <div class="d-flex justify-content-around p-4">
+                <!-- Onde eu tinha colocado as musicas kk-->
+                <span class="btn btn-light px-5 btn-lg">C</span>
+                <span class="btn btn-light px-5 btn-lg">A</span>
+                <span class="btn btn-success active px-5 btn-lg">B</span> <!-- exemplo opção correta-->
+                <span class="btn btn-light px-5 btn-lg">E</span>
+            </div>
+            <div class="d-flex justify-content-between p-4">
+                <span class="btn btn-light px-5 btn-lg">pular</span>
+                <span class="btn btn-outline-light disabled px-5 btn-lg">00:00:00</span>
+                <span class="btn btn-light px-5 btn-lg">continuar</span>
+            </div>
+        </div>
+    </section>
+    
+    <p class="container">
+        Coisas a fazer:<br>
+        todo o frontend dessa parte<br> <!-- Quase pronto -->
+        lógica para ser redirecionado para a main novamente<br> <!--Vou começar essa parada kkkk-->
+        implementar o dados no fim do treinamento <!-- esse e por ultimo-->
     </p>
-    <!-- Código de texte das notas musicais-->
-    <video controls autoplay name="media">
-        <source src="{%static 'global/aud/notes/C4.wav'%}" type="audio/wav">
-    </video>
+                        <!-- Código de texte das notas musicais-->
+                        <video controls autoplay name="media">
+                            <source src="{%static 'global/aud/notes/C4.wav'%}" type="audio/wav">
+                        </video>
+        
+                        <video controls autoplay name="media">
+                            <source src="{%static 'global/aud/notes/D4.wav'%}" type="audio/wav">
+                        </video>
+        
+                        <video controls autoplay name="media">
+                            <source src="{%static 'global/aud/notes/E4.wav'%}" type="audio/wav">
+                        </video>
+        
+                        <video controls autoplay name="media">
+                            <source src="{%static 'global/aud/notes/F4.wav'%}" type="audio/wav">
+                        </video>
+        
+                        <video controls autoplay name="media">
+                            <source src="{%static 'global/aud/notes/G4.wav'%}" type="audio/wav">
+                        </video>
+        
+                        <video controls autoplay name="media">
+                            <source src="{%static 'global/aud/notes/A4.wav'%}" type="audio/wav">
+                        </video>
+                        
+                        <video controls autoplay name="media">
+                            <source src="{%static 'global/aud/notes/B4.wav'%}" type="audio/wav">
+                        </video>
+        
+                        <video controls autoplay name="media">
+                            <source src="{%static 'global/aud/notes/C5.wav'%}" type="audio/wav">
+                        </video>
 
-    <video controls autoplay name="media">
-        <source src="{%static 'global/aud/notes/D4.wav'%}" type="audio/wav">
-    </video>
-
-    <video controls autoplay name="media">
-        <source src="{%static 'global/aud/notes/E4.wav'%}" type="audio/wav">
-    </video>
-
-    <video controls autoplay name="media">
-        <source src="{%static 'global/aud/notes/F4.wav'%}" type="audio/wav">
-    </video>
-
-    <video controls autoplay name="media">
-        <source src="{%static 'global/aud/notes/G4.wav'%}" type="audio/wav">
-    </video>
-
-    <video controls autoplay name="media">
-        <source src="{%static 'global/aud/notes/A4.wav'%}" type="audio/wav">
-    </video>
-    
-    <video controls autoplay name="media">
-        <source src="{%static 'global/aud/notes/B4.wav'%}" type="audio/wav">
-    </video>
-
-    <video controls autoplay name="media">
-        <source src="{%static 'global/aud/notes/C5.wav'%}" type="audio/wav">
-    </video>
-
-    
-    
+    <script src="{% static "global/js/game.js" %}"></script>
     <!-- Script Boostrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 {%endblock content%}
