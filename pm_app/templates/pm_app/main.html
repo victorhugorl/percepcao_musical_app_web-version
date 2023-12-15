@@ -3,7 +3,7 @@
     <div class="container">
         <div class="d-flex flex-wrap justify-content-center p-3">
             <a
-                href="/"
+                href="#"
                 class="d-flex align-items-center me-md-auto text-decoration-none text-light"
             >
                 <h1 class="fs-1 text-center">Percepção Musical App</h1>
@@ -22,11 +22,10 @@
                     <li><a class="dropdown-item" href="#">Configurações</a></li>
                     <li>
                         <a
-                            class="dropdown-item border-top text-danger"
                             href="#"
+                            class="dropdown-item border-top text-danger"
                             data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"
-                            onclick="leaveAccount()"
+                            data-bs-target="#exitModal"
                             >Sair</a
                         >
                     </li>
@@ -38,15 +37,15 @@
 <!-- Modal -->
 <div
     class="modal fade"
-    id="exampleModal"
+    id="exitModal"
     tabindex="-1"
-    aria-labelledby="exampleModalLabel"
+    aria-labelledby="modalAccount"
     aria-hidden="true"
 >
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">
+                <h1 class="modal-title fs-5 text-danger" id="modalAccount">
                     Sair da conta
                 </h1>
                 <button
@@ -56,18 +55,19 @@
                     aria-label="Close"
                 ></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body text-center">
                 <p>Você realmente que sair da conta?</p>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer d-flex justify-content-center">
+                <a type="button" class="btn btn-danger" href="/login">
+                    SIM quero sair
+                </a>
                 <button
                     type="button"
-                    class="btn btn-secondary"
+                    class="btn btn-success"
                     data-bs-dismiss="modal"
+                    aria-label="Close"
                 >
-                    SIM quero sair
-                </button>
-                <button type="button" class="btn btn-primary">
                     NÃO quero sair!
                 </button>
             </div>
