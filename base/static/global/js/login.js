@@ -1,3 +1,6 @@
+// Funções apenas para a base de login
+// Faltar salvar os dados com django
+// Fazer login com o google e Facebook
 function developing() {
     alert('Ainda esta em desenvolvimento')
 }

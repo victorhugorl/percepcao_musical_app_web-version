@@ -24,3 +24,9 @@
 }
 
 /* Game estilo */
+
+
+/*Main*/
+.bg-body-tertiary {
+    background: rgb(43,48,53);
+}
