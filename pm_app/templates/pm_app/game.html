@@ -31,7 +31,7 @@
         <div class="bg-primary-black p-2">
             <div class="d-flex justify-content-around p-4">
                 <!-- Onde eu tinha colocado as musicas kk-->
-                <span class="btn btn-light px-5 btn-lg">C</span>
+                <span onclick="playAudio()" class="btn btn-light px-5 btn-lg">C</span>
                 <span class="btn btn-light px-5 btn-lg">A</span>
                 <span class="btn btn-success active px-5 btn-lg">B</span> <!-- exemplo opção correta-->
                 <span class="btn btn-light px-5 btn-lg">E</span>
@@ -51,7 +51,7 @@
         implementar o dados no fim do treinamento <!-- esse e por ultimo-->
     </p>
                         <!-- Código de texte das notas musicais-->
-                        <video controls autoplay name="media">
+                        {% comment %} <video controls autoplay name="media">
                             <source src="{%static 'global/aud/notes/C4.wav'%}" type="audio/wav">
                         </video>
         
@@ -78,10 +78,31 @@
                         <video controls autoplay name="media">
                             <source src="{%static 'global/aud/notes/B4.wav'%}" type="audio/wav">
                         </video>
-        
+         
                         <video controls autoplay name="media">
                             <source src="{%static 'global/aud/notes/C5.wav'%}" type="audio/wav">
                         </video>
+                        {% endcomment %}
+                        
+<audio id="myAudio">
+    <source src="{% static "global/aud/notes/C5.wav" %}" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+
+  <script>
+  var x = document.getElementById("myAudio"); 
+  console.log(x)
+  function playAudio() { 
+    
+    x.play();
+   
+  } 
+  
+  function pauseAudio() { 
+    x.pause(); 
+  } 
+  </script>
+  
 
     <script src="{% static "global/js/game.js" %}"></script>
     <!-- Script Boostrap -->
