@@ -123,45 +123,7 @@
         </div>
     </section>
     
-    <p class="container">
-        Coisas a fazer:<br>
-        todo o frontend dessa parte<br> <!-- Quase pronto -->
-        lógica para ser redirecionado para a main novamente<br> <!--Vou começar essa parada kkkk-->
-        implementar o dados no fim do treinamento <!-- esse e por ultimo-->
-    </p>
-                        <!-- Código de texte das notas musicais-->
-                        {% comment %} <video controls autoplay name="media">
-                            <source src="{%static 'global/aud/notes/C4.wav'%}" type="audio/wav">
-                        </video>
-        
-                        <video controls autoplay name="media">
-                            <source src="{%static 'global/aud/notes/D4.wav'%}" type="audio/wav">
-                        </video>
-        
-                        <video controls autoplay name="media">
-                            <source src="{%static 'global/aud/notes/E4.wav'%}" type="audio/wav">
-                        </video>
-        
-                        <video controls autoplay name="media">
-                            <source src="{%static 'global/aud/notes/F4.wav'%}" type="audio/wav">
-                        </video>
-        
-                        <video controls autoplay name="media">
-                            <source src="{%static 'global/aud/notes/G4.wav'%}" type="audio/wav">
-                        </video>
-        
-                        <video controls autoplay name="media">
-                            <source src="{%static 'global/aud/notes/A4.wav'%}" type="audio/wav">
-                        </video>
-                        
-                        <video controls autoplay name="media">
-                            <source src="{%static 'global/aud/notes/B4.wav'%}" type="audio/wav">
-                        </video>
-         
-                        <video controls autoplay name="media">
-                            <source src="{%static 'global/aud/notes/C5.wav'%}" type="audio/wav">
-                        </video>
-                        {% endcomment %}
+
                         
 <audio id="myAudio">
     <source src="{% static "global/aud/notes/C5.wav" %}" type="audio/wav">
@@ -172,7 +134,7 @@
   var x = document.getElementById("myAudio"); 
   console.log(x)
   function playAudio() { 
-    
+    x.currentTime = 0;
     x.play();
    
   } 
