@@ -1,12 +1,11 @@
-# Django #
+ Django #
 *.log
 *.pot
 *.pyc
-*.__pycache__
-*.mypy_cache
-
+__pycache__
 db.sqlite3
-media
+media/
+static/
 
 # Backup files # 
 *.bak 
@@ -132,7 +131,7 @@ Control.system-ca-bundle
 GitHub.sublime-settings 
 
 # Visual Studio Code # 
-.vscode/* 
+.vscode/*
 !.vscode/settings.json 
 !.vscode/tasks.json 
 !.vscode/launch.json 
