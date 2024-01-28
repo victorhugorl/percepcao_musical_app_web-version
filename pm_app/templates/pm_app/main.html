@@ -1,4 +1,5 @@
-{%extends 'global/base.html'%} {%block content%}
+{%extends 'global/base.html'%}
+{%block content%}
 <header class="bg-primary-black">
     <div>
         <div class="d-flex flex-wrap justify-content-center p-1 ps-4">
@@ -6,7 +7,7 @@
                 href="#"
                 class="d-flex align-items-center me-md-auto text-decoration-none text-light"
             >
-                <h1 class="display-1 text-center">Percepção Musical App</h1>
+                <h1 class="display-1 text-center wd-1">Percepção Musical App</h1>
             </a>
             <div class="dropdown pe-4">
                 <button
@@ -119,27 +120,38 @@
             </h2>
         </div>
     </div>
-    <section class="ps-5 text-dark row">
-        <!-- Não consigo colocar imagens kk-->
-        <div class="col-md-6">grafic1</div>
-        <div class="col-md-6">grafic2</div>
-        <div class="div-table bg-primary-black text-light rounded-4">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Treinamentos</th>
-                        <th>%</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td >teste 1</td>
-                        <td>100</td>
-                    </tr>
-                </tbody>
-            </table>
-
-        </div>
+    <section class="ps-5 text-dark m-5">
+        <article class="d-flex justify-content-between">
+            <div class="mx-1">
+                <canvas id="graficOne">
+                    grafico1
+                </canvas>
+            </div>
+            <div class='mx-1'>
+                <canvas id="graficTwo">
+                    grafico2
+                </canvas>
+            </div>
+        </article>
+        <article>
+            <div class="div-table bg-primary-black text-light rounded-4">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Treinamentos</th>
+                            <th>%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td >teste 1</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                </table>
+    
+            </div>
+        </article>
     </section>
 </section>
 {%endblock content%}

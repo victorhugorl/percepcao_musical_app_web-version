@@ -7,6 +7,25 @@
     background: rgb(25, 53, 92);
 }
 
+.container-form {
+    margin: 5rem 20rem 0 20rem;
+    background-color: white;
+    box-shadow: -0.5rem 0.5rem 1.3rem black;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+@media (max-width: 991.98px) {
+    .container-form {
+        margin: 5rem 5rem 0 5rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .container-form {
+        margin: 5rem 2rem 0 2rem;
+    }
+}
 /*Index estilo*/
 
 .bg-primary-black {
@@ -27,16 +46,29 @@
 
 /*Main estilo*/
 
+@media (max-width: 790.98px) {
+    .wd-1 {
+        font-size: 2rem !important;
+    }
+}
+
 table {
     min-width: 360px;
     width: 100%;
     border-collapse: collapse;
-    border-radius: 5px ;
-  }
+    border-radius: 5px;
+}
 
-table td, table th {
+table td,
+table th {
     white-space: nowrap;
     padding: 1rem;
     text-align: left;
     border: 0.1rem solid white;
-  }
+}
+
+canvas {
+    width: 30rem;
+    height: 15rem;
+    border: 1px solid black;
+}
