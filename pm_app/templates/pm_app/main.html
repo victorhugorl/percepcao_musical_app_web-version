@@ -1,4 +1,5 @@
 {%extends 'global/base.html'%}
+{% load static %}
 {%block content%}
 <header class="bg-primary-black">
     <div>
@@ -154,4 +155,7 @@
         </article>
     </section>
 </section>
+<!-- Chart js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{% static "global/js/main.js" %}"></script>
 {%endblock content%}
