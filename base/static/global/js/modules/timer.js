@@ -1,4 +1,4 @@
-export default class Timer {
+export class Timer {
     constructor(clock) {
         this.clock = clock;
         this.timer = null;
@@ -8,34 +8,34 @@ export default class Timer {
 
     createHourFromSeconds = function (seconds) {
         const data = new Date(seconds * 1000);
-        return data.toLocaleTimeString('pt-BR', {
+        return data.toLocaleTimeString("pt-BR", {
             hour12: false,
-            timeZone: 'UTC'
+            timeZone: "UTC"
         });
-    }
+    };
 
     runClock = () => {
         this.timer = setInterval(() => {
             this.seconds++;
             this.clock.innerHTML = this.createHourFromSeconds(this.seconds);
         }, 1000);
-    }
+    };
 
     start = () => {
-        this.clock.classList.remove('paused');
+        this.clock.classList.remove("paused");
         clearInterval(this.timer);
         this.runClock();
-    }
+    };
 
     pause = () => {
         clearInterval(this.timer);
-        this.clock.classList.add('paused');
-    }
+        this.clock.classList.add("paused");
+    };
 
     reset = () => {
         clearInterval(this.timer);
-        this.clock.innerHTML = '00:00:00';
-        this.clock.classList.remove('paused');
+        this.clock.innerHTML = "00:00:00";
+        this.clock.classList.remove("paused");
         this.seconds = 0;
     };
 }

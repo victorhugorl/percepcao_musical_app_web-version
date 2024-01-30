@@ -133,17 +133,18 @@
 </audio>
 
   <script>
-  var x = document.getElementById("myAudio"); 
-  function playAudio() { 
-    x.currentTime = 0;
-    x.play();
-   
-  } 
-  
-  function pauseAudio() { 
-    x.pause(); 
-  } 
+    var x = document.getElementById("myAudio"); 
+    function playAudio() { 
+        x.currentTime = 0;
+        x.play();
+    
+    } 
+    
+    function pauseAudio() { 
+        x.pause(); 
+    } 
   </script>
 
-  <script src="{% static 'global/js/game.js'%}"></script>
+<script type="module" src="{% static "global/js/modules/timer.js" %}"></script>
+<script src="{% static "global/js/game.js" %}"></script>
 {%endblock content%}
