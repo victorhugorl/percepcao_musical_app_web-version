@@ -69,4 +69,5 @@ continueOrSkip.addEventListener('click' , event => {
 console.log(' está vindo para cá ?');
 
 
- 
+const tempo = new Timer("relogio");
+console.log("Relogio esta on");
