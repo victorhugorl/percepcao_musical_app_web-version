@@ -50,6 +50,10 @@
 
 /* Game estilo */
 
+.m-a {
+    margin-top: 25vh;
+}
+
 /*Main estilo*/
 
 @media (max-width: 790.98px) {

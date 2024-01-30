@@ -5,7 +5,7 @@
         <div class="container">
             <div class="d-flex flex-wrap justify-content-center">
                 <a href="/" class="d-flex align-items-center me-md-auto text-decoration-none text-light">
-                    <h1 class="fs-1 text-center">Percepção Musical App</h1>
+                    <h1 class="fs-1 text-center wd-1">Percepção Musical App</h1>
                 </a>
                 <div class="dropdown">
                     <button type="button" class="btn text-light ms-3 m-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -68,57 +68,59 @@
             data-bs-target="#exitGame">Sair do jogo</a>
             <p class="text-end fs-4">0/12</p>
         </div>
-        <div
-        class="modal fade"
-        id="exitGame"
-        tabindex="-1"
-        aria-labelledby="confirmExit"
-        aria-hidden="true"
-    >
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                    ></button>
-                </div>
-                <div class="modal-body text-center">
-                    <h1>Voltar para o menu principal?</h1>
-                </div>
-                <div class="modal-footer d-flex justify-content-around">
-                    <a type="button" class="btn btn-primary btn-lg" href="/main">
-                        SIM
-                    </a>
-                    <button
-                        type="button"
-                        class="btn btn-primary btn-lg"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                    >
-                        NÃO
-                    </button>
+            <div
+            class="modal fade"
+            id="exitGame"
+            tabindex="-1"
+            aria-labelledby="confirmExit"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <h1>Voltar para o menu principal?</h1>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-around">
+                        <a type="button" class="btn btn-primary btn-lg" href="/main">
+                            SIM
+                        </a>
+                        <button
+                            type="button"
+                            class="btn btn-primary btn-lg"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        >
+                            NÃO
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-        <div>
-            <h3 class="text-center fs-1 p-5">CORRETO !!</h3>
-        </div>
-        <div class="bg-primary-black p-2">
-            <div class="d-flex justify-content-around p-4">
-                <!-- Onde eu tinha colocado as musicas kk-->
-                <span onclick="playAudio()" class="btn btn-light px-5 btn-lg">C</span>
-                <span class="btn btn-light px-5 btn-lg">A</span>
-                <span class="btn btn-success active px-5 btn-lg">B</span> <!-- exemplo opção correta-->
-                <span class="btn btn-light px-5 btn-lg">E</span>
+        <div class="m-a">
+            <div>
+                <h3 class="text-center fs-1 p-5">CORRETO !!</h3>
             </div>
-            <div class="d-flex justify-content-between p-4">
-                <span class="btn btn-light px-5 btn-lg">pular</span>
-                <span class="btn btn-outline-light disabled px-5 btn-lg">00:00:00</span>
-                <span class="btn btn-light px-5 btn-lg">continuar</span>
+            <div class="bg-primary-black p-2">
+                <div class="d-flex justify-content-around p-4">
+                    <!-- Onde eu tinha colocado as musicas kk-->
+                    <span onclick="playAudio()" class="btn btn-light px-5 btn-lg">C</span>
+                    <span class="btn btn-light px-5 btn-lg">A</span>
+                    <span class="btn btn-success active px-5 btn-lg">B</span> <!-- exemplo opção correta-->
+                    <span class="btn btn-light px-5 btn-lg">E</span>
+                </div>
+                <div class="d-flex justify-content-between p-4">
+                    <span class="btn btn-light px-5 btn-lg">pular</span>
+                    <span class="btn btn-outline-light disabled px-5 btn-lg">00:00:00</span>
+                    <span class="btn btn-light px-5 btn-lg">continuar</span>
+                </div>
             </div>
         </div>
     </section>
