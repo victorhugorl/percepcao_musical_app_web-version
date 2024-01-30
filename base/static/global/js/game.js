@@ -40,6 +40,15 @@ class Timer {
     };
 }
 
+// Nome das notas 
+
+notas = ['A','B','C','D','E','F','G','A#','C#','D#','F#','G#',]
+console.log(notas.lengh)
+
+
+
+
+
 // Definindo lugares para trabalhar
 const clock = document.querySelector('.clock');
 const textDisplay = document.querySelector('.text-display');
@@ -68,6 +77,3 @@ continueOrSkip.addEventListener('click' , event => {
 
 console.log(' está vindo para cá ?');
 
-
-const tempo = new Timer("relogio");
-console.log("Relogio esta on");
