@@ -1,40 +1,41 @@
-module.exports = {
-    seconds:0,
-    timer: null,
-    clock: document.querySelector('.clock'),
+export default class Timer {
+    constructor(clock) {
+        this.clock = clock;
+        this.timer = null;
+        this.seconds = 0;
+        this.createHourFromSeconds(this.seconds);
+    }
 
-
-    createHourFromSeconds(seconds) {
+    createHourFromSeconds = function (seconds) {
         const data = new Date(seconds * 1000);
         return data.toLocaleTimeString('pt-BR', {
             hour12: false,
             timeZone: 'UTC'
-        })
-    },
+        });
+    }
 
-    runClock() {
-        timer = setInterval(function() {
-            seconds++;
-            clock.innerHTML = createHourFromSeconds(seconds);
-        }, 1000)
-    },
+    runClock = () => {
+        this.timer = setInterval(() => {
+            this.seconds++;
+            this.clock.innerHTML = this.createHourFromSeconds(this.seconds);
+        }, 1000);
+    }
 
-    start(){
-        clock.classList.remove('paused')
-        clearInterval(timer)
-        iniciaRelogio();
-    },
+    start = () => {
+        this.clock.classList.remove('paused');
+        clearInterval(this.timer);
+        this.runClock();
+    }
 
+    pause = () => {
+        clearInterval(this.timer);
+        this.clock.classList.add('paused');
+    }
 
-    pause (){
-        clearInterval(timer);
-        clock.classList.add('paused');
-    },
-
-    reset (){
-        clearInterval(timer);
-        clock.innerHTML = '00:00:00';
-        clock.classList.remove('paused');
-        seconds = 0;
-    },   
+    reset = () => {
+        clearInterval(this.timer);
+        this.clock.innerHTML = '00:00:00';
+        this.clock.classList.remove('paused');
+        this.seconds = 0;
+    };
 }
