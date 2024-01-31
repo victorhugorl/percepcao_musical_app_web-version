@@ -132,16 +132,6 @@
     Your browser does not support the audio element.
 </audio>
 
-  <script>
-  var x = document.getElementById("my-audio"); 
-  function playAudio() { 
-    x.currentTime = 0;
-    x.play();
-  } 
-  
-  
-  </script>
-
-<script src="{% static "global/js/game.js" %}"></script>
-<script type="module" src="{% static "global/js/modules/questions.js" %}"></script>
+  <script type="module" src="{% static "global/js/modules/questions.js" %}"></script>
+  <script src="{% static "global/js/game.js" %}"></script>
 {%endblock content%}
