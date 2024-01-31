@@ -1,66 +1,24 @@
 {%extends 'global/base.html'%}
 {%load static%}
 {%block content %}
-    <header class="bg-primary-black">
-        <div class="container">
-            <div class="d-flex flex-wrap justify-content-center">
-                <a href="/" class="d-flex align-items-center me-md-auto text-decoration-none text-light">
-                    <h1 class="fs-1 text-center wd-1">Percepção Musical App</h1>
+<header class="bg-primary-black navbar navbar-expand">
+    <div class="container-fluid">
+        <h1 class="display-1 wd-1 text-light">Percepção Musical App</h1>
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="{% static "global/svg/person-circle.svg" %}" alt="person">
                 </a>
-                <div class="dropdown">
-                    <button type="button" class="btn text-light ms-3 m-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-person-circle fs-2"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Minha conta</a></li>
+                <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="#">Configurações</a></li>
-                    <li><a class="dropdown-item border-top text-danger" href="#" data-bs-toggle="modal"
-                        data-bs-target="#exitModal">Sair</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <div
-    class="modal fade"
-    id="exitModal"
-    tabindex="-1"
-    aria-labelledby="modalAccount"
-    aria-hidden="true"
->
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5 text-danger" id="modalAccount">
-                    Sair da conta
-                </h1>
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                ></button>
-            </div>
-            <div class="modal-body text-center">
-                <p>Você realmente que sair da conta?</p>
-            </div>
-            <div class="modal-footer d-flex justify-content-center">
-                <a type="button" class="btn btn-danger" href="/login">
-                    SIM quero sair
-                </a>
-                <button
-                    type="button"
-                    class="btn btn-success"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                >
-                    NÃO quero sair!
-                </button>
-            </div>
-        </div>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <hr>
+                    <li><a class="dropdown-item text-danger" href="/">Sair da conta</a></li>
+                </ul>
+            </li>
+        </ul>
     </div>
-</div>
+</header>
 
     <section class="container font-h1-title"> <!--game-->
         <div class="p-1"> <!-- pequeno contador -->

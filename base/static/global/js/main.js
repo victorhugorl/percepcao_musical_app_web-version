@@ -7,7 +7,7 @@ function newChart(ctx, date) {
             labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
             datasets: [
                 {
-                    label: "# of Votes",
+                    label: "numbers of Votes",
                     data: [
                         date[0],
                         date[1],
