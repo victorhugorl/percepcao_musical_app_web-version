@@ -1,3 +1,4 @@
+import {createQuestions}from '';
 class Timer {
     constructor(clock) {
         this.clock = clock;
@@ -45,10 +46,6 @@ class Timer {
 
 
 
-console.log(notes.lengh)
-
-
-
 
 
 // Definindo lugares para trabalhar
@@ -82,4 +79,8 @@ continueOrSkip.addEventListener('click' , event => {
 
 
 console.log(' está vindo para cá ?');
+
+let note_list = ['A','B','C','D','E','F','G', 'A#','C#','D#','F#','G#'];
+
+console.log(createQuestions(note_list, 4))
 
