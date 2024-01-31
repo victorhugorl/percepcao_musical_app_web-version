@@ -42,8 +42,10 @@ class Timer {
 
 // Nome das notas 
 
-notas = ['A','B','C','D','E','F','G','A#','C#','D#','F#','G#',]
-console.log(notas.lengh)
+
+
+
+console.log(notes.lengh)
 
 
 
@@ -53,10 +55,14 @@ console.log(notas.lengh)
 const clock = document.querySelector('.clock');
 const textDisplay = document.querySelector('.text-display');
 const continueOrSkip = document.querySelector('.continue-skip');
+const divButtons = document.querySelector('.buttons-div');
 
 
 
 textDisplay.innerHTML = 'Qual é a nota tocada ?'
+
+console.log(divButtons);
+
 
 // Audio
 
