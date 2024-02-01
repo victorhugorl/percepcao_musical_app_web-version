@@ -1,5 +1,32 @@
 export default () => {
-    let blue = (document.body.style.backgroundColor = "rgb(25, 53, 92)");
+    let bodyBlues = (document.body.style.backgroundColor = "rgb(25, 53, 92)");
+    // Vo ajeitar isso aqui depois
+
+    function loginValidation() {
+        let email_adress = document.querySelector("input#emailInput");
+        let password = document.querySelector("input#passwordInput");
+        if (email_adress.value.length == "" || password.value.length == "") {
+            email_adress.classList.add("border-danger");
+            password.classList.add("border-danger");
+            alert("digite valores validos");
+        } else if (password.value.length < 8) {
+            alert("Por favor digite uma senha com 8 ou mais caracteres");
+        } else {
+            email_adress.classList.add("border-success"); // Aqui os valores ja podem ser salvos em um banco de dados
+            password.classList.add("border-success");
+            window.location.assign("/main"); // se houver tela de loaging arquivos estarão carregados
+        }
+    }
+
+    function showPassword() {
+        let password_text = document.querySelector("input#passwordInput");
+        if (password_text.type === "password") {
+            password_text.setAttribute("type", "text");
+        } else {
+            password_text.setAttribute("type", "password");
+        }
+    }
+
     return (
         <>
             <header className="bg-light">
@@ -14,7 +41,7 @@ export default () => {
                     <h1 className="fw-bold fs-2">Login ou cadastre-se</h1>
                 </div>
                 <div>
-                    <form action="#">
+                    <form>
                         <div className="form-floating mb-3">
                             <input
                                 type="email"
@@ -23,7 +50,7 @@ export default () => {
                                 placeholder="name@example.com"
                                 required
                             />
-                            <label for="emailInput">Seu Email</label>
+                            <label htmlFor="emailInput">Seu Email</label>
                         </div>
                         <div className="form-floating mb-3">
                             <input
@@ -33,25 +60,25 @@ export default () => {
                                 placeholder="Password"
                                 required
                             />
-                            <label for="passwordInput">Senha</label>
+                            <label htmlFor="passwordInput">Senha</label>
                         </div>
                         <div className="form-check mb-3">
                             <input
                                 className="form-check-input"
                                 type="checkbox"
                                 id="checkPassword"
-                                onClick="showPassword()"
+                                onClick={showPassword}
                             />
                             <label
                                 className="form-check-label"
-                                for="checkPassword"
+                                htmlFor="checkPassword"
                             >
                                 Mostrar senha
                             </label>
                         </div>
                         <a
                             className="w-100 mb-2 btn btn-outline-primary btn-lg rounded-3"
-                            onClick="loginValidation()"
+                            onClick={loginValidation}
                         >
                             Entrar ou Cadastrar
                         </a>
@@ -73,7 +100,7 @@ export default () => {
                 <div
                     className="modal fade"
                     id="saibaMaisModal"
-                    tabindex="-1"
+                    tabIndex="-1"
                     aria-labelledby="modalTile"
                     aria-hidden="true"
                 >
@@ -163,7 +190,6 @@ export default () => {
                     </div>
                 </div>
             </section>
-            {/*Script login aqui*/}
         </>
     );
 };
