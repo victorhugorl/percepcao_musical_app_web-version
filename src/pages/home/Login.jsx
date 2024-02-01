@@ -1,5 +1,8 @@
+import React from "react";
+import { useState } from "react"; // ter que usar depois
+
 export default () => {
-    let bodyBlues = (document.body.style.backgroundColor = "rgb(25, 53, 92)");
+    const bodyBlues = (document.body.style.backgroundColor = "rgb(25, 53, 92)");
     // Vo ajeitar isso aqui depois
 
     function loginValidation() {

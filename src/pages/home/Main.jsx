@@ -1,95 +1,54 @@
+import Header from "../../components/Header";
+
 export default () => {
-    // Poderia ter o consumo de uma API aqui do nosso proprio projeto
+    // Tentativa de importar a CDN
+    // <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>;
 
-    function newChart(ctx, date) {
-        new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [
-                    {
-                        label: "numbers of Votes",
-                        data: [
-                            date[0],
-                            date[1],
-                            date[2],
-                            date[3],
-                            date[4],
-                            date[5]
-                        ],
-                        // data: [12, 19, 3, 5, 2, 3],
-                        borderWidth: 1
-                    }
-                ]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    }
+    // function newChart(ctx, date) {
+    //     new Chart(ctx, {
+    //         type: "bar",
+    //         data: {
+    //             labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    //             datasets: [
+    //                 {
+    //                     label: "numbers of Votes",
+    //                     data: [
+    //                         date[0],
+    //                         date[1],
+    //                         date[2],
+    //                         date[3],
+    //                         date[4],
+    //                         date[5]
+    //                     ],
+    //                     // data: [12, 19, 3, 5, 2, 3],
+    //                     borderWidth: 1
+    //                 }
+    //             ]
+    //         },
+    //         options: {
+    //             scales: {
+    //                 y: {
+    //                     beginAtZero: true
+    //                 }
+    //             }
+    //         }
+    //     });
+    // }
 
-    const ctx = document.getElementById("graficOne"); // fazendo uns testes so pra rir depois deixo menor e bem feito
-    const data = [12, 19, 3, 5, 2, 3];
-    const data2 = [16, 9, 6, 1, 22, 4];
-    const ctx2 = document.getElementById("graficTwo");
+    // const ctx = document.getElementById("graficOne"); // fazendo uns testes so pra rir depois deixo menor e bem feito
+    // const data = [12, 19, 3, 5, 2, 3];
 
-    newChart(ctx, data); // Se quiser dentro da function consumir uma api
-    newChart(ctx2, data2);
+    // newChart(ctx, data); // Se quiser dentro da function consumir uma api
 
     return (
         <>
-            <header className="bg-primary-black navbar navbar-expand">
-                <div className="container-fluid">
-                    <h1 className="display-1 wd-1 text-light">
-                        Percepção Musical App
-                    </h1>
-                    <ul className="navbar-nav">
-                        <li className="nav-item dropdown">
-                            <a
-                                className="nav-link dropdown-toggle text-light"
-                                href="#"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            >
-                                <img src="" alt="person" />
-                            </a>
-                            <ul className="dropdown-menu dropdown-menu-end">
-                                <li>
-                                    <a className="dropdown-item" href="#">
-                                        Configurações
-                                    </a>
-                                </li>
-                                <li>
-                                    <a className="dropdown-item" href="#">
-                                        Another action
-                                    </a>
-                                </li>
-                                <hr />
-                                <li>
-                                    <a
-                                        className="dropdown-item text-danger"
-                                        href="/"
-                                    >
-                                        Sair da conta
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </header>
-
+            <Header />
             <div className="container-fluid">
                 <div className="row">
                     <div className="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
                         <div
                             className="offcanvas-md offcanvas-end bg-body-tertiary"
-                            tabindex="-1"
+                            tabIndex="-1"
                             id="sidebarMenu"
                             aria-labelledby="sidebarMenuLabel"
                         >
@@ -192,9 +151,6 @@ export default () => {
                                     type="button"
                                     className="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1"
                                 >
-                                    <svg className="bi">
-                                        <use xlink:href="#calendar3"></use>
-                                    </svg>
                                     This week
                                 </button>
                             </div>
@@ -205,12 +161,6 @@ export default () => {
                             id="graficOne"
                             width="1814"
                             height="766"
-                            style="
-                                display: block;
-                                box-sizing: border-box;
-                                height: 383px;
-                                width: 907px;
-                            "
                         ></canvas>
 
                         {/* <!--graficTwo deixar salvo aqui--> */}
@@ -241,7 +191,6 @@ export default () => {
                     </main>
                 </div>
             </div>
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         </>
     );
 };
