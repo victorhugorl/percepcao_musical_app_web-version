@@ -1,0 +1,20 @@
+{
+  "name": "percepcao_musical_app_web-version",
+  "version": "1.0.0",
+  "description": "Percepção musical é a habilidade de ao escutar a música, entender o sentido da música, conseguir identificar quais foram os acordes da música, identificar tonalidade (as notas que compõe a música),\r saber tocar a música somente ao ouvir, e saber tocar ela com qualquer pessoa cantando, ou conseguir tocar a melodia (voz do cantor) no instrumento próprio. Isto é de grande ajuda para músicos que tocam em alta rotatividade (músicos que não são fixos), ajuda a tocar várias músicas de forma mais descomplicada como também em assuntos mais avançados como rearmonização, notas dissonantes entre outros.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.23.9",
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "webpack": "^5.90.0",
+    "webpack-bundle-tracker": "^3.0.1",
+    "webpack-cli": "^5.1.4"
+  }
+}
