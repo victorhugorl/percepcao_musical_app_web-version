@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pm_app',
+    'rest_framework',
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
