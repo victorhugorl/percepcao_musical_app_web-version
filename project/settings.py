@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pm_app',
     'django_vite_plugin',
+    
 ]
 
 MIDDLEWARE = [
@@ -125,7 +126,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'pm_app',
+    BASE_DIR / 'base' / 'static'
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'

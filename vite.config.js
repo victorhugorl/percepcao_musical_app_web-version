@@ -6,7 +6,7 @@ import { djangoVitePlugin } from 'django-vite-plugin'
 export default defineConfig({
   plugins: [react(),
     djangoVitePlugin([
-      'pm_app/js/app.js',
+      'pm_app/js/main.js',
       'pm_app/css/style.css',
   ])],
 })

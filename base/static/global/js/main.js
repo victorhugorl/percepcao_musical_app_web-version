@@ -36,5 +36,5 @@ const data = [12, 19, 3, 5, 2, 3];
 const data2 = [16, 9, 6, 1, 22, 4];
 const ctx2 = document.getElementById("graficTwo");
 
-newChart(ctx, data); // Se quiser dentro da function consumir uma api
-newChart(ctx2, data2);
+
+alert('está funcionando');
