@@ -11,7 +11,7 @@ def home(request):
 
     return render(
         request,
-        'pm_app/index.html',
+        'pm_app/index.html', # Esse caminho aqui
         context,
     )
 
