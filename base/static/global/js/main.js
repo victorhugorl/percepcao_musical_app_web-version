@@ -38,5 +38,3 @@ const ctx2 = document.getElementById("graficTwo");
 
 newChart(ctx, data); // Se quiser dentro da function consumir uma api
 newChart(ctx2, data2);
-
-alert('está funcionando');
