@@ -27,10 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Needed for 'debug' to be available inside templates.
-# https://docs.djangoproject.com/en/3.2/ref/templates/api/#django-template-context-processors-debug
-INTERNAL_IPS = ['127.0.0.1']
-
 
 # Application definition
 
@@ -42,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pm_app',
+    'django_vite_plugin',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +57,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'base',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -118,8 +114,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-# Vite App Dir: point it to the folder your vite app is in.
-VITE_APP_DIR = BASE_DIR / 'src'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -131,7 +125,7 @@ VITE_APP_DIR = BASE_DIR / 'src'
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    VITE_APP_DIR / 'dist',
+    BASE_DIR / 'pm_app',
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
