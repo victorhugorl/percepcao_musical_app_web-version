@@ -22,7 +22,7 @@ Design responsivo e intuitivo para facilitar a experiência do usuário.
 # Instalação e Uso
 
 Clonar o Repositório:
-```git clone ```
+```bash git clone```
 
 # Contribuição
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
