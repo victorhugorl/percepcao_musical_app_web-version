@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Route, BrowserRouter } from "react-router-dom";
+
 import "@s:pm_app/css/style.css";
 
 import Index from "@s:pm_app/src/pages/home/Index";
@@ -11,11 +13,13 @@ import Game from "@s:pm_app/src/pages/game/Game";
 export default () => {
     return (
         <>
-            <Index />
-            {/*<Login />
-            <Main />
-            <Profile />
-    <Game />*/}
+            <BrowserRouter>
+                <Route component={Index} path="/" exact />
+                <Route component={Login} path="/login" />
+                <Route component={Main} path="/main" />
+                <Route component={Game} path="/game" />
+                <Route component={Profile} path="/profile" />
+            </BrowserRouter>
         </>
     );
 };
