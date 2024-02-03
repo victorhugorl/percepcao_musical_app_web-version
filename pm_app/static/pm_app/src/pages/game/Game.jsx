@@ -1,4 +1,4 @@
-import Header from "../../components/Header";
+import Header from "@s:pm_app/src/components/Header";
 
 export default () => {
     return (

@@ -123,11 +123,9 @@ USE_TZ = True
 # You may change these, but it's important that the dist folder is includedself.
 # If it's not, collectstatic won't copy your bundle to production.
 
-STATIC_URL = 'static/'
+STATIC_URL = 'pm_app/static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'base' / 'static'
-]
+STATICFILES_DIRS = []
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
