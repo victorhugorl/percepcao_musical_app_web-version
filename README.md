@@ -7,16 +7,22 @@ saber tocar a música somente ao ouvir, e saber tocar ela com qualquer pessoa ca
 
 # Qual é o objetivo do aplicativo ?
 
-
+O objetivo do aplicativo é melhorar a capacidade do usuário de "escutar músicas" aumentando a conciência de muitos detalhes que as pessoas não percebem ao ouvir músicas, sendo uma grande ferramenta para músicos se desenvolverem melhor, e aprimorarem-se no seu instrumento. Este aplicativo é de grande ajuda para músicos profissionais e amadores que desejam melhorar sua percepção músical
 
 # Funcionalidades Principais
-Exercícios de Percepção Musical: O aplicativo oferece exercícios interativos para identificar notas, acordes, escalas, entre outros elementos musicais.
-Sistema de Pontuação: A pontuação é atribuída aos usuários com base na precisão das respostas dadas nos exercícios.
-Autenticação de Usuários: Os usuários podem criar contas pessoais, fazer login e salvar seu progresso.
-Interface Amigável: Design responsivo e intuitivo para facilitar a experiência do usuário.
-Instalação e Uso
-Clonar o Repositório:
 
+## Exercícios de Percepção Musical:
+O aplicativo oferece exercícios interativos para identificar notas, acordes, escalas, entre outros elementos musicais.
+## Sistema de Pontuação: 
+A pontuação é atribuída aos usuários com base na precisão das respostas dadas nos exercícios.
+Autenticação de Usuários: Os usuários podem criar contas pessoais, fazer login e salvar seu progresso.
+## Interface Amigável: 
+Design responsivo e intuitivo para facilitar a experiência do usuário.
+
+# Instalação e Uso
+
+Clonar o Repositório:
+```git clone ```
 
 # Contribuição
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
