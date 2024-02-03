@@ -21,8 +21,70 @@ Design responsivo e intuitivo para facilitar a experiência do usuário.
 
 # Instalação e Uso
 
-Clonar o Repositório:
-```bash git clone```
+## requisitos:
+* É necessário que você tenha python instalado assim como node para poder prosseguir
+
+### Clonar o Repositório:
+```shell
+git clone
+```
+### Abra o repositório na raiz:
+```shell
+cd percepcao_musical_app_web-version
+```
+### Crie um ambiente virtual:
+* no linux:
+
+```shell
+python3 -m venv venv
+```
+* Windows:
+
+```shell
+python -m venv venv
+```
+### ative o ambiente virtual:
+* no linux:
+
+```shell
+source venv/bin/activate
+```
+* Windows:
+
+```shell
+./venv/Scripts/activate
+```
+### instale as dependências de python
+```shell
+pip install -r requirements.txt
+```
+### instale as dependências do Node:
+```shell
+npm i
+```
+## Uso do servidor local:
+
+### incie primeiro o servidor Django:
+*linux:
+
+```shell
+python3 manage.py runserver
+```
+*windows:
+```shell
+python manage.py runserver
+```
+### Inicie o servidor Vite em outro terminal :
+```shell
+npm run dev
+```
+
+* Os dois servidores precisam estar rodando localmente para que o Vite possa servir os arquivos estáticos para o Django
+### entre na porta 8000 do servidor local para abrir a aplicação:
+```shell
+http://localhost:8000
+```
+
 
 # Contribuição
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
