@@ -32,7 +32,7 @@ export default () => {
                     />
                 </div>
                 <div className="d-grid gap-2 col-6 mx-auto pt-4">
-                    <a href="#" className="btn btn-danger btn-lg mb-5">
+                    <a href="/login" className="btn btn-danger btn-lg mb-5">
                         CADASTRE-SE AGORA
                     </a>
                 </div>
@@ -121,7 +121,10 @@ export default () => {
                         <h3 className="display-4">
                             Faça seu cadastro ou login <strong>agora!</strong>
                         </h3>
-                        <a className="btn btn-primary btn-lg mt-3" href="#">
+                        <a
+                            className="btn btn-primary btn-lg mt-3"
+                            href="/login"
+                        >
                             Eu quero usar o Percepção Musical!
                         </a>
                     </div>
