@@ -12,10 +12,6 @@ export default () => {
     return (
         <>
             <Index />
-            {/*<Login />
-            <Main />
-            <Profile />
-    <Game />*/}
         </>
     );
 };
