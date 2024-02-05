@@ -1,45 +1,9 @@
+import React from "react";
+
 import Header from "@s:pm_app/src/components/Header";
+import FooTable from "@s:pm_app/src/components/Teste";
 
 export default () => {
-    // Tentativa de importar a CDN
-    // <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>;
-
-    // function newChart(ctx, date) {
-    //     new Chart(ctx, {
-    //         type: "bar",
-    //         data: {
-    //             labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-    //             datasets: [
-    //                 {
-    //                     label: "numbers of Votes",
-    //                     data: [
-    //                         date[0],
-    //                         date[1],
-    //                         date[2],
-    //                         date[3],
-    //                         date[4],
-    //                         date[5]
-    //                     ],
-    //                     // data: [12, 19, 3, 5, 2, 3],
-    //                     borderWidth: 1
-    //                 }
-    //             ]
-    //         },
-    //         options: {
-    //             scales: {
-    //                 y: {
-    //                     beginAtZero: true
-    //                 }
-    //             }
-    //         }
-    //     });
-    // }
-
-    // const ctx = document.getElementById("graficOne"); // fazendo uns testes so pra rir depois deixo menor e bem feito
-    // const data = [12, 19, 3, 5, 2, 3];
-
-    // newChart(ctx, data); // Se quiser dentro da function consumir uma api
-
     return (
         <>
             <Header />
@@ -118,7 +82,7 @@ export default () => {
                                     <li className="nav-item">
                                         <a
                                             className="nav-link d-flex align-items-center gap-2"
-                                            href="#"
+                                            href="/main/game"
                                         >
                                             <i className="bi bi-play-fill"></i>
                                             Jogar
@@ -184,6 +148,8 @@ export default () => {
                                             <td>Escalas</td>
                                             <td>30</td>
                                         </tr>
+                                        {/* depois da pra criar algo automatico se quiser */}
+                                        <FooTable value={"Notas"} value2={60} />
                                     </tbody>
                                 </table>
                             </div>
