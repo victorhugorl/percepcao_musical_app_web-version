@@ -13,9 +13,6 @@ def index(request):
 
 def register(request):
 
-<<<<<<< HEAD
-    return HttpResponse(request,'formulário de cadastro')
-=======
 def login(request):
 
     context = {
@@ -83,4 +80,3 @@ def make_object_notes(request):
     print(dados)
     return HttpResponse(dados)
 
->>>>>>> a176e02e8c28a68abe905adb52de3e211fa7d023
