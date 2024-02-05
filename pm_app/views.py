@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse
 
 # Create your views here.
 
+# TODAS A VIES TEM INDEX KK
 
 def home(request):
 
@@ -24,7 +25,7 @@ def login(request):
 
     return render(
         request,
-        'pm_app/login.html',
+        'pm_app/index.html',
         context,
     )
 
@@ -37,7 +38,7 @@ def main(request):
 
     return render(
         request,
-        'pm_app/main.html',
+        'pm_app/index.html',
         context
     )
 
@@ -49,7 +50,7 @@ def game(request):
 
     return render(
         request,
-        'pm_app/game.html',
+        'pm_app/index.html',
         context
     )
 
