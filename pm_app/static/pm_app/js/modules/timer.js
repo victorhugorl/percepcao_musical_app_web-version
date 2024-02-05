@@ -1,4 +1,4 @@
-export class Timer {
+export default class Timer {
     constructor(clock) {
         this.clock = clock;
         this.timer = null;

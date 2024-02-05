@@ -89,8 +89,8 @@ export default () => {
                 Your browser does not support the audio element.
             </audio>
 
-            {/* <script type="module" src="{% static "global/js/modules/questions.js" %}"></script>
-  <script src="{% static "global/js/game.js" %}"></script> */}
+            
+            
         </>
     );
 };
