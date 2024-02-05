@@ -1,10 +1,9 @@
-import Header from "@s:pm_app/src/components/Header";
+import React from "react";
 
+import Header from "@s:pm_app/src/components/Header";
 import FooTable from "@s:pm_app/src/components/Teste";
 
 export default () => {
-    // const data = [12, 19, 3, 5, 2, 3];
-
     return (
         <>
             <Header />
@@ -83,7 +82,7 @@ export default () => {
                                     <li className="nav-item">
                                         <a
                                             className="nav-link d-flex align-items-center gap-2"
-                                            href="#"
+                                            href="/main/game"
                                         >
                                             <i className="bi bi-play-fill"></i>
                                             Jogar
