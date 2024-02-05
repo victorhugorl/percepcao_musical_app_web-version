@@ -2,6 +2,7 @@ import React from "react";
 
 import Header from "@s:pm_app/src/components/Header";
 import FooTable from "@s:pm_app/src/components/Teste";
+import Grafic from "@s:pm_app/src/components/Grafic";
 
 export default () => {
     return (
@@ -119,6 +120,8 @@ export default () => {
                                 </button>
                             </div>
                         </div>
+
+                        <Grafic options={options} data={data} />
 
                         <canvas
                             className="my-4 w-100"
