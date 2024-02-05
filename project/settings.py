@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pm_app',
+    'api_rest',
     'django_vite_plugin',
     'rest_framework',
-    
 ]
 
 MIDDLEWARE = [
