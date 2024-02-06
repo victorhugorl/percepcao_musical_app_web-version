@@ -1,6 +1,27 @@
+import { useState } from "react";
+
 import Header from "../../components/Header";
 
 export default () => {
+    //import { createQuestions } from "./modules/questions";
+
+    // Nome das notas
+
+    // Definindo lugares para trabalhar
+    const [textDisplay, setTextDisplay] = useState("Vai começar");
+    const textSet = () => {
+        setTextDisplay("Começou kk");
+        setClocl("00:05:00");
+    };
+
+    const [clock, setClocl] = useState("00:00:00");
+    const timerChange = () => {
+        setTextDisplay("Se prepara ai boi vei");
+        setClocl("00:00:00");
+    };
+
+    // para não poluir apaguei alguns comentarios o arquivo js ainda esta em assets
+
     return (
         <>
             <Header />
@@ -19,7 +40,7 @@ export default () => {
                 <div
                     className="modal fade"
                     id="exitGame"
-                    tabindex="-1"
+                    tabIndex="-1"
                     aria-labelledby="confirmExit"
                     aria-hidden="true"
                 >
@@ -58,7 +79,9 @@ export default () => {
                 </div>
                 <div className="m-a">
                     <div>
-                        <h3 className="text-center fs-1 p-5 text-display"></h3>
+                        <h3 className="text-center fs-1 p-5 text-display">
+                            {textDisplay}
+                        </h3>
                     </div>
                     <div className="bg-primary-black p-2">
                         <div className="d-flex justify-content-around p-4 buttons-div">
@@ -70,13 +93,20 @@ export default () => {
                             <span className="btn btn-light px-5 btn-lg">E</span>
                         </div>
                         <div className="d-flex justify-content-between p-4">
-                            <span className="btn btn-light px-5 btn-lg">
+                            <span
+                                className="btn btn-light px-5 btn-lg"
+                                onClick={timerChange}
+                            >
                                 repetir
                             </span>
-                            <span className="btn btn-outline-light disabled px-5 btn-lg clock">
-                                00:00:00
+                            <span className="btn btn-outline-light disabled px-5 btn-lg">
+                                {clock}
                             </span>
-                            <span className="btn btn-light px-5 btn-lg continue-skip">
+                            {/* TESTE AQUI PARA MUDAR TEXTO */}
+                            <span
+                                className="btn btn-light px-5 btn-lg continue-skip"
+                                onClick={textSet}
+                            >
                                 continuar
                             </span>
                         </div>
