@@ -1,16 +1,22 @@
-from django.shortcuts import render, HttpResponse
+from django.contrib.auth.models import Group, User
+from rest_framework import permissions, viewsets
 
-# Create your views here.
+from tutorial.quickstart.serializers import GroupSerializer, UserSerializer
 
-# TODAS A VIES TEM INDEX KK
 
-def index(request):
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = User.objects.all().order_by('-date_joined')
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
-    return render(
-        request,
-        'pm_app/index.html', # Esse caminho aqui
-    )
 
-def register(request):
-
-    return HttpResponse('formulário de cadastro')
+class GroupViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer
+    permission_classes = [permissions.IsAuthenticated]

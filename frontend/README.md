@@ -1,22 +1,8 @@
-# React Based SPA
+# React + Vite
 
-## Primary Modules
-1. [react](https://facebook.github.io/react/)
-1. [AdminLTE](https://almsaeedstudio.com/themes/AdminLTE/index2.html) Bootstrap based theme
-1. [immutable.js](https://facebook.github.io/immutable-js/)
-1. [webpack](https://webpack.github.io/)
-1. [react-router](https://github.com/reactjs/react-router)
-1. [redux](https://github.com/reactjs/redux)
-1. [react-bootstrap](https://react-bootstrap.github.io/)
-1. [font awesome](https://fortawesome.github.io/Font-Awesome/)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Prerequisites
-1. npm
+Currently, two official plugins are available:
 
-## Installation
-
-```
-cd frontend
-npm install
-npm start
-```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
