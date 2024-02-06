@@ -3,20 +3,20 @@ import React, { useState, useRef, useEffect } from "react";
 import Header from "../../components/Header";
 
 export default () => {
-    const [textDisplay, setTextDisplay] = useState("Vai começar");
-    const textSet = () => {
-        setTextDisplay("Começou kk");
-    };
+    const [textDisplay, setTextDisplay] = useState("Vamos começar?");
+
+    const [clicked, setClicked] = useState(true);
 
     const Ref = useRef(null);
 
+    // The state for our timer
     const [clock, setClock] = useState("00:00:00");
 
     const getTimeRemaining = (e) => {
         const total = Date.parse(e) - Date.parse(new Date());
         const seconds = Math.floor((total / 1000) % 60);
         const minutes = Math.floor((total / 1000 / 60) % 60);
-        const hours = Math.floor((total / 1000 / 60 / 60) % 24);
+        const hours = Math.floor(((total / 1000) * 60 * 60) % 24);
         return {
             total,
             hours,
@@ -28,6 +28,9 @@ export default () => {
     const startTimer = (e) => {
         let { total, hours, minutes, seconds } = getTimeRemaining(e);
         if (total >= 0) {
+            // update the timer
+            // check if less than 10 then we need to
+            // add '0' at the begining of the variable
             setClock(
                 (hours > 9 ? hours : "0" + hours) +
                     ":" +
@@ -39,8 +42,7 @@ export default () => {
     };
 
     const clearTimer = (e) => {
-        setClock("00:05:00");
-
+        setClock("00:00:60");
         if (Ref.current) clearInterval(Ref.current);
         const id = setInterval(() => {
             startTimer(e);
@@ -50,8 +52,7 @@ export default () => {
 
     const getDeadTime = () => {
         let deadline = new Date();
-
-        deadline.setSeconds(deadline.getSeconds() + 300);
+        deadline.setSeconds(deadline.getSeconds() + 60);
         return deadline;
     };
 
@@ -62,6 +63,17 @@ export default () => {
     const onClickReset = () => {
         clearTimer(getDeadTime());
     };
+
+    const initTimer = () => {
+        setTextDisplay("Começando...");
+        setClicked(false);
+
+        // Apenas texto por enquanto
+        // vou ajeitar o design também
+        setClock("00:00:60");
+    };
+
+    const resetTimer = () => {};
 
     return (
         <>
@@ -125,29 +137,43 @@ export default () => {
                         </h3>
                     </div>
                     <div className="bg-primary-black p-2">
-                        <div className="d-flex justify-content-around p-4 buttons-div">
-                            <span className="btn btn-light px-5 btn-lg">C</span>
-                            <span className="btn btn-light px-5 btn-lg">A</span>
-                            <span className="btn btn-success active px-5 btn-lg">
-                                B
-                            </span>
-                            <span className="btn btn-light px-5 btn-lg">E</span>
-                        </div>
+                        {clicked ? (
+                            <div className="d-flex justify-content-center p-2">
+                                <button
+                                    className="btn btn-light btn-lg px-5"
+                                    onClick={initTimer}
+                                >
+                                    SIM!
+                                </button>
+                            </div>
+                        ) : (
+                            <div className="d-flex justify-content-around p-4 buttons-div">
+                                <span className="btn btn-light px-5 btn-lg">
+                                    C
+                                </span>
+                                <span className="btn btn-light px-5 btn-lg">
+                                    A
+                                </span>
+                                <span className="btn btn-success active px-5 btn-lg">
+                                    B
+                                </span>
+                                <span className="btn btn-light px-5 btn-lg">
+                                    E
+                                </span>
+                            </div>
+                        )}
+
                         <div className="d-flex justify-content-between p-4">
                             <span
                                 className="btn btn-light px-5 btn-lg"
-                                onClick={onClickReset}
+                                onClick={resetTimer}
                             >
                                 repetir
                             </span>
                             <span className="btn btn-outline-light disabled px-5 btn-lg">
                                 {clock}
                             </span>
-                            {/* TESTE AQUI PARA MUDAR TEXTO */}
-                            <span
-                                className="btn btn-light px-5 btn-lg continue-skip"
-                                onClick={textSet}
-                            >
+                            <span className="btn btn-light px-5 btn-lg continue-skip">
                                 continuar
                             </span>
                         </div>

@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
 
 import Index from "./pages/home/Index.jsx";
 import Login from "./pages/home/Login.jsx";
