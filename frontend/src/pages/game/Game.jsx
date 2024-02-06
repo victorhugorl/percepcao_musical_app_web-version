@@ -3,12 +3,6 @@ import React, { useState, useRef, useEffect } from "react";
 import Header from "../../components/Header";
 
 export default () => {
-    //import { createQuestions } from "./modules/questions";
-
-    // Nome das notas
-
-    // Definindo lugares para trabalhar
-
     const [textDisplay, setTextDisplay] = useState("Vai começar");
     const textSet = () => {
         setTextDisplay("Começou kk");
@@ -16,7 +10,7 @@ export default () => {
 
     const Ref = useRef(null);
 
-    const [timer, setTimer] = useState("00:00:00");
+    const [clock, setClock] = useState("00:00:00");
 
     const getTimeRemaining = (e) => {
         const total = Date.parse(e) - Date.parse(new Date());
@@ -34,7 +28,7 @@ export default () => {
     const startTimer = (e) => {
         let { total, hours, minutes, seconds } = getTimeRemaining(e);
         if (total >= 0) {
-            setTimer(
+            setClock(
                 (hours > 9 ? hours : "0" + hours) +
                     ":" +
                     (minutes > 9 ? minutes : "0" + minutes) +
@@ -45,7 +39,7 @@ export default () => {
     };
 
     const clearTimer = (e) => {
-        setTimer("00:00:50");
+        setClock("00:05:00");
 
         if (Ref.current) clearInterval(Ref.current);
         const id = setInterval(() => {
@@ -57,7 +51,7 @@ export default () => {
     const getDeadTime = () => {
         let deadline = new Date();
 
-        deadline.setSeconds(deadline.getSeconds() + 50);
+        deadline.setSeconds(deadline.getSeconds() + 300);
         return deadline;
     };
 
@@ -147,7 +141,7 @@ export default () => {
                                 repetir
                             </span>
                             <span className="btn btn-outline-light disabled px-5 btn-lg">
-                                {timer}
+                                {clock}
                             </span>
                             {/* TESTE AQUI PARA MUDAR TEXTO */}
                             <span
