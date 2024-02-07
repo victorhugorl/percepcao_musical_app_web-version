@@ -15,6 +15,12 @@ export default () => {
     // tempo e funcção que seta o tempo
     const [clock, setClock] = useState(0);
 
+    const startTime = () => {
+        setInterval(() => {
+            setClock((oldClock) => oldClock + 1);
+        }, 1000);
+    };
+
     // Função init inicia e retorna o app
     const initTimer = () => {
         setTextDisplay("Começando... Escute a nota e aperta na correta");
@@ -23,13 +29,12 @@ export default () => {
         let classForActive = document.querySelector("#continue-skip");
         classForActive.classList.remove("disabled");
         // Apenas texto por enquanto aqui vai fiz a função do tempo
-        setClock(60);
+        startTime();
     };
 
     const continueNotes = () => {
         // apenas texto por enquanto
-        setClock(0);
-        if (numbersOfNotes != 12) {
+        if (numbersOfNotes < 12) {
             setNumbersOfNotes((oldValue) => oldValue + 1);
         } else {
             let classForActive = document.querySelector("#continue-skip");
