@@ -9,6 +9,7 @@ export default () => {
     // valida o botão para iniciar o jogo
     const [clicked, setClicked] = useState(true);
 
+    // numero de notas do jogo 0/12
     const [numbersOfNotes, setNumbersOfNotes] = useState(0);
 
     // tempo e funcção que seta o tempo
@@ -18,10 +19,10 @@ export default () => {
     const initTimer = () => {
         setTextDisplay("Começando... Escute a nota e aperta na correta");
         setClicked(false);
+        // ele coleta o continuar e ativa ele
         let classForActive = document.querySelector("#continue-skip");
         classForActive.classList.remove("disabled");
-
-        // Apenas texto por enquanto
+        // Apenas texto por enquanto aqui vai fiz a função do tempo
         setClock(60);
     };
 
@@ -31,13 +32,15 @@ export default () => {
         if (numbersOfNotes != 12) {
             setNumbersOfNotes((oldValue) => oldValue + 1);
         } else {
+            let classForActive = document.querySelector("#continue-skip");
+            classForActive.classList.add("disabled");
             console.log("Teste finalizado");
         }
         setTextDisplay("Proximo teste");
     };
 
-    const choosedNote = () => {
-        console.log("nada");
+    const choosedNote = (note) => {
+        console.log(note);
     };
 
     const repeatSound = () => {
@@ -122,27 +125,25 @@ export default () => {
                                 {/* aqui da pra fazer tipo um array */}
                                 <span
                                     className="btn btn-light px-5 btn-lg"
-                                    onClick={(value = "c") =>
-                                        choosedNote(value.value)
-                                    }
+                                    onClick={() => choosedNote("C")}
                                 >
                                     C
                                 </span>
                                 <span
                                     className="btn btn-light px-5 btn-lg"
-                                    onClick={choosedNote}
+                                    onClick={() => choosedNote("A")}
                                 >
                                     A
                                 </span>
                                 <span
                                     className="btn btn-light px-5 btn-lg"
-                                    onClick={choosedNote}
+                                    onClick={() => choosedNote("B")}
                                 >
                                     B
                                 </span>
                                 <span
                                     className="btn btn-light px-5 btn-lg"
-                                    onClick={choosedNote}
+                                    onClick={() => choosedNote("E")}
                                 >
                                     E
                                 </span>

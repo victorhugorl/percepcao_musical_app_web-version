@@ -120,8 +120,6 @@ export default () => {
                             </div>
                         </div>
 
-                        <Grafic options={options} data={data} />
-
                         <canvas
                             className="my-4 w-100"
                             id="graficOne"
