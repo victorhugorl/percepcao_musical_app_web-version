@@ -1,79 +1,58 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
 import Header from "../../components/Header";
 
 export default () => {
+    // Texto para iniciar o app
     const [textDisplay, setTextDisplay] = useState("Vamos começar?");
 
+    // valida o botão para iniciar o jogo
     const [clicked, setClicked] = useState(true);
 
-    const Ref = useRef(null);
+    // numero de notas do jogo 0/12
+    const [numbersOfNotes, setNumbersOfNotes] = useState(0);
 
-    // The state for our timer
-    const [clock, setClock] = useState("00:00:00");
+    // tempo e funcção que seta o tempo
+    const [clock, setClock] = useState(0);
 
-    const getTimeRemaining = (e) => {
-        const total = Date.parse(e) - Date.parse(new Date());
-        const seconds = Math.floor((total / 1000) % 60);
-        const minutes = Math.floor((total / 1000 / 60) % 60);
-        const hours = Math.floor(((total / 1000) * 60 * 60) % 24);
-        return {
-            total,
-            hours,
-            minutes,
-            seconds
-        };
-    };
-
-    const startTimer = (e) => {
-        let { total, hours, minutes, seconds } = getTimeRemaining(e);
-        if (total >= 0) {
-            // update the timer
-            // check if less than 10 then we need to
-            // add '0' at the begining of the variable
-            setClock(
-                (hours > 9 ? hours : "0" + hours) +
-                    ":" +
-                    (minutes > 9 ? minutes : "0" + minutes) +
-                    ":" +
-                    (seconds > 9 ? seconds : "0" + seconds)
-            );
-        }
-    };
-
-    const clearTimer = (e) => {
-        setClock("00:00:60");
-        if (Ref.current) clearInterval(Ref.current);
-        const id = setInterval(() => {
-            startTimer(e);
+    const startTime = () => {
+        setInterval(() => {
+            setClock((oldClock) => oldClock + 1);
         }, 1000);
-        Ref.current = id;
     };
 
-    const getDeadTime = () => {
-        let deadline = new Date();
-        deadline.setSeconds(deadline.getSeconds() + 60);
-        return deadline;
-    };
-
-    useEffect(() => {
-        clearTimer(getDeadTime());
-    }, []);
-
-    const onClickReset = () => {
-        clearTimer(getDeadTime());
-    };
-
+    // Função init inicia e retorna o app
     const initTimer = () => {
-        setTextDisplay("Começando...");
+        setTextDisplay("Começando... Escute a nota e aperta na correta");
         setClicked(false);
-
-        // Apenas texto por enquanto
-        // vou ajeitar o design também
-        setClock("00:00:60");
+        // ele coleta o continuar e ativa ele
+        let classForActive = document.querySelector("#continue-skip");
+        classForActive.classList.remove("disabled");
+        // Apenas texto por enquanto aqui vai fiz a função do tempo
+        startTime();
     };
 
-    const resetTimer = () => {};
+    const continueNotes = () => {
+        // apenas texto por enquanto
+        if (numbersOfNotes < 12) {
+            setNumbersOfNotes((oldValue) => oldValue + 1);
+        } else {
+            let classForActive = document.querySelector("#continue-skip");
+            classForActive.classList.add("disabled");
+            console.log("Teste finalizado");
+        }
+        setTextDisplay("Proximo teste");
+    };
+
+    const choosedNote = (note) => {
+        console.log(note);
+    };
+
+    const repeatSound = () => {
+        // repetidor da nota
+        // havera limitações nessa function
+        console.log("note");
+    };
 
     return (
         <>
@@ -88,7 +67,7 @@ export default () => {
                     >
                         Sair do jogo
                     </a>
-                    <p className="text-end fs-4">0/12</p>
+                    <p className="text-end fs-4">{numbersOfNotes}/12</p>
                 </div>
                 <div
                     className="modal fade"
@@ -136,7 +115,7 @@ export default () => {
                             {textDisplay}
                         </h3>
                     </div>
-                    <div className="bg-primary-black p-2">
+                    <div className="bg-primary-black p-2 rounded">
                         {clicked ? (
                             <div className="d-flex justify-content-center p-2">
                                 <button
@@ -148,16 +127,29 @@ export default () => {
                             </div>
                         ) : (
                             <div className="d-flex justify-content-around p-4 buttons-div">
-                                <span className="btn btn-light px-5 btn-lg">
+                                {/* aqui da pra fazer tipo um array */}
+                                <span
+                                    className="btn btn-light px-5 btn-lg"
+                                    onClick={() => choosedNote("C")}
+                                >
                                     C
                                 </span>
-                                <span className="btn btn-light px-5 btn-lg">
+                                <span
+                                    className="btn btn-light px-5 btn-lg"
+                                    onClick={() => choosedNote("A")}
+                                >
                                     A
                                 </span>
-                                <span className="btn btn-success active px-5 btn-lg">
+                                <span
+                                    className="btn btn-light px-5 btn-lg"
+                                    onClick={() => choosedNote("B")}
+                                >
                                     B
                                 </span>
-                                <span className="btn btn-light px-5 btn-lg">
+                                <span
+                                    className="btn btn-light px-5 btn-lg"
+                                    onClick={() => choosedNote("E")}
+                                >
                                     E
                                 </span>
                             </div>
@@ -165,15 +157,20 @@ export default () => {
 
                         <div className="d-flex justify-content-between p-4">
                             <span
-                                className="btn btn-light px-5 btn-lg"
-                                onClick={resetTimer}
+                                className="btn btn-light px-5 btn-lg disabled"
+                                id="repeater"
+                                onClick={repeatSound}
                             >
                                 repetir
                             </span>
                             <span className="btn btn-outline-light disabled px-5 btn-lg">
                                 {clock}
                             </span>
-                            <span className="btn btn-light px-5 btn-lg continue-skip">
+                            <span
+                                className="btn btn-light px-5 btn-lg disabled"
+                                id="continue-skip"
+                                onClick={continueNotes}
+                            >
                                 continuar
                             </span>
                         </div>
