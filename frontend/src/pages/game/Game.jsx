@@ -15,6 +15,10 @@ export default () => {
     // tempo e funcção que seta o tempo
     const [clock, setClock] = useState(0);
 
+    // parte da frase pular ou continuar
+    const [continueOrJump, setContinueOrJump] = useState("continuar");
+
+    // Faz o cronometro andar de 0 ao infinito
     const startTime = () => {
         setInterval(() => {
             setClock((oldClock) => oldClock + 1);
@@ -25,14 +29,19 @@ export default () => {
     const initTimer = () => {
         setTextDisplay("Começando... Escute a nota e aperta na correta");
         setClicked(false);
+        setContinueOrJump("pular");
         // ele coleta o continuar e ativa ele
         let classForActive = document.querySelector("#continue-skip");
         classForActive.classList.remove("disabled");
+        let classForActiveRepeat = document.querySelector("#repeater");
+        classForActiveRepeat.classList.remove("disabled");
         // Apenas texto por enquanto aqui vai fiz a função do tempo
         startTime();
     };
 
     const continueNotes = () => {
+        removeDisabledNotes(false);
+        setContinueOrJump("pular");
         // apenas texto por enquanto
         if (numbersOfNotes < 12) {
             setNumbersOfNotes((oldValue) => oldValue + 1);
@@ -44,14 +53,58 @@ export default () => {
         setTextDisplay("Proximo teste");
     };
 
+    const removeDisabledNotes = (disable = true) => {
+        // vou ajeitar essa porqueira jaja
+        if (disable) {
+            let classForActiveNote1 = document
+                .querySelector("#note1")
+                .classList.add("disabled");
+            let classForActiveNote2 = document
+                .querySelector("#note2")
+                .classList.add("disabled");
+            let classForActiveNote3 = document
+                .querySelector("#note3")
+                .classList.add("disabled");
+            let classForActiveNote4 = document
+                .querySelector("#note4")
+                .classList.add("disabled");
+        } else {
+            let classForActiveNote1 = document
+                .querySelector("#note1")
+                .classList.remove("disabled");
+            let classForActiveNote2 = document
+                .querySelector("#note2")
+                .classList.remove("disabled");
+            let classForActiveNote3 = document
+                .querySelector("#note3")
+                .classList.remove("disabled");
+            let classForActiveNote4 = document
+                .querySelector("#note4")
+                .classList.remove("disabled");
+        }
+    };
+
+    // Colhe a nota que o usuario escolheu
     const choosedNote = (note) => {
+        // vou ajeitar essa porqueira jaja
+        removeDisabledNotes();
+
+        setContinueOrJump("continuar");
         console.log(note);
     };
 
-    const repeatSound = () => {
-        // repetidor da nota
-        // havera limitações nessa function
-        console.log("note");
+    // Numero de repetições possiveis
+    const [repeates, setRepeates] = useState(0);
+
+    // função que repete as notas musicais
+    const repeatSound = (repeted) => {
+        setRepeates((oldValue) => oldValue + repeted);
+        if (repeates < repeted) {
+            console.log("vezes repetida" + repeates);
+        } else {
+            let classForActiveRepeat = document.querySelector("#repeater");
+            classForActiveRepeat.classList.add("disabled");
+        }
     };
 
     return (
@@ -130,24 +183,28 @@ export default () => {
                                 {/* aqui da pra fazer tipo um array */}
                                 <span
                                     className="btn btn-light px-5 btn-lg"
+                                    id="note1"
                                     onClick={() => choosedNote("C")}
                                 >
                                     C
                                 </span>
                                 <span
                                     className="btn btn-light px-5 btn-lg"
+                                    id="note2"
                                     onClick={() => choosedNote("A")}
                                 >
                                     A
                                 </span>
                                 <span
                                     className="btn btn-light px-5 btn-lg"
+                                    id="note3"
                                     onClick={() => choosedNote("B")}
                                 >
                                     B
                                 </span>
                                 <span
                                     className="btn btn-light px-5 btn-lg"
+                                    id="note4"
                                     onClick={() => choosedNote("E")}
                                 >
                                     E
@@ -159,7 +216,7 @@ export default () => {
                             <span
                                 className="btn btn-light px-5 btn-lg disabled"
                                 id="repeater"
-                                onClick={repeatSound}
+                                onClick={() => repeatSound(1)}
                             >
                                 repetir
                             </span>
@@ -171,7 +228,7 @@ export default () => {
                                 id="continue-skip"
                                 onClick={continueNotes}
                             >
-                                continuar
+                                {continueOrJump}
                             </span>
                         </div>
                     </div>
