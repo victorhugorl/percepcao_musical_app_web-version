@@ -2,6 +2,7 @@ import React from "react";
 
 import Header from "../../components/Header";
 import FooTable from "../../components/Teste";
+import Grafic from "../../components/Grafic";
 
 export default () => {
     return (
@@ -120,12 +121,13 @@ export default () => {
                             </div>
                         </div>
 
-                        <canvas
+                        {/* <canvas
                             className="my-4 w-100"
                             id="graficOne"
                             width="1814"
                             height="766"
-                        ></canvas>
+                        ></canvas> */}
+                        <Grafic />
 
                         {/* <!--graficTwo deixar salvo aqui--> */}
 
@@ -140,15 +142,15 @@ export default () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>teste 1</td>
-                                            <td>100</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Escalas</td>
-                                            <td>30</td>
-                                        </tr>
                                         {/* depois da pra criar algo automatico se quiser */}
+                                        <FooTable
+                                            value={"Escalas"}
+                                            value2={30}
+                                        />
+                                        <FooTable
+                                            value={"Teste 1"}
+                                            value2={100}
+                                        />
                                         <FooTable value={"Notas"} value2={60} />
                                     </tbody>
                                 </table>
