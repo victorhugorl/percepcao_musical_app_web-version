@@ -103,20 +103,20 @@ export default () => {
                                         type="button"
                                         className="btn btn-sm btn-outline-secondary"
                                     >
-                                        Share
+                                        Compartilhar
                                     </button>
                                     <button
                                         type="button"
                                         className="btn btn-sm btn-outline-secondary"
                                     >
-                                        Export
+                                        Exportar
                                     </button>
                                 </div>
                                 <button
                                     type="button"
                                     className="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1"
                                 >
-                                    This week
+                                    Este mês
                                 </button>
                             </div>
                         </div>
@@ -131,7 +131,7 @@ export default () => {
 
                         {/* <!--graficTwo deixar salvo aqui--> */}
 
-                        <h2>Section title</h2>
+                        <h2>Seção tabela principal</h2>
                         <div className="table-responsive small">
                             <div className="bg-primary-black text-light rounded-4">
                                 <table>
