@@ -57,6 +57,7 @@ export default () => {
 
     const removeDisabledNotes = (disable = true) => {
         // vou ajeitar essa porqueira jaja
+        // vou fazer um for com document.querySelectorAll('#note')
         if (disable) {
             let classForActiveNote1 = document
                 .querySelector("#note1")
