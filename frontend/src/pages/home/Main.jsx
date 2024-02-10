@@ -121,12 +121,6 @@ export default () => {
                             </div>
                         </div>
 
-                        {/* <canvas
-                            className="my-4 w-100"
-                            id="graficOne"
-                            width="1814"
-                            height="766"
-                        ></canvas> */}
                         <Grafic />
 
                         {/* <!--graficTwo deixar salvo aqui--> */}

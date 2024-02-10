@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import Header from "../../components/Header";
 
+import "../../assets/js/modules/questions";
+
 export default () => {
     // Texto para iniciar o app
     const [textDisplay, setTextDisplay] = useState("Vamos começar?");
