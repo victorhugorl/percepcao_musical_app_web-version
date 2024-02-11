@@ -1,8 +1,9 @@
 import { useState } from "react";
-
+//components
 import Header from "../../components/Header";
-
-import "../../assets/js/modules/questions";
+// js puro
+import "../../assets/js/questions";
+import { playerNote } from "../../assets/js/notesPlayer";
 
 export default () => {
     // Texto para iniciar o app
@@ -59,31 +60,15 @@ export default () => {
         // vou ajeitar essa porqueira jaja
         // vou fazer um for com document.querySelectorAll('#note')
         if (disable) {
-            let classForActiveNote1 = document
-                .querySelector("#note1")
-                .classList.add("disabled");
-            let classForActiveNote2 = document
-                .querySelector("#note2")
-                .classList.add("disabled");
-            let classForActiveNote3 = document
-                .querySelector("#note3")
-                .classList.add("disabled");
-            let classForActiveNote4 = document
-                .querySelector("#note4")
-                .classList.add("disabled");
+            let listClassForActiveNote = document.querySelectorAll("#note");
+            listClassForActiveNote.forEach((note) => {
+                note.classList.add("disabled");
+            });
         } else {
-            let classForActiveNote1 = document
-                .querySelector("#note1")
-                .classList.remove("disabled");
-            let classForActiveNote2 = document
-                .querySelector("#note2")
-                .classList.remove("disabled");
-            let classForActiveNote3 = document
-                .querySelector("#note3")
-                .classList.remove("disabled");
-            let classForActiveNote4 = document
-                .querySelector("#note4")
-                .classList.remove("disabled");
+            let listClassForActiveNote = document.querySelectorAll("#note");
+            listClassForActiveNote.forEach((note) => {
+                note.classList.remove("disabled");
+            });
         }
     };
 
@@ -91,9 +76,9 @@ export default () => {
     const choosedNote = (note) => {
         // vou ajeitar essa porqueira jaja
         removeDisabledNotes();
-
         setContinueOrJump("continuar");
         console.log(note);
+        playerNote(note);
     };
 
     // Numero de repetições possiveis
@@ -183,31 +168,30 @@ export default () => {
                             </div>
                         ) : (
                             <div className="d-flex justify-content-around p-4 buttons-div">
-                                {/* aqui da pra fazer tipo um array */}
                                 <span
                                     className="btn btn-light px-5 btn-lg"
-                                    id="note1"
+                                    id="note"
                                     onClick={() => choosedNote("C")}
                                 >
                                     C
                                 </span>
                                 <span
                                     className="btn btn-light px-5 btn-lg"
-                                    id="note2"
+                                    id="note"
                                     onClick={() => choosedNote("A")}
                                 >
                                     A
                                 </span>
                                 <span
                                     className="btn btn-light px-5 btn-lg"
-                                    id="note3"
+                                    id="note"
                                     onClick={() => choosedNote("B")}
                                 >
                                     B
                                 </span>
                                 <span
                                     className="btn btn-light px-5 btn-lg"
-                                    id="note4"
+                                    id="note"
                                     onClick={() => choosedNote("E")}
                                 >
                                     E
@@ -237,11 +221,6 @@ export default () => {
                     </div>
                 </div>
             </section>
-
-            <audio id="my-audio">
-                <source src="" type="audio/wav" />
-                Your browser does not support the audio element.
-            </audio>
         </>
     );
 };
