@@ -34,10 +34,12 @@ export default () => {
         setClicked(false);
         setContinueOrJump("pular");
         // ele coleta o continuar e ativa ele
-        let classForActive = document.querySelector("#continue-skip");
-        classForActive.classList.remove("disabled");
-        let classForActiveRepeat = document.querySelector("#repeater");
-        classForActiveRepeat.classList.remove("disabled");
+        let classForActive = document
+            .querySelector("#continue-skip")
+            .classList.remove("disabled");
+        let classForActiveRepeat = document
+            .querySelector("#repeater")
+            .classList.remove("disabled");
         // Apenas texto por enquanto aqui vai fiz a função do tempo
         startTime();
     };
@@ -221,6 +223,10 @@ export default () => {
                     </div>
                 </div>
             </section>
+            <audio id="my-audio">
+                <source src="" type="audio/wav" />
+                Your browser does not support the audio element.
+            </audio>
         </>
     );
 };
