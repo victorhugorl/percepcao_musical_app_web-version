@@ -1,6 +1,6 @@
 from django.db import models
 from .model_training_type import TrainingType
-class Trainings(models.Model):
+class Training(models.Model):
     training_name = models.CharField(max_length=40)
     training_type = models.ForeignKey(
         TrainingType,
@@ -9,4 +9,7 @@ class Trainings(models.Model):
     )
     number_of_rounds = models.IntegerField()
     training_settings = models.JSONField()
+
+    def __str__(self) -> str:
+        return self.training_name
     
