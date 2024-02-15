@@ -59,8 +59,6 @@ export default () => {
     };
 
     const removeDisabledNotes = (disable = true) => {
-        // vou ajeitar essa porqueira jaja
-        // vou fazer um for com document.querySelectorAll('#note')
         if (disable) {
             let listClassForActiveNote = document.querySelectorAll("#note");
             listClassForActiveNote.forEach((note) => {
@@ -223,10 +221,6 @@ export default () => {
                     </div>
                 </div>
             </section>
-            <audio id="my-audio">
-                <source src="" type="audio/wav" />
-                Your browser does not support the audio element.
-            </audio>
         </>
     );
 };

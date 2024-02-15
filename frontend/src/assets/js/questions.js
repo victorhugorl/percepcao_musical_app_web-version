@@ -27,5 +27,3 @@ export function createQuestions(note_list, number_questions) {
 function choice(list) {
     return list[Math.floor(Math.random() * list.length)];
 }
-
-console.log("pega fi dua mãe kk");
