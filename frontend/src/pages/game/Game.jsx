@@ -2,8 +2,10 @@ import { useState } from "react";
 //components
 import Header from "../../components/Header";
 // js puro
-import "../../assets/js/questions";
+import { createQuestions } from "../../assets/js/Questions";
 import { playerNote } from "../../assets/js/notesPlayer";
+
+import Api from "../../assets/api/ApiUtils.json";
 
 export default () => {
     // Texto para iniciar o app
@@ -31,6 +33,7 @@ export default () => {
     // Função init inicia e retorna o app
     const initTimer = () => {
         setTextDisplay("Começando... Escute a nota e aperta na correta");
+        createQuestions(Api, 3);
         setClicked(false);
         setContinueOrJump("pular");
         // ele coleta o continuar e ativa ele
@@ -48,7 +51,7 @@ export default () => {
         removeDisabledNotes(false);
         setContinueOrJump("pular");
         // apenas texto por enquanto
-        if (numbersOfNotes < 12) {
+        if (numbersOfNotes <= 11) {
             setNumbersOfNotes((oldValue) => oldValue + 1);
         } else {
             let classForActive = document.querySelector("#continue-skip");

@@ -9,7 +9,7 @@ import Game from "./pages/game/Game.jsx";
 
 // vou importar aqui o boostrap e Css
 
-import "./assets/css/style.css";
+import "./assets/css/Style.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
