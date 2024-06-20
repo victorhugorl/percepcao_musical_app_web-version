@@ -49,14 +49,21 @@
     align-items: center;
 }
 
-/* Game estilo */
+/* index footer */
+li a {
+    text-decoration: none;
+}
 
+li a:hover {
+    border-bottom: 2px solid var(--table-bg-color);
+}
+
+/* Game estilo */
 .m-a {
     margin-top: 25vh;
 }
 
 /*Main estilo*/
-
 .bi {
     display: inline-block;
     width: 1rem;
