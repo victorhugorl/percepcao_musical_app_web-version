@@ -1,6 +1,7 @@
 /* variables */
 :root {
     --table-bg-color: #283754;
+    --darker-blue: #073780;
     --menu-poiter-color: #d6d6d9;
 }
 
@@ -35,7 +36,7 @@
 /*Index estilo*/
 
 .bg-primary-black {
-    background: #073780;
+    background: var(--darker-blue);
 }
 
 .bg-img {
