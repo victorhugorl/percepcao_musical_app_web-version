@@ -40,19 +40,38 @@ class Timer {
     };
 }
 
+
+
 // Nome das notas
 data = document.currentScript.dataset;
 questions = data.questions
 
-console.log(questions)
 
 // Definindo lugares para trabalhar
+const modal = document.getElementById('confirm')
+const confirmBtn = document.querySelector(".confirm")
+
 const clock = document.querySelector(".clock");
 const textDisplay = document.querySelector(".text-display");
 const continueOrSkip = document.querySelector(".continue-skip");
 const divButtons = document.querySelector(".buttons-div");
 
+console.log(modal)
+
+window.onload = function() {
+    modal.style.display = "block";
+}
+
+confirmBtn.onclick = function() {
+    modal.style.display = "none";
+   
+    // executar o que eu quizer
+}
+
+
+
 textDisplay.innerHTML = "Qual é a nota tocada ?";
+
 
 
 
@@ -60,7 +79,7 @@ textDisplay.innerHTML = "Qual é a nota tocada ?";
 
 audio = document.getElementById("my-audio");
 audio.currentTime = 0;
-audio.play();
+
 
 // Iniciando cronometro
 cron = new Timer(clock);
