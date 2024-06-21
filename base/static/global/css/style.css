@@ -1,6 +1,7 @@
 /* variables */
 :root {
     --table-bg-color: #283754;
+    --darker-blue: #073780;
     --menu-poiter-color: #d6d6d9;
 }
 
@@ -35,7 +36,7 @@
 /*Index estilo*/
 
 .bg-primary-black {
-    background: #073780;
+    background: var(--darker-blue);
 }
 
 .bg-img {
@@ -48,14 +49,21 @@
     align-items: center;
 }
 
-/* Game estilo */
+/* index footer */
+li a {
+    text-decoration: none;
+}
 
+li a:hover {
+    border-bottom: 2px solid var(--table-bg-color);
+}
+
+/* Game estilo */
 .m-a {
     margin-top: 25vh;
 }
 
 /*Main estilo*/
-
 .bi {
     display: inline-block;
     width: 1rem;
