@@ -30,7 +30,7 @@ def register(request):
 
         if form.is_valid():
             form.save()
-            return redirect('pma_app:login')
+            return redirect('pm_app:login')
 
     context = {
         'title': 'Registrar',

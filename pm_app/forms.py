@@ -47,7 +47,7 @@ class RegisterUser(UserCreationForm):
 
     def clean_password2(self):
         cd = self.cleaned_data
-        if cd['password'] != cd['password2']:
+        if cd['password1'] != cd['password2']:
             raise forms.ValidationError('Senhas diferentes uma da outra')
         return cd['password2']
     
