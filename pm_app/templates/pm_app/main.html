@@ -1,17 +1,17 @@
 {%extends "global/base.html"%}
 {%block content%}
     {% include "global/partials/_header.html" %}
-    <main class="m-2">
-        <section>
+    <main class="container row">
+        <section class="col-md-6">
             itens laterais | menus laterais
             {% include "pm_app/partials/_nav-itens.html" %}
         </section>
-        <section>
+        <section class="col-md-6">
             canva com os status do jogador kk | ou status para jogar
             {% include "pm_app/partials/_canva.html" %}
         </section>
-        {% include "pm_app/partials/_table.html" %}
     </main>
+    {% include "pm_app/partials/_table.html" %}
     <div>
         refazendo todo o main
         <a href="{% url "pm_app:game" %}">
