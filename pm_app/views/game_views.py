@@ -22,7 +22,7 @@ def game(request):
         'questions': data
         
     }
-    return render(request, 'pm_app/game.html', context)
+    return render(request, 'pm_app/game_page/game.html', context)
 
 
 
