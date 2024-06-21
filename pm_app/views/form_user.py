@@ -3,12 +3,6 @@ from django.contrib import auth
 from pm_app.forms import LoginForm, RegisterUser
 from django.contrib.auth.decorators import login_required
 
-def user_view(request, name_user):
-    context = {
-        'title': f'{name_user} - PMA'
-    }
-    return render(request, 'pm_app/pages/user_page/profile.html', context)
-
 def login(request):
     form = LoginForm(request)
 
@@ -47,7 +41,7 @@ def register(request):
 
     return render(request, 'pm_app/pages/form_pages/register.html', context)
 
-@login_required
+@login_required(login_url='pm_app:home')
 def logout_view(request):
     auth.logout(request)
     return redirect('pm_app:login')

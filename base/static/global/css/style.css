@@ -20,6 +20,18 @@
     align-items: center;
 }
 
+/* form */
+.center-form {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-form form {
+    width: 400px;
+}
+
 /* index footer */
 li a {
     text-decoration: none;
