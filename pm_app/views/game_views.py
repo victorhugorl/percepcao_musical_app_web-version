@@ -1,8 +1,9 @@
 from django.shortcuts import render
-
+from django.contrib.auth.decorators import login_required
 from utils import make
 
 
+@login_required(login_url='pm_app:login')
 def game(request):
 
     data = make.make_object_songs() # o date está mandando um array para o javascript

@@ -33,11 +33,11 @@
 }
 
 /* index footer */
-li a {
+.link-bottom a {
     text-decoration: none;
 }
 
-li a:hover {
+.link-bottom a:hover {
     border-bottom: 2px solid var(--table-bg-color);
 }
 
@@ -46,83 +46,9 @@ li a:hover {
     margin-top: 25vh;
 }
 
-/*Main estilo*/
-.bi {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-}
-
-/*
-   * Sidebar
-   */
-
-.sidebar .nav-link {
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-
-.sidebar .nav-link.active {
-    color: #2470dc;
-}
-
-.sidebar-heading {
-    font-size: 0.75rem;
-}
-
-/*
-   * Navbar
-   */
-
-.navbar-brand {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    background-color: rgba(0, 0, 0, 0.25);
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25);
-}
-
-.navbar .form-control {
-    padding: 0.75rem 1rem;
-}
-
-table {
-    min-width: 320px;
-    width: 100%;
-    border-collapse: collapse;
-    border-radius: 5px;
-}
-
-table td,
-table th {
-    white-space: nowrap;
-    padding: 1rem;
-    border: 0.1rem solid white;
-}
-
-canvas {
-    border: 1px solid black;
-}
-
 @media (max-width: 991.98px) {
     .container-form {
         margin: 5rem 5rem 0 5rem;
-    }
-}
-
-@media (max-width: 790.98px) {
-    .wd-1 {
-        font-size: 1.5rem !important;
-    }
-}
-
-@media (min-width: 768px) {
-    .sidebar .offcanvas-lg {
-        position: -webkit-sticky;
-        position: sticky;
-        top: 48px;
-    }
-    .navbar-search {
-        display: block;
     }
 }
 
