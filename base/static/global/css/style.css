@@ -22,17 +22,6 @@
     padding: 1rem;
 }
 
-@media (max-width: 991.98px) {
-    .container-form {
-        margin: 5rem 5rem 0 5rem;
-    }
-}
-
-@media (max-width: 575.98px) {
-    .container-form {
-        margin: 5rem 2rem 0 2rem;
-    }
-}
 /*Index estilo*/
 
 .bg-primary-black {
@@ -74,17 +63,6 @@ li a:hover {
    * Sidebar
    */
 
-@media (min-width: 768px) {
-    .sidebar .offcanvas-lg {
-        position: -webkit-sticky;
-        position: sticky;
-        top: 48px;
-    }
-    .navbar-search {
-        display: block;
-    }
-}
-
 .sidebar .nav-link {
     font-size: 0.875rem;
     font-weight: 500;
@@ -113,12 +91,6 @@ li a:hover {
     padding: 0.75rem 1rem;
 }
 
-@media (max-width: 790.98px) {
-    .wd-1 {
-        font-size: 1.5rem !important;
-    }
-}
-
 table {
     min-width: 320px;
     width: 100%;
@@ -135,4 +107,33 @@ table th {
 
 canvas {
     border: 1px solid black;
+}
+
+@media (max-width: 991.98px) {
+    .container-form {
+        margin: 5rem 5rem 0 5rem;
+    }
+}
+
+@media (max-width: 790.98px) {
+    .wd-1 {
+        font-size: 1.5rem !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .sidebar .offcanvas-lg {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 48px;
+    }
+    .navbar-search {
+        display: block;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .container-form {
+        margin: 5rem 2rem 0 2rem;
+    }
 }
