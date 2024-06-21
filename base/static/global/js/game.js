@@ -45,7 +45,7 @@ data = document.currentScript.dataset;
 questions = data.questions;
 
 // Definindo lugares para trabalhar
-const modal = document.getElementById("#confirm");
+const modal = new bootstrap.Modal(document.getElementById('confirm'));
 const confirmBtn = document.querySelector(".confirm");
 
 const clock = document.querySelector(".clock");
@@ -53,14 +53,17 @@ const textDisplay = document.querySelector(".text-display");
 const continueOrSkip = document.querySelector(".continue-skip");
 const divButtons = document.querySelector(".buttons-div");
 
-console.log(modal);
 
 window.onload = function () {
-    modal.style.display = "block";
+    modal.show()
+ 
 };
 
 confirmBtn.onclick = function () {
-    modal.style.display = "none";
+   modal.hide()
+   audio.play()
+   cron.runClock();
+
 
     // executar o que eu quizer
 };
@@ -74,7 +77,7 @@ audio.currentTime = 0;
 
 // Iniciando cronometro
 cron = new Timer(clock);
-cron.runClock();
+
 
 continueOrSkip.addEventListener("click", (event) => {
     audio.play();
