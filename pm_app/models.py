@@ -1,21 +1,30 @@
 from django.db import models
-
+from django.utils import timezone
 
 
 class User(models.Model):
-    first_name = models.CharField(max_length=150)
-    last_name = models.CharField(max_length=150)
+    name = models.CharField(max_length=150)
     email = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
     salt = models.CharField(max_length=255)
+    created_at = models.DateTimeField(default=timezone.now)
+
+class Note (models.Model):
+    note = models.CharField(max_length=20)
+    audio_file = models.URLField(max_length=200)
     
 
+class Chord (models.Model):
+    chord = models.CharField(max_length=60)
+    audio_file = models.URLField(max_length=200)
+
+class GameType (models.Model):
+    game_type = models.CharField(max_length=50)
 
 
 
-class Jogo(models.Model):
-    jogador = models.ForeignKey(User, on_delete=models.CASCADE)
-    
-
-
-
+class Game(models.Model):
+    player = models.ForeignKey(User, on_delete=models.CASCADE)
+    game_type = models.ForeignKey(GameType, on_delete=models.SET_NULL, blank=True, null=True)
+    completed = models.BooleanField(default=False)
+    ended_at = models.DateField(default='')

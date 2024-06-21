@@ -1,38 +1,29 @@
 from django.shortcuts import render
 
+from utils import make
+
+
 def game(request):
+
+    data = make.make_object_songs() # o date está mandando um array para o javascript
+
+  
+    
+    # verificar o tipo de jogo que ele tem 
+
+    # executar o make_object_songs
+
+    # mandar um array de objetos no context para mandar os dados necessários
+
+    # enviar os links necessários para o devido treinamento 
+
     context = {
-        'title': 'Treinamento'
+        'title': 'Treinamento',
+        'questions': data
+        
     }
     return render(request, 'pm_app/game.html', context)
 
-# def make_object_notes(request):
-#     import random
-#     import json
 
-#     notes = ['A','B','C','D','E','F','G', 'A#','C#','D#','F#','G#']
 
-#     note_list = []
-    
-#     for n in range(1,5):
-#         note = random.choice(notes)
-
-#         while (note in note_list):
-#             note = random.choice(notes)
-        
-#         note_list.append(note)
-
-#     obj_list = []
-#     for note in note_list:
-#         obj_list.append({
-#             'name': note,
-#             'correct': False,
-#         })
-    
-#     # escolhendo uma nota para ser a verdadeira
-#     obj_list[random.randint(0,len(obj_list)-1)]['correct'] = True 
-#     dados = json.dumps(obj_list, indent=2, ensure_ascii=False)
-
-#     print(dados)
-#     return HttpResponse(dados)
 
