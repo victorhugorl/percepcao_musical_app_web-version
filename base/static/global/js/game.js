@@ -40,45 +40,114 @@ class Timer {
     };
 }
 
-// Nome das notas
-data = document.currentScript.dataset;
-questions = data.questions;
+class App {
 
-// Definindo lugares para trabalhar
-const modal = new bootstrap.Modal(document.getElementById('confirm'));
-const confirmBtn = document.querySelector(".confirm");
+    constructor (){
+            // Nome das notas
+        this.data = document.currentScript.dataset;
+        this.questions = this.data.questions;
 
-const clock = document.querySelector(".clock");
-const textDisplay = document.querySelector(".text-display");
-const continueOrSkip = document.querySelector(".continue-skip");
-const divButtons = document.querySelector(".buttons-div");
+        this.currentQuestionIndex = 0;
+        this.score = 0;
+        this.roundIndicator = document.querySelector('.roud-indicator')
+            
+        // Definindo lugares para trabalhar
+        this.popup = new bootstrap.Modal(document.getElementById('confirm'));
+        this.confirmBtn = document.querySelector(".confirm");
+
+        this.clock = document.querySelector(".clock");
+        this.cron = new Timer(this.clock);
+
+        this.textDisplay = document.querySelector(".text-display");
+        this.continueOrSkip = document.querySelector(".continue-skip");
+        this.divButtons = document.querySelector(".buttons-div");
+        this.repeatButton = document.querySelector('.repeat');
+        
+    }
+
+    startApp = () => {
+       
+        this.loadQuestions()
+
+        this.showPopup() // mostra popup de confirmação
+        this.confirmBtn.onclick = () => { //função que fecha o popup 
+            this.popup.hide() 
+            this.startRound() // inicia uma rodada do jogo
+
+        };
+        
+    }
+
+    showPopup = () => {
+        window.onload = () => {
+            this.popup.show()
+         
+        };        
+    }
+
+    startRound = () => {
+        this.textDisplay.innerHTML = "Qual é a nota tocada ?";
+        this.continueOrSkip.innerHTML = 'Pular';
+        
+        this.cron.start()
+
+        
+
+    }
+
+    loadQuestions = () => {
+        let questions = JSON.parse(this.questions);
+        
+        this.updateRoundIndicator(questions)
+
+       
+        if (this.currentQuestionIndex < this.questions.length) {
+            const currentQuestion = questions[this.currentQuestionIndex]
+
+            for(let i = 0; i< this.divButtons; i++) {
+
+            };
+
+        }
+       
+    };
+
+    updateRoundIndicator = (questions) => {
+        this.roundIndicator.innerHTML = `${this.currentQuestionIndex + 1}/${questions.length}`
+    }
+
+    checkAnswer = () => {
+        for(let  i = 0; i < this.divButtons.children.length; i++){
+
+            console.log(this.divButtons.children[i].tagName)
+
+            if(this.divButtons.children[i].tagName == "SPAN") {
+                let button = divButtons.children[i]
+                 
+                button.addEventListener('click', (event) => {
+                    console.log(button.innerHTML)
+                    let selectedOption = button.innerHTML.trim();
+                    console.log(button);
+                    checkAnswer(selectedOption, button );
+                })
+                 
+             }
+         
+        }
+         
+
+    }
+
+}
 
 
-window.onload = function () {
-    modal.show()
- 
-};
-
-confirmBtn.onclick = function () {
-   modal.hide()
-   audio.play()
-   cron.runClock();
+//repeatButton.addEventListener("click", (event) =>{
+  //  audio.currentTime = 0;
+    //audio.play();
+//})
 
 
-    // executar o que eu quizer
-};
 
-textDisplay.innerHTML = "Qual é a nota tocada ?";
+myApp = new App()
 
-// Audio
-
-audio = document.getElementById("my-audio");
-audio.currentTime = 0;
-
-// Iniciando cronometro
-cron = new Timer(clock);
-
-
-continueOrSkip.addEventListener("click", (event) => {
-    audio.play();
-});
+myApp.startApp()
