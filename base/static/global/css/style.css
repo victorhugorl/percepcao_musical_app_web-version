@@ -41,8 +41,10 @@
     border-bottom: 2px solid var(--table-bg-color);
 }
 
-/*Main style*/
-
+/*Main*/
+#id-canva {
+    border: 1px solid red;
+}
 /* Game estilo */
 .m-a {
     margin-top: 25vh;
@@ -51,6 +53,10 @@
 @media (max-width: 991.98px) {
     .container-form {
         margin: 5rem 5rem 0 5rem;
+    }
+    /*Main*/
+    .nav-flex {
+        display: flex;
     }
 }
 
