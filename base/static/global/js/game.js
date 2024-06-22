@@ -68,6 +68,7 @@ class App {
     startApp = () => {
        
         this.loadQuestions()
+       
 
         this.showPopup() // mostra popup de confirmação
         this.confirmBtn.onclick = () => { //função que fecha o popup 
@@ -97,7 +98,7 @@ class App {
 
     loadQuestions = () => {
         let questions = JSON.parse(this.questions);
-        
+        console.log(questions)
         this.updateRoundIndicator(questions)
 
        

@@ -2,11 +2,13 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from utils import make
 
+notes = ['A','B','C','D','E','F','G', 'A#','C#','D#','F#','G#'] # precisa enviar isso de acordo com o tipo de jogo
+
 
 @login_required(login_url='pm_app:login')
 def game(request):
 
-    data = make.make_object_songs() # o date está mandando um array para o javascript
+    data = make.make_object_songs(notes) # o date está mandando um array para o javascript
 
   
     
