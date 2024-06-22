@@ -7,16 +7,9 @@ notes = ['A','B','C','D','E','F','G', 'A#','C#','D#','F#','G#'] # precisa enviar
 
 @login_required(login_url='pm_app:login')
 def game(request):
-
-    data = make.make_object_songs(notes) # o date está mandando um array para o javascript
-
-  
-    
     # verificar o tipo de jogo que ele tem 
 
-    # executar o make_object_songs
-
-    # mandar um array de objetos no context para mandar os dados necessários
+    data = make.make_object_songs(notes) # o date está mandando um array para o javascript
 
     # enviar os links necessários para o devido treinamento 
 

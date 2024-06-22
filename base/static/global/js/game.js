@@ -55,26 +55,27 @@ class App {
         this.popup = new bootstrap.Modal(document.getElementById('confirm'));
         this.confirmBtn = document.querySelector(".confirm");
 
+        this.textDisplay = document.querySelector(".text-display");
+       
         this.clock = document.querySelector(".clock");
         this.cron = new Timer(this.clock);
 
-        this.textDisplay = document.querySelector(".text-display");
-        this.continueOrSkip = document.querySelector(".continue-skip");
         this.divButtons = document.querySelector(".buttons-div");
+        
         this.repeatButton = document.querySelector('.repeat');
+        this.continueOrSkip = document.querySelector(".continue-skip");
         
     }
 
     startApp = () => {
        
-        this.loadQuestions()
-       
+        this.startRound() // inicia uma rodada do jogo
+
 
         this.showPopup() // mostra popup de confirmação
         this.confirmBtn.onclick = () => { //função que fecha o popup 
             this.popup.hide() 
-            this.startRound() // inicia uma rodada do jogo
-
+            this.cron.start() // inicia o cronometro assim que ele diz que está pronto
         };
         
     }
@@ -89,8 +90,10 @@ class App {
     startRound = () => {
         this.textDisplay.innerHTML = "Qual é a nota tocada ?";
         this.continueOrSkip.innerHTML = 'Pular';
+        this.clicked = false
+        this.loadQuestions()
+        this.buttonSkip()
         
-        this.cron.start()
 
         
 
@@ -98,15 +101,25 @@ class App {
 
     loadQuestions = () => {
         let questions = JSON.parse(this.questions);
-        console.log(questions)
         this.updateRoundIndicator(questions)
 
        
         if (this.currentQuestionIndex < this.questions.length) {
             const currentQuestion = questions[this.currentQuestionIndex]
+            console.log(currentQuestion)
+            for(let i = 0; i< this.divButtons.children.length; i++) {
+                const button  = this.divButtons.children[i]
+                button.innerHTML = currentQuestion[i]['name']
+                
+                let correctNote = false
 
-            for(let i = 0; i< this.divButtons; i++) {
+                if (currentQuestion[i]['correct'] === true ){
+                    correctNote = currentQuestion[i]['name']
+                }
 
+                if(this.clicked === false){
+                this.checkAnswer(button, correctNote)
+                }
             };
 
         }
@@ -117,26 +130,50 @@ class App {
         this.roundIndicator.innerHTML = `${this.currentQuestionIndex + 1}/${questions.length}`
     }
 
-    checkAnswer = () => {
-        for(let  i = 0; i < this.divButtons.children.length; i++){
+    checkAnswer = (button, correctNote ) => {     
 
-            console.log(this.divButtons.children[i].tagName)
 
-            if(this.divButtons.children[i].tagName == "SPAN") {
-                let button = divButtons.children[i]
-                 
-                button.addEventListener('click', (event) => {
-                    console.log(button.innerHTML)
-                    let selectedOption = button.innerHTML.trim();
-                    console.log(button);
-                    checkAnswer(selectedOption, button );
-                })
-                 
-             }
-         
-        }
-         
+        button.addEventListener('click', (event) => {
+            let selectedOption = button.innerHTML.trim();
+                
+            
+            if (selectedOption === correctNote && this.clicked === false){
+                this.textDisplay.innerHTML = 'Nota correta!'
+                    // feedback sonoro
+                try{
+                    button.classList.remove('btn-light')
+                }catch (error){
+                    console.log(error)
+                }finally {
+                    button.classList.add('btn-success', 'active')
+                }
+            }if( this.clicked === false && correctNote ==! selectedOption) {
+                this.textDisplay.innerHTML = 'Nota errada!'
+                    // feedback sonoro
+                try{
+                    button.classList.remove('btn-light')
+                }catch (error){
+                    console.log(error)
+                }finally {
+                    button.classList.add('btn-danger', 'active')
+                }
+            }else {
+                // toca o som da nota apertada
+            }
+            this.clicked = true
+            this.continue()
+        })  
+    }
 
+    continue = () => {
+            this.continueOrSkip.innerHTML = 'Continuar'
+    }
+
+    buttonSkip = () => {
+        this.continueOrSkip.addEventListener('click', e =>{
+            
+
+        })
     }
 
 }
