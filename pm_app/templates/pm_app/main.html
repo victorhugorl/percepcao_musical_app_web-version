@@ -2,16 +2,14 @@
 {%block content%}
     {% include "global/partials/_header.html" %}
     <main class="container row">
-        <section class="col-md-6">
-            itens laterais | menus laterais
+        <section class="col-lg-6">
             {% include "pm_app/partials/_nav-itens.html" %}
         </section>
-        <section class="col-md-6">
-            canva com os status do jogador kk | ou status para jogar
+        <section class="col-lg-6">
             {% include "pm_app/partials/_canva.html" %}
         </section>
     </main>
-    {% include "pm_app/partials/_table.html" %}
+    
     <div>
         refazendo todo o main
         <a href="{% url "pm_app:game" %}">
