@@ -2,7 +2,7 @@
 {% load static %}
 {%block content%}
     {% include "global/partials/_header.html" %}
-    <main class="container">
+    <main class="m-3">
         <div class="row">
             <section class="col-lg-3">
                 {% include "pm_app/partials/_nav-itens.html" %}
@@ -13,13 +13,6 @@
         </div>
     </main>
     {% include "pm_app/partials/_table.html" %}
-    
-    <div>
-        refazendo todo o main
-        <a href="{% url "pm_app:game" %}">
-            Ir para o game
-        </a>
-    </div>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="{% static "global/js/charts_google.js" %}"></script>
