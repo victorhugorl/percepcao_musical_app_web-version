@@ -45,11 +45,12 @@ class App {
     constructor (){
             // Nome das notas
         this.data = document.currentScript.dataset;
-        this.questions = this.data.questions;
+        let questions = this.data.questions;
+        this.questions = JSON.parse(questions)
 
         this.currentQuestionIndex = 0;
         this.score = 0;
-        this.roundIndicator = document.querySelector('.roud-indicator')
+        this.roundIndicator = document.querySelector('.roud-indicator');
             
         // Definindo lugares para trabalhar
         this.popup = new bootstrap.Modal(document.getElementById('confirm'));
@@ -69,13 +70,14 @@ class App {
 
     startApp = () => {
        
-        this.startRound() // inicia uma rodada do jogo
+        this.startRound(); // inicia uma rodada do jogo
 
 
-        this.showPopup() // mostra popup de confirmação
+        this.showPopup(); // mostra popup de confirmação
         this.confirmBtn.onclick = () => { //função que fecha o popup 
-            this.popup.hide() 
-            this.cron.start() // inicia o cronometro assim que ele diz que está pronto
+            this.popup.hide(); 
+            this.cron.start(); // inicia o cronometro assim que ele diz que está pronto
+            this.buttonSkip()
         };
         
     }
@@ -90,9 +92,9 @@ class App {
     startRound = () => {
         this.textDisplay.innerHTML = "Qual é a nota tocada ?";
         this.continueOrSkip.innerHTML = 'Pular';
-        this.clicked = false
-        this.loadQuestions()
-        this.buttonSkip()
+        this.clicked = false;
+        this.loadQuestions();
+        this.repeat();
         
 
         
@@ -100,26 +102,26 @@ class App {
     }
 
     loadQuestions = () => {
-        let questions = JSON.parse(this.questions);
-        this.updateRoundIndicator(questions)
+        ;
+        this.updateRoundIndicator(this.questions);
 
        
         if (this.currentQuestionIndex < this.questions.length) {
-            const currentQuestion = questions[this.currentQuestionIndex]
-            console.log(currentQuestion)
+            const currentQuestion = this.questions[this.currentQuestionIndex];
+            
             for(let i = 0; i< this.divButtons.children.length; i++) {
                 const button  = this.divButtons.children[i]
                 button.innerHTML = currentQuestion[i]['name']
                 
-                let correctNote = false
+                this.correctNote = false;
 
                 if (currentQuestion[i]['correct'] === true ){
-                    correctNote = currentQuestion[i]['name']
-                }
+                    this.correctNote = currentQuestion[i]['name']
+                };
 
                 if(this.clicked === false){
-                this.checkAnswer(button, correctNote)
-                }
+                this.checkAnswer(button)
+                };
             };
 
         }
@@ -130,14 +132,14 @@ class App {
         this.roundIndicator.innerHTML = `${this.currentQuestionIndex + 1}/${questions.length}`
     }
 
-    checkAnswer = (button, correctNote ) => {     
+    checkAnswer = (button) => {     
 
 
         button.addEventListener('click', (event) => {
             let selectedOption = button.innerHTML.trim();
                 
             
-            if (selectedOption === correctNote && this.clicked === false){
+            if (selectedOption === this.correctNote && this.clicked === false){
                 this.textDisplay.innerHTML = 'Nota correta!'
                     // feedback sonoro
                 try{
@@ -147,7 +149,7 @@ class App {
                 }finally {
                     button.classList.add('btn-success', 'active')
                 }
-            }if( this.clicked === false && correctNote ==! selectedOption) {
+            }if( this.clicked === false && this.correctNote ==! selectedOption) {
                 this.textDisplay.innerHTML = 'Nota errada!'
                     // feedback sonoro
                 try{
@@ -172,18 +174,35 @@ class App {
     buttonSkip = () => {
         this.continueOrSkip.addEventListener('click', e =>{
             
+            if (this.currentQuestionIndex < this.questions.length ) this.currentQuestionIndex +=1  ;
+            console.log(this.currentQuestionIndex)
+
+            console.log(this.questions.length)
+            if (this.clicked === true ) {
+                for(let i = 0; i< this.divButtons.children.length; i++) {
+                    const button  = this.divButtons.children[i]
+                    button.classList.remove('btn-danger', 'active', 'btn-success');
+                    button.classList.add('btn-light')
+                };    
+            }
+            if (this.currentQuestionIndex >= this.questions.length -1){
+                this.continueOrSkip.innerHTML = 'finalizar'
+            }
+            this.startRound();
 
         })
+    }
+    repeat= () => { 
+        this.repeatButton.addEventListener("click", (event) =>{
+        // audio.currentTime = 0;
+        // audio.play();
+      })
     }
 
 }
 
 
-//repeatButton.addEventListener("click", (event) =>{
-  //  audio.currentTime = 0;
-    //audio.play();
-//})
-
+//
 
 
 myApp = new App()
