@@ -109,15 +109,25 @@
     </section>
     
 
-                        
-<audio id="my-audio">
-    <source src="{% static "global/aud/notes/C5.wav" %}" type="audio/wav">
-    Your browser does not support the audio element.
-</audio>
-
+<div class='audio'>                    
+    <audio id="my-audio">
+        <source src="{% static "global/aud/notes/C5.wav" %}" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+</div>
   <script 
   src="{% static "global/js/game.js" %}"
   defer
   data-questions="{{questions}}"
   ></script>
+
+<div class='audios'>
+    {% for song, name in audio %}
+        <audio class='audio' id="{{name}}">
+        <source src="{%static song %}" type="audio/wav">
+        Your browser does not support the audio element.
+        </audio>
+    {% endfor %}
+</div>
+
 {%endblock content%}

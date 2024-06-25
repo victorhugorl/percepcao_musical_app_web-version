@@ -70,14 +70,15 @@ class App {
 
     startApp = () => {
        
-        this.startRound(); // inicia uma rodada do jogo
-
-
+       
         this.showPopup(); // mostra popup de confirmação
         this.confirmBtn.onclick = () => { //função que fecha o popup 
             this.popup.hide(); 
+            this.startRound() ; // inicia uma rodada do jogo
             this.cron.start(); // inicia o cronometro assim que ele diz que está pronto
             this.buttonSkip()
+         
+
         };
         
     }
@@ -94,7 +95,12 @@ class App {
         this.continueOrSkip.innerHTML = 'Pular';
         this.clicked = false;
         this.loadQuestions();
+        this.playNote();
+
+        
+
         this.repeat();
+        
         
 
         
@@ -113,17 +119,17 @@ class App {
                 const button  = this.divButtons.children[i]
                 button.innerHTML = currentQuestion[i]['name']
                 
-                this.correctNote = false;
 
                 if (currentQuestion[i]['correct'] === true ){
                     this.correctNote = currentQuestion[i]['name']
+                    console.log(this.correctNote)
+                    this.note = document.getElementById(this.correctNote)
                 };
-
                 if(this.clicked === false){
-                this.checkAnswer(button)
-                };
-            };
-
+                    this.checkAnswer(button)
+                    };
+                
+            } 
         }
        
     };
@@ -138,29 +144,31 @@ class App {
         button.addEventListener('click', (event) => {
             let selectedOption = button.innerHTML.trim();
                 
+            console.log(selectedOption)
+            console.log(this.correctNote)
             
-            if (selectedOption === this.correctNote && this.clicked === false){
+            if (selectedOption == this.correctNote && this.clicked === false){
                 this.textDisplay.innerHTML = 'Nota correta!'
                     // feedback sonoro
                 try{
                     button.classList.remove('btn-light')
                 }catch (error){
                     console.log(error)
-                }finally {
-                    button.classList.add('btn-success', 'active')
                 }
-            }if( this.clicked === false && this.correctNote ==! selectedOption) {
+                
+                button.classList.add('btn-success', 'active')
+                
+            };
+            if( this.clicked === false && this.correctNote ==! selectedOption) {
                 this.textDisplay.innerHTML = 'Nota errada!'
                     // feedback sonoro
                 try{
                     button.classList.remove('btn-light')
                 }catch (error){
                     console.log(error)
-                }finally {
-                    button.classList.add('btn-danger', 'active')
                 }
-            }else {
-                // toca o som da nota apertada
+                
+                button.classList.add('btn-danger', 'active')
             }
             this.clicked = true
             this.continue()
@@ -169,15 +177,17 @@ class App {
 
     continue = () => {
             this.continueOrSkip.innerHTML = 'Continuar'
+            if (this.currentQuestionIndex >= this.questions.length -1){
+                this.continueOrSkip.innerHTML = 'finalizar'
+            }
     }
 
     buttonSkip = () => {
         this.continueOrSkip.addEventListener('click', e =>{
             
-            if (this.currentQuestionIndex < this.questions.length ) this.currentQuestionIndex +=1  ;
+            if (this.currentQuestionIndex < this.questions.length -1 ) this.currentQuestionIndex +=1  ;
             console.log(this.currentQuestionIndex)
 
-            console.log(this.questions.length)
             if (this.clicked === true ) {
                 for(let i = 0; i< this.divButtons.children.length; i++) {
                     const button  = this.divButtons.children[i]
@@ -185,19 +195,23 @@ class App {
                     button.classList.add('btn-light')
                 };    
             }
-            if (this.currentQuestionIndex >= this.questions.length -1){
-                this.continueOrSkip.innerHTML = 'finalizar'
-            }
+            
             this.startRound();
 
         })
     }
+    playNote = () =>{
+        this.note.currentTime = 0
+        this.note.play()
+
+    }
     repeat= () => { 
         this.repeatButton.addEventListener("click", (event) =>{
-        // audio.currentTime = 0;
-        // audio.play();
+         this.note.currentTime = 0;
+         this.note.play();
       })
     }
+
 
 }
 
