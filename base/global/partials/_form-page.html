@@ -24,11 +24,18 @@
             <input type="checkbox" class="form-check-input" id="passwordShow" onclick="showPass()">
             <label for="passwordShow">Mostrar senha</label>
         </div>
-        <div>
+        <div class="pb-2">
             <button class="btn btn-primary form-control" type="submit">
                 {{ btn_message }}
             </button>
         </div>
+        {% if btn_message == 'Logar' %}
+            <span>Não tem uma conta?</span>
+            <a href="{% url "pm_app:register" %}">Registrar-se</a>
+        {% else %}
+            <span>Já tem uma conta?</span>
+            <a href="{% url "pm_app:login" %}">Login</a>
+        {% endif %}
     </form>
     <script>
         function showPass() {
