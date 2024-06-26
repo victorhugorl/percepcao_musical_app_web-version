@@ -1,19 +1,22 @@
 const ctx = document.getElementById("id-canva");
 
 new Chart(ctx, {
+    // tipo de grafico
     type: "bar",
     data: {
-        labels: ["Tempo", "Acertos", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["Tempo", "Acertos", "Pontos"],
         datasets: [
             {
-                label: "level status",
-                data: [8, 9, 3, 5, 2, 3],
+                label: "Desempenho semanal",
+                // esses pontos terar um calculo por tras
+                data: [8, 9, 3],
                 borderWidth: 1
             }
         ]
     },
     options: {
         scales: {
+            // da pra mudar outros tipos de config
             y: {
                 beginAtZero: true
             }
