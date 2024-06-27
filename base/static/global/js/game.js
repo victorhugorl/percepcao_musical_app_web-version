@@ -49,7 +49,7 @@ class App {
 
         this.currentQuestionIndex = 0;
         this.score = 0;
-        this.roundIndicator = document.querySelector(".roud-indicator");
+        this.roundIndicator = document.querySelector("p.round-indicator");
 
         // Definindo lugares para trabalhar
         this.popup = new bootstrap.Modal(document.getElementById("confirm"));
@@ -60,10 +60,11 @@ class App {
         this.clock = document.querySelector(".clock");
         this.cron = new Timer(this.clock);
 
-        this.divButtons = document.querySelector(".buttons-div");
+        // lista de buttões
+        this.divButtons = document.querySelector("div.buttons-div");
 
-        this.repeatButton = document.querySelector(".repeat");
-        this.continueOrSkip = document.querySelector(".continue-skip");
+        this.repeatButton = document.querySelector("span.repeat");
+        this.continueOrSkip = document.querySelector("span.continue-skip");
     }
 
     startApp = () => {
@@ -159,6 +160,12 @@ class App {
         this.continueOrSkip.innerHTML = "Continuar";
         if (this.currentQuestionIndex >= this.questions.length - 1) {
             this.continueOrSkip.innerHTML = "finalizar";
+            // aqui gerou uma coleção que vira um for bem dizer skss
+            var btnsCollection = this.divButtons.children;
+            Array.from(btnsCollection).forEach((element) => {
+                element.classList.add("disabled");
+            });
+            this.cron.pause();
         }
     };
 
