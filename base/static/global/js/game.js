@@ -64,6 +64,9 @@ class App {
         this.clock = document.querySelector(".clock");
         this.cron = new Timer(this.clock);
 
+        // acertos e time
+        this.corrects = 0;
+
         // lista de buttões
         this.divButtons = document.querySelector("div.buttons-div");
 
@@ -138,11 +141,12 @@ class App {
         button.addEventListener("click", (event) => {
             let selectedOption = button.innerHTML.trim();
 
-            console.log(selectedOption);
-            console.log(this.correctNote);
+            // console.log(selectedOption);
+            // console.log(this.correctNote);
 
             if (selectedOption == this.correctNote && this.clicked === false) {
                 this.textDisplay.innerHTML = "Nota correta!";
+                this.corrects++;
                 // feedback sonoro
                 try {
                     button.classList.remove("btn-light");
@@ -169,24 +173,6 @@ class App {
     };
 
     continue = () => {
-        // vo cancelar essa mas vou deixar aqui perinquanto
-        // if (this.continueOrSkip.innerText == "finalizar") {
-        //     // Fazendo uma imaginação
-        //     fetch("http://127.0.0.1:8000/main/", {
-        //         method: "POST",
-        //         headers: {
-        //             Accept: "application/json",
-        //             "Content-Type": "application/json"
-        //         },
-        //         body: `{
-        //             "id": 0,
-        //             "time": "${this.cron.clock}",
-        //             "corrects": 10
-        //         }`
-        //     })
-        //         .then((response) => response.json())
-        //         .then((response) => console.log(JSON.stringify(response)));
-        // }
         this.continueOrSkip.innerHTML = "Continuar";
         if (this.currentQuestionIndex >= this.questions.length - 1) {
             this.continueOrSkip.innerHTML = "finalizar";
@@ -195,16 +181,13 @@ class App {
             });
             this.repeatButton.classList.add("disabled");
             this.continueOrSkip.classList.add("disabled");
-            this.cron.pause(); // pausa o jogo aqui... da pra salvar os dados (TEMPO e ACERTOS)
-            // window.location.href = "http://127.0.0.1:8000/main/"; // possivel post aqui
-            // Vou ajeitar isso ainda ksks
-            const timeTest = document.querySelector("input#timeSave");
-            const acertosTest = document.querySelector("input#acertoSave");
-            // da pra fazer os segundos aqui e os acertos
-            acertosTest.value = 10;
-            timeTest.value = 30;
+            this.cron.pause();
+
+            const timeInput = document.querySelector("input#timeSave");
+            const correctInput = document.querySelector("input#acertoSave");
+            correctInput.value = this.corrects;
+            timeInput.value = this.clock.innerText;
             this.popupConcluded.show();
-            // vou refatorar essa parada depois
         }
     };
 
@@ -240,8 +223,6 @@ class App {
         });
     };
 }
-
-//
 
 myApp = new App();
 

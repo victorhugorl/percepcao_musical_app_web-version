@@ -16,20 +16,27 @@ def index(request):
 @login_required(login_url='pm_app:login')
 def main(request):
     if request.method == "POST":
-        # teste
         profile = get_object_or_404(Profile, user=request.user)
-        acerto = request.POST.get('acertos', '').strip()
+        correct_aswners = request.POST.get('acertos', '').strip()
         time = request.POST.get('time', '').strip()
         context = {
             'title': 'Menu Principal - PMA',
             'profile': profile,
-            'data': [time, acerto]
+            'data': {
+                'time': time,
+                'corrects': correct_aswners
+            }
         }
         return render(request, 'pm_app/main.html', context)
+    # depois e so ajeitar o back ou model profile
     profile = get_object_or_404(Profile, user=request.user)
     context = {
         'title': 'Menu Principal - PMA',
-        'profile': profile
+        'profile': profile,
+        'data': {
+            'time': '00:00:00',
+            'corrects': 0
+        }
     }
 
     return render(request, 'pm_app/main.html', context)
