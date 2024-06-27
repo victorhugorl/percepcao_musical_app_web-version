@@ -16,11 +16,14 @@ def index(request):
 @login_required(login_url='pm_app:login')
 def main(request):
     if request.method == "POST":
+        # teste
         profile = get_object_or_404(Profile, user=request.user)
+        acerto = request.POST.get('acertos', '').strip()
+        time = request.POST.get('time', '').strip()
         context = {
             'title': 'Menu Principal - PMA',
             'profile': profile,
-            'data': 'data'
+            'data': [time, acerto]
         }
         return render(request, 'pm_app/main.html', context)
     profile = get_object_or_404(Profile, user=request.user)

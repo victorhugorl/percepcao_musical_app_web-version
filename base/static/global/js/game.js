@@ -53,6 +53,10 @@ class App {
 
         // Definindo lugares para trabalhar
         this.popup = new bootstrap.Modal(document.getElementById("confirm"));
+        // popup final
+        this.popupConcluded = new bootstrap.Modal(
+            document.getElementById("concluded")
+        );
         this.confirmBtn = document.querySelector(".confirm");
 
         this.textDisplay = document.querySelector(".text-display");
@@ -165,6 +169,7 @@ class App {
     };
 
     continue = () => {
+        // vo cancelar essa mas vou deixar aqui perinquanto
         // if (this.continueOrSkip.innerText == "finalizar") {
         //     // Fazendo uma imaginação
         //     fetch("http://127.0.0.1:8000/main/", {
@@ -189,8 +194,17 @@ class App {
                 element.classList.add("disabled");
             });
             this.repeatButton.classList.add("disabled");
+            this.continueOrSkip.classList.add("disabled");
             this.cron.pause(); // pausa o jogo aqui... da pra salvar os dados (TEMPO e ACERTOS)
             // window.location.href = "http://127.0.0.1:8000/main/"; // possivel post aqui
+            // Vou ajeitar isso ainda ksks
+            const timeTest = document.querySelector("input#timeSave");
+            const acertosTest = document.querySelector("input#acertoSave");
+            // da pra fazer os segundos aqui e os acertos
+            acertosTest.value = 10;
+            timeTest.value = 30;
+            this.popupConcluded.show();
+            // vou refatorar essa parada depois
         }
     };
 

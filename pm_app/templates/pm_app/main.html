@@ -12,7 +12,9 @@
             </section>
         </div>
     </main>
-    <h1>{{ data }}</h1>
+    {% for item in data %}
+        <h1>{{ item }}</h1>
+    {% endfor %}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{% static "global/js/charts.js" %}"></script>
 {%endblock content%}
