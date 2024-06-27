@@ -100,19 +100,27 @@ class App {
         if (this.currentQuestionIndex < this.questions.length) {
             const currentQuestion = this.questions[this.currentQuestionIndex];
 
-            for (let i = 0; i < this.divButtons.children.length; i++) {
-                const button = this.divButtons.children[i];
-                button.innerHTML = currentQuestion[i]["name"];
+            Array.from(this.divButtons.children).forEach((element, index) => {
+                console.log(element, index);
+                element.innerHTML = currentQuestion[index]["name"];
 
-                if (currentQuestion[i]["correct"] === true) {
-                    this.correctNote = currentQuestion[i]["name"];
-                    console.log(this.correctNote);
+                // testando essa
+                if (currentQuestion[index]["correct"]) {
+                    this.correctNote = currentQuestion[index]["name"];
                     this.note = document.getElementById(this.correctNote);
+                } else {
+                    this.checkAnswer(element);
                 }
-                if (this.clicked === false) {
-                    this.checkAnswer(button);
-                }
-            }
+            });
+            // pq esse === True e não usar um if else
+            // if (currentQuestion[index]["correct"] === true) {
+            //     this.correctNote = currentQuestion[index]["name"];
+            //     console.log(this.correctNote);
+            //     this.note = document.getElementById(this.correctNote);
+            // }
+            // if (this.clicked === false) {
+            //     this.checkAnswer(element);
+            // }
         }
     };
 
@@ -157,15 +165,32 @@ class App {
     };
 
     continue = () => {
+        // if (this.continueOrSkip.innerText == "finalizar") {
+        //     // Fazendo uma imaginação
+        //     fetch("http://127.0.0.1:8000/main/", {
+        //         method: "POST",
+        //         headers: {
+        //             Accept: "application/json",
+        //             "Content-Type": "application/json"
+        //         },
+        //         body: `{
+        //             "id": 0,
+        //             "time": "${this.cron.clock}",
+        //             "corrects": 10
+        //         }`
+        //     })
+        //         .then((response) => response.json())
+        //         .then((response) => console.log(JSON.stringify(response)));
+        // }
         this.continueOrSkip.innerHTML = "Continuar";
         if (this.currentQuestionIndex >= this.questions.length - 1) {
             this.continueOrSkip.innerHTML = "finalizar";
-            // aqui gerou uma coleção que vira um for bem dizer skss
-            var btnsCollection = this.divButtons.children;
-            Array.from(btnsCollection).forEach((element) => {
+            Array.from(this.divButtons.children).forEach((element) => {
                 element.classList.add("disabled");
             });
-            this.cron.pause();
+            this.repeatButton.classList.add("disabled");
+            this.cron.pause(); // pausa o jogo aqui... da pra salvar os dados (TEMPO e ACERTOS)
+            // window.location.href = "http://127.0.0.1:8000/main/"; // possivel post aqui
         }
     };
 

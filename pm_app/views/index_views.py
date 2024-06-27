@@ -15,6 +15,14 @@ def index(request):
 
 @login_required(login_url='pm_app:login')
 def main(request):
+    if request.method == "POST":
+        profile = get_object_or_404(Profile, user=request.user)
+        context = {
+            'title': 'Menu Principal - PMA',
+            'profile': profile,
+            'data': 'data'
+        }
+        return render(request, 'pm_app/main.html', context)
     profile = get_object_or_404(Profile, user=request.user)
     context = {
         'title': 'Menu Principal - PMA',
