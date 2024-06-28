@@ -17,8 +17,10 @@ def index(request):
 def main(request):
     if request.method == "POST":
         profile = get_object_or_404(Profile, user=request.user)
+
         correct_aswners = request.POST.get('acertos', '').strip()
         time = request.POST.get('time', '').strip()
+        
         context = {
             'title': 'Menu Principal - PMA',
             'profile': profile,
