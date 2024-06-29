@@ -107,13 +107,13 @@ class App {
         if (this.currentQuestionIndex < this.questions.length) {
             const currentQuestion = this.questions[this.currentQuestionIndex];
 
-            Array.from(this.divButtons.children).forEach((element, index) => {
-                console.log(element, index);
-                element.innerHTML = currentQuestion[index]["name"];
+            Array.from(this.divButtons.children).forEach((element, indic) => {
+                console.log(element, indic);
+                element.innerHTML = currentQuestion[indic]["name"];
 
                 // testando essa
-                if (currentQuestion[index]["correct"]) {
-                    this.correctNote = currentQuestion[index]["name"];
+                if (currentQuestion[indic]["correct"]) {
+                    this.correctNote = currentQuestion[indic]["name"];
                     this.note = document.getElementById(this.correctNote);
                 } else {
                     this.checkAnswer(element);
