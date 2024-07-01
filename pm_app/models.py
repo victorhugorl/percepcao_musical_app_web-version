@@ -3,6 +3,15 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+class WeeklyInformation(models.Model):
+    # informação semanal de cada pessoa
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    offensive = models.IntegerField(default=0)
+    conclusion = models.IntegerField(default=0)
+    points = models.IntegerField(default=0)
+    hits = models.IntegerField(default=0)
+    time = models.IntegerField(default=0)
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
