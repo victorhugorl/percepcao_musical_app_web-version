@@ -1,0 +1,135 @@
+{%extends 'global/base.html'%}
+{%load static%}
+{%block content %}
+    <main class="container">
+        <div class="p-1"> <!-- pequeno contador -->
+            <a href="#" class="fs-4 float-start link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" data-bs-toggle="modal"
+            data-bs-target="#exitGame">Sair do jogo</a>
+            <p class="text-end fs-4 round-indicator"></p>
+        </div>
+
+        <div
+            class="modal fade"
+            id="confirm"
+            tabindex="-1"
+            aria-labelledby="confirmExit"
+            aria-hidden="true"
+        >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                </div>
+                <div class="modal-body text-center">
+                    <h1>Está pronto ?</h1>
+                </div>
+                <div class="modal-footer d-flex justify-content-around">
+                    <span type="button" class="btn btn-primary btn-lg confirm" >
+                        Sim
+                    </span>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        <div
+            class="modal fade"
+            id="exitGame"
+            tabindex="-1"
+            aria-labelledby="confirmExit"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <h1>Voltar para o menu principal?</h1>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-around">
+                        <a type="button" class="btn btn-primary btn-lg" href="/main">
+                            SIM
+                        </a>
+                        <button
+                            type="button"
+                            class="btn btn-primary btn-lg"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        >
+                            NÃO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="concluded" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form action="{% url "pm_app:main" %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" id="timeSave" name="time">
+                            <input type="hidden" id="acertoSave" name="acertos">
+                            <button type="submit" class="btn btn-primary form-control">Finalizar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="mt-6">
+            <div>
+                <h3 class="text-center fs-1 p-5 text-display"></h3>
+            </div>
+            <div class="bg-primary-black p-2 rounded">
+                <!-- Ainda to ajeitando o media queries -->
+                <div class="row p-4 buttons-div d-flex justify-content-evenly">
+                    <span class="btn btn-light btn-lg col-md-2"></span>
+                    <span class="btn btn-light btn-lg col-md-2"></span>
+                    <span class="btn btn-light btn-lg col-md-2"></span>
+                    <span class="btn btn-light btn-lg col-md-2"></span> 
+                </div>
+                <div class="row p-4">
+                    <div class="col-md-4 text-center">
+                        <span class="btn btn-light px-5 btn-lg repeat">repetir</span>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <span class="btn btn-outline-light disabled px-5 btn-lg clock">00:00:00</span>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <span class="btn btn-light px-5 btn-lg continue-skip">Pular</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <div class='audio'>                    
+        <audio id="my-audio">
+            <source src="{% static "global/aud/notes/C5.wav" %}" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    <script 
+    src="{% static "global/js/game.js" %}"
+    defer
+    data-questions="{{questions}}"
+    ></script>
+
+    <div class='audios'>
+        {% for song, name in audio %}
+            <audio class='audio' id="{{name}}">
+            <source src="{%static song %}" type="audio/wav">
+            Your browser does not support the audio element.
+            </audio>
+        {% endfor %}
+    </div>
+
+{%endblock content%}

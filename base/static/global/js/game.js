@@ -1,5 +1,3 @@
-import { createQuestions } from "./modules/questions";
-
 class Timer {
     constructor(clock) {
         this.clock = clock;
@@ -42,50 +40,190 @@ class Timer {
     };
 }
 
-// Nome das notas
+class App {
+    constructor() {
+        // Nome das notas
+        this.data = document.currentScript.dataset;
+        let questions = this.data.questions;
+        this.questions = JSON.parse(questions);
 
-// Definindo lugares para trabalhar
-const clock = document.querySelector(".clock");
-const textDisplay = document.querySelector(".text-display");
-const continueOrSkip = document.querySelector(".continue-skip");
-const divButtons = document.querySelector(".buttons-div");
+        this.currentQuestionIndex = 0;
+        this.score = 0;
+        this.roundIndicator = document.querySelector("p.round-indicator");
 
-textDisplay.innerHTML = "Qual é a nota tocada ?";
+        // Definindo lugares para trabalhar
+        this.popup = new bootstrap.Modal(document.getElementById("confirm"));
+        // popup final
+        this.popupConcluded = new bootstrap.Modal(
+            document.getElementById("concluded")
+        );
+        this.confirmBtn = document.querySelector(".confirm");
 
-console.log(divButtons);
+        this.textDisplay = document.querySelector(".text-display");
 
-// Audio
+        this.clock = document.querySelector(".clock");
+        this.cron = new Timer(this.clock);
 
-audio = document.getElementById("my-audio");
-console.log(audio);
-audio.currentTime = 0;
-audio.play();
+        // acertos e time
+        this.corrects = 0;
 
-// Iniciando cronometro
-cron = new Timer(clock);
-cron.runClock();
+        // lista de buttões
+        this.divButtons = document.querySelector("div.buttons-div");
 
-console.log(continueOrSkip);
-continueOrSkip.addEventListener("click", (event) => {
-    audio.play();
-});
+        this.repeatButton = document.querySelector("span.repeat");
+        this.continueOrSkip = document.querySelector("span.continue-skip");
+    }
 
-console.log(" está vindo para cá ?");
+    startApp = () => {
+        this.showPopup(); // mostra popup de confirmação
+        this.confirmBtn.onclick = () => {
+            //função que fecha o popup
+            this.popup.hide();
+            this.startRound(); // inicia uma rodada do jogo
+            this.cron.start(); // inicia o cronometro assim que ele diz que está pronto
+            this.buttonSkip();
+        };
+    };
 
-let note_list = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "A#",
-    "C#",
-    "D#",
-    "F#",
-    "G#"
-];
+    showPopup = () => {
+        window.onload = () => {
+            this.popup.show();
+        };
+    };
 
-console.log(createQuestions(note_list, 4));
-console.log("Funciona essa mizera omi");
+    startRound = () => {
+        this.textDisplay.innerHTML = "Qual é a nota tocada ?";
+        this.continueOrSkip.innerHTML = "Pular";
+        this.clicked = false;
+        this.loadQuestions();
+        this.playNote();
+
+        this.repeat();
+    };
+
+    loadQuestions = () => {
+        this.updateRoundIndicator(this.questions);
+
+        if (this.currentQuestionIndex < this.questions.length) {
+            const currentQuestion = this.questions[this.currentQuestionIndex];
+
+            Array.from(this.divButtons.children).forEach((element, indic) => {
+                console.log(element, indic);
+                element.innerHTML = currentQuestion[indic]["name"];
+
+                // testando essa
+                if (currentQuestion[indic]["correct"]) {
+                    this.correctNote = currentQuestion[indic]["name"];
+                    this.note = document.getElementById(this.correctNote);
+                } else {
+                    this.checkAnswer(element);
+                }
+            });
+            // pq esse === True e não usar um if else
+            // if (currentQuestion[index]["correct"] === true) {
+            //     this.correctNote = currentQuestion[index]["name"];
+            //     console.log(this.correctNote);
+            //     this.note = document.getElementById(this.correctNote);
+            // }
+            // if (this.clicked === false) {
+            //     this.checkAnswer(element);
+            // }
+        }
+    };
+
+    updateRoundIndicator = (questions) => {
+        this.roundIndicator.innerHTML = `${this.currentQuestionIndex + 1}/${
+            questions.length
+        }`;
+    };
+
+    checkAnswer = (button) => {
+        button.addEventListener("click", (event) => {
+            let selectedOption = button.innerHTML.trim();
+
+            // console.log(selectedOption);
+            // console.log(this.correctNote);
+
+            if (selectedOption == this.correctNote && this.clicked === false) {
+                this.textDisplay.innerHTML = "Nota correta!";
+                this.corrects++;
+                // feedback sonoro
+                try {
+                    button.classList.remove("btn-light");
+                } catch (error) {
+                    console.log(error);
+                }
+
+                button.classList.add("btn-success", "active");
+            }
+            if (this.clicked === false && this.correctNote == !selectedOption) {
+                this.textDisplay.innerHTML = "Nota errada!";
+                // feedback sonoro
+                try {
+                    button.classList.remove("btn-light");
+                } catch (error) {
+                    console.log(error);
+                }
+
+                button.classList.add("btn-danger", "active");
+            }
+            this.clicked = true;
+            this.continue();
+        });
+    };
+
+    continue = () => {
+        this.continueOrSkip.innerHTML = "Continuar";
+        if (this.currentQuestionIndex >= this.questions.length - 1) {
+            this.continueOrSkip.innerHTML = "finalizar";
+            Array.from(this.divButtons.children).forEach((element) => {
+                element.classList.add("disabled");
+            });
+            this.repeatButton.classList.add("disabled");
+            this.continueOrSkip.classList.add("disabled");
+            this.cron.pause();
+
+            const timeInput = document.querySelector("input#timeSave");
+            const correctInput = document.querySelector("input#acertoSave");
+            correctInput.value = this.corrects;
+            timeInput.value = this.clock.innerText;
+            this.popupConcluded.show();
+        }
+    };
+
+    buttonSkip = () => {
+        this.continueOrSkip.addEventListener("click", (e) => {
+            if (this.currentQuestionIndex < this.questions.length - 1)
+                this.currentQuestionIndex += 1;
+            console.log(this.currentQuestionIndex);
+
+            if (this.clicked === true) {
+                for (let i = 0; i < this.divButtons.children.length; i++) {
+                    const button = this.divButtons.children[i];
+                    button.classList.remove(
+                        "btn-danger",
+                        "active",
+                        "btn-success"
+                    );
+                    button.classList.add("btn-light");
+                }
+            }
+
+            this.startRound();
+        });
+    };
+    playNote = () => {
+        this.note.currentTime = 0;
+        this.note.play();
+    };
+    repeat = () => {
+        this.repeatButton.addEventListener("click", (event) => {
+            this.note.currentTime = 0;
+            this.note.play();
+        });
+    };
+}
+
+myApp = new App();
+
+myApp.startApp();
