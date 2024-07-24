@@ -110,34 +110,8 @@ class App {
 
         if (this.currentQuestionIndex < this.questions.length) {
             const currentQuestion = this.questions[this.currentQuestionIndex];
-<<<<<<< HEAD
-        
+            // ouve botoes
             this.listenButtons(currentQuestion)
-            
-=======
-
-            Array.from(this.divButtons.children).forEach((element, indic) => {
-                console.log(element, indic);
-                element.innerHTML = currentQuestion[indic]["name"];
-
-                // testando essa
-                if (currentQuestion[indic]["correct"]) {
-                    this.correctNote = currentQuestion[indic]["name"];
-                    this.note = document.getElementById(this.correctNote);
-                } else {
-                    this.checkAnswer(element);
-                }
-            });
->>>>>>> 0478f85ee0c9aabda5886f1d91856a6c0c6c4e2f
-            // pq esse === True e não usar um if else
-            // if (currentQuestion[index]["correct"] === true) {
-            //     this.correctNote = currentQuestion[index]["name"];
-            //     console.log(this.correctNote);
-            //     this.note = document.getElementById(this.correctNote);
-            // }
-            // if (this.clicked === false) {
-            //     this.checkAnswer(element);
-            // }
         }
     };
 
