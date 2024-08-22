@@ -1,14 +1,15 @@
 import { useState } from "react";
 
-import "./assets/css/Index.css";
-
 export default () => {
     const [message, setMessage] = useState("Clique no botão");
 
     const fetchHelloWorld = () => {
         fetch("http://127.0.0.1:8000/api/hello/")
             .then((response) => {
-                console.log(response.json());
+                return response.json();
+            })
+            .then((result) => {
+                setMessage(result.message);
             })
             .catch((error) => {
                 setMessage(`Error ${error}`);
