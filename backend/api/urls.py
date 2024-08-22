@@ -3,14 +3,14 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 # utilizando a views para a api e criando urls
 from rest_framework import routers
-from . import viewSets 
+from . import view_sets 
 
 
 route = routers.DefaultRouter()
 
 
-route.register(r'note', viewSets.NoteViewSet,)
-route.register(r'user',viewSets.UserViewSet,)
+route.register(r'note', view_sets.NoteViewSet,)
+route.register(r'user',view_sets.UserViewSet,)
 
 
 
