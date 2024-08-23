@@ -95,6 +95,8 @@ main {
 /* Estilizando Index */
 .article-index {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .secondary-span {

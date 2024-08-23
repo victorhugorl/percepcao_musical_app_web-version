@@ -1,3 +1,5 @@
+import ImgPrincipal from "./assets/images/banner-principal.png";
+
 export default () => {
     return (
         <>
@@ -18,7 +20,7 @@ export default () => {
                             maiores culpa accusamus temporibus.
                         </p>
                     </div>
-                    <img src="https://placehold.co/800x500" alt="image here" />
+                    <img src={ImgPrincipal} alt="image here" />
                 </article>
             </main>
         </>
