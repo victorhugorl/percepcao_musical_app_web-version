@@ -72,3 +72,31 @@ footer {
     font-family: var(--font-family-footer);
     font-size: var(--font-size-footer);
 }
+
+main {
+    padding: 10px var(--font-size-varient-sub-titles);
+}
+
+/* Estilizando Header principal */
+.center-objects {
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: var(--darker-blue);
+    padding: var(--font-size-footer);
+}
+
+/* Estilizando Index */
+.article-index {
+    display: flex;
+}
+
+.secondary-span {
+    color: grey;
+}
