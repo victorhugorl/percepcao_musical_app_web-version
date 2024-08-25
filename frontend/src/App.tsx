@@ -1,8 +1,10 @@
 import ImgPrincipal from "./assets/images/banner-principal.png";
+import Nav from "./components/Nav";
 
 export default () => {
     return (
         <>
+            <Nav />
             <main className="center-objects">
                 <article className="article-index">
                     <div>
