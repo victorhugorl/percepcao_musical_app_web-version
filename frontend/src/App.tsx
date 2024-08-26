@@ -25,6 +25,48 @@ export default () => {
                     <img src={ImgPrincipal} alt="image here" />
                 </article>
             </main>
+            <div>
+                <h2>Perguntas frequentes</h2>
+                <aside>
+                    <div className="accordion first">
+                        <h3>
+                            <a href="#">Por que utilizar o PMAPP?</a>
+                        </h3>
+                        <div className="text-accordion">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing
+                            elit. Tempora aperiam aliquam dolores fugiat illum
+                            maiores voluptatum repudiandae earum, qui
+                            accusantium aliquid nulla nostrum non impedit iusto
+                            rerum id! Nemo, repellendus.
+                        </div>
+                    </div>
+                    <div className="accordion">
+                        <h3>
+                            <a href="#">Preciso pagar para utilizar?</a>
+                        </h3>
+                        <div className="text-accordion">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing
+                            elit. Tempora aperiam aliquam dolores fugiat illum
+                            maiores voluptatum repudiandae earum, qui
+                            accusantium aliquid nulla nostrum non impedit iusto
+                            rerum id! Nemo, repellendus.
+                        </div>
+                    </div>
+                    <div className="accordion final">
+                        <h3>
+                            <a href="#">Sou iniciante eu consigo usar o app?</a>
+                        </h3>
+                        <div className="text-accordion">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing
+                            elit. Tempora aperiam aliquam dolores fugiat illum
+                            maiores voluptatum repudiandae earum, qui
+                            accusantium aliquid nulla nostrum non impedit iusto
+                            rerum id! Nemo, repellendus.
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <footer>footer</footer>
         </>
     );
 };

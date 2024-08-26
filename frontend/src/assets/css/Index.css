@@ -143,3 +143,26 @@ footer {
 .secondary-span {
     color: grey;
 }
+
+.accordion {
+    padding: 5px;
+    border: 1px solid gray;
+}
+
+.accordion h3 a {
+    color: var(--common-blue);
+    text-decoration: none;
+}
+
+.accordion h3 a:hover {
+    color: var(--darker-blue);
+    text-decoration: none;
+}
+
+.accordion.first {
+    border-radius: 5px 5px 0 0;
+}
+
+.accordion.final {
+    border-radius: 0 0 5px 5px;
+}
