@@ -3,7 +3,7 @@ import Header from "../components/Header";
 export default () => {
     return (
         <>
-            <Header activeNav={true} />
+            <Header />
             <h1>Painel</h1>
         </>
     );
