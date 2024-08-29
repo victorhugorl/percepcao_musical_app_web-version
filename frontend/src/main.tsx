@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 
 import App from "./App";
 import Dashboard from "./routes/Dashboard";
-import Create from "./routes/Create";
+import Create from "./routes/FormBase";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
@@ -28,6 +28,17 @@ const router = createBrowserRouter([
                 form_control="/"
                 nameBtn="Criar"
                 loginYu={false}
+            />
+        )
+    },
+    {
+        path: "login",
+        element: (
+            <Create
+                title="Login"
+                form_control="/"
+                nameBtn="Entrar"
+                loginYu={true}
             />
         )
     }
