@@ -23,17 +23,13 @@ export default () => {
                     >
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a
-                                    className="nav-link active"
-                                    aria-current="page"
-                                    href="#"
-                                >
-                                    Home
+                                <a className="nav-link" href="#">
+                                    Cadastrar-se
                                 </a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#">
-                                    Link
+                                    Login
                                 </a>
                             </li>
                         </ul>

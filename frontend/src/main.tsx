@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 
 import App from "./App";
 import Dashboard from "./routes/Dashboard";
+import Create from "./routes/Create";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
@@ -18,6 +19,17 @@ const router = createBrowserRouter([
     {
         path: "painel",
         element: <Dashboard />
+    },
+    {
+        path: "cadastrar",
+        element: (
+            <Create
+                title="Cadastrar usuario"
+                form_control="/"
+                nameBtn="Criar"
+                loginYu={false}
+            />
+        )
     }
 ]);
 
