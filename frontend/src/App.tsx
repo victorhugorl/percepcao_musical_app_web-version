@@ -1,7 +1,9 @@
 import ImgPrincipal from "./assets/images/banner-principal.png";
 import Nav from "./components/Nav";
+import { Link } from "react-router-dom";
 
 export default () => {
+    const currentYear: number = new Date().getFullYear();
     return (
         <>
             <Nav />
@@ -44,7 +46,7 @@ export default () => {
                                 aria-expanded="true"
                                 aria-controls="collapseOne"
                             >
-                                Accordion Item #1
+                                Preciso pagar para usar o PMAPP?
                             </button>
                         </h2>
                         <div
@@ -79,7 +81,8 @@ export default () => {
                                 aria-expanded="false"
                                 aria-controls="collapseTwo"
                             >
-                                Accordion Item #2
+                                Posso utilizar o site mesmo sendo um musico
+                                inexperiente?
                             </button>
                         </h2>
                         <div
@@ -146,16 +149,10 @@ export default () => {
 
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
                     <div className="col d-flex align-items-start">
-                        <svg
-                            className="bi text-body-secondary flex-shrink-0 me-3"
-                            width="1.75em"
-                            height="1.75em"
-                        >
-                            <use xlinkActuate="#bootstrap"></use>
-                        </svg>
+                        <i className="bi bi-phone-flip fs-2 me-3"></i>
                         <div>
                             <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
-                                Featured title
+                                Responsividade
                             </h3>
                             <p>
                                 Paragraph of text beneath the heading to explain
@@ -164,16 +161,10 @@ export default () => {
                         </div>
                     </div>
                     <div className="col d-flex align-items-start">
-                        <svg
-                            className="bi text-body-secondary flex-shrink-0 me-3"
-                            width="1.75em"
-                            height="1.75em"
-                        >
-                            <use xlinkActuate="#cpu-fill"></use>
-                        </svg>
+                        <i className="bi bi-speedometer fs-2 me-3"></i>
                         <div>
                             <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
-                                Featured title
+                                Peformace
                             </h3>
                             <p>
                                 Paragraph of text beneath the heading to explain
@@ -182,16 +173,10 @@ export default () => {
                         </div>
                     </div>
                     <div className="col d-flex align-items-start">
-                        <svg
-                            className="bi text-body-secondary flex-shrink-0 me-3"
-                            width="1.75em"
-                            height="1.75em"
-                        >
-                            <use xlinkActuate="#calendar3"></use>
-                        </svg>
+                        <i className="bi bi-noise-reduction fs-2 me-3"></i>
                         <div>
                             <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
-                                Featured title
+                                Novo design
                             </h3>
                             <p>
                                 Paragraph of text beneath the heading to explain
@@ -200,16 +185,10 @@ export default () => {
                         </div>
                     </div>
                     <div className="col d-flex align-items-start">
-                        <svg
-                            className="bi text-body-secondary flex-shrink-0 me-3"
-                            width="1.75em"
-                            height="1.75em"
-                        >
-                            <use xlinkActuate="#home"></use>
-                        </svg>
+                        <i className="bi bi-building-add fs-2 me-3"></i>
                         <div>
                             <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
-                                Featured title
+                                Projeto publico
                             </h3>
                             <p>
                                 Paragraph of text beneath the heading to explain
@@ -218,16 +197,10 @@ export default () => {
                         </div>
                     </div>
                     <div className="col d-flex align-items-start">
-                        <svg
-                            className="bi text-body-secondary flex-shrink-0 me-3"
-                            width="1.75em"
-                            height="1.75em"
-                        >
-                            <use xlinkActuate="#speedometer2"></use>
-                        </svg>
+                        <i className="bi bi-tools fs-2 me-3"></i>
                         <div>
                             <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
-                                Featured title
+                                Novas ferramentas
                             </h3>
                             <p>
                                 Paragraph of text beneath the heading to explain
@@ -236,16 +209,10 @@ export default () => {
                         </div>
                     </div>
                     <div className="col d-flex align-items-start">
-                        <svg
-                            className="bi text-body-secondary flex-shrink-0 me-3"
-                            width="1.75em"
-                            height="1.75em"
-                        >
-                            <use xlinkActuate="#toggles2"></use>
-                        </svg>
+                        <i className="bi bi-patch-question fs-2 me-3"></i>
                         <div>
                             <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
-                                Featured title
+                                Suporte
                             </h3>
                             <p>
                                 Paragraph of text beneath the heading to explain
@@ -254,16 +221,10 @@ export default () => {
                         </div>
                     </div>
                     <div className="col d-flex align-items-start">
-                        <svg
-                            className="bi text-body-secondary flex-shrink-0 me-3"
-                            width="1.75em"
-                            height="1.75em"
-                        >
-                            <use xlinkActuate="#geo-fill"></use>
-                        </svg>
+                        <i className="bi bi-bullseye fs-2 me-3"></i>
                         <div>
                             <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
-                                Featured title
+                                Interação
                             </h3>
                             <p>
                                 Paragraph of text beneath the heading to explain
@@ -299,40 +260,37 @@ export default () => {
                                 href="/"
                                 className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"
                             >
-                                <svg className="bi me-2" width="40" height="32">
-                                    <use xlinkActuate="#bootstrap"></use>
-                                </svg>
+                                <i className="bi bi-controller fs-2"></i>
                             </a>
-                            <p className="text-body-secondary">© 2024</p>
+                            <p className="text-body-secondary">
+                                © {currentYear}
+                            </p>
                         </div>
-
-                        <div className="col mb-3"></div>
-
                         <div className="col mb-3">
-                            <h5>Section</h5>
+                            <h5>Home</h5>
                             <ul className="nav flex-column">
                                 <li className="nav-item mb-2">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to={`/`}
                                         className="nav-link p-0 text-body-secondary"
                                     >
                                         Home
+                                    </Link>
+                                </li>
+                                <li className="nav-item mb-2">
+                                    <a
+                                        href="#icon-grid"
+                                        className="nav-link p-0 text-body-secondary"
+                                    >
+                                        Novidades
                                     </a>
                                 </li>
                                 <li className="nav-item mb-2">
                                     <a
-                                        href="#"
+                                        href="#accordionExample"
                                         className="nav-link p-0 text-body-secondary"
                                     >
-                                        Features
-                                    </a>
-                                </li>
-                                <li className="nav-item mb-2">
-                                    <a
-                                        href="#"
-                                        className="nav-link p-0 text-body-secondary"
-                                    >
-                                        Pricing
+                                        Perguntas
                                     </a>
                                 </li>
                                 <li className="nav-item mb-2">
