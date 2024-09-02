@@ -5,7 +5,13 @@
     --common-blue: #219ebc;
     --light-blue: #8ecae6;
 }
+/* config geral */
 
 .h-100 {
     height: 100dvh !important;
+}
+
+/*Estilizando o nav*/
+.bg-principal {
+    background-color: var(--common-blue);
 }
