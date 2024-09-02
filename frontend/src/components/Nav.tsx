@@ -27,7 +27,7 @@ export default () => {
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <Link
-                                    to={`cadastrar`}
+                                    to={`registro-login`}
                                     className="nav-link text-white"
                                 >
                                     Cadastrar-se
@@ -35,7 +35,7 @@ export default () => {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    to={`login`}
+                                    to={`registro-login`}
                                     className="nav-link text-white"
                                 >
                                     Login

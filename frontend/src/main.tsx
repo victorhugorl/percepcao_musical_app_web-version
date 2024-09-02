@@ -21,26 +21,8 @@ const router = createBrowserRouter([
         element: <Dashboard />
     },
     {
-        path: "cadastrar",
-        element: (
-            <Create
-                title="Cadastrar usuario"
-                form_control="/"
-                nameBtn="Criar"
-                loginYu={false}
-            />
-        )
-    },
-    {
-        path: "login",
-        element: (
-            <Create
-                title="Login"
-                form_control="/"
-                nameBtn="Entrar"
-                loginYu={true}
-            />
-        )
+        path: "registro-login",
+        element: <Create />
     }
 ]);
 
