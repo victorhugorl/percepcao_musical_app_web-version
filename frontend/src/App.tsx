@@ -1,7 +1,9 @@
 import ImgPrincipal from "./assets/images/banner-principal.png";
 import Nav from "./components/Nav";
+import { Link } from "react-router-dom";
 
 export default () => {
+    const currentYear: number = new Date().getFullYear();
     return (
         <>
             <Nav />
@@ -15,11 +17,10 @@ export default () => {
                             </span>
                         </h1>
                         <p className="lead">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. A voluptatibus provident, doloremque eaque
-                            placeat impedit possimus odio nesciunt saepe dicta
-                            aliquid dolores amet aspernatur obcaecati tempora
-                            maiores culpa accusamus temporibus.
+                            Criado por gpt O PMAPP é um aplicativo inovador
+                            projetado especialmente para músicos de todos os
+                            níveis. Com ele, você pode compor, gravar, e
+                            colaborar com outros artistas, tudo em um só lugar.
                         </p>
                     </div>
                     <div className="col-xl-7">
@@ -44,7 +45,7 @@ export default () => {
                                 aria-expanded="true"
                                 aria-controls="collapseOne"
                             >
-                                Accordion Item #1
+                                Preciso pagar para usar o PMAPP?
                             </button>
                         </h2>
                         <div
@@ -53,19 +54,13 @@ export default () => {
                             data-bs-parent="#accordionExample"
                         >
                             <div className="accordion-body">
-                                <strong>
-                                    This is the first item's accordion body.
-                                </strong>{" "}
-                                It is shown by default, until the collapse
-                                plugin adds the appropriate classes that we use
-                                to style each element. These classes control the
-                                overall appearance, as well as the showing and
-                                hiding via CSS transitions. You can modify any
-                                of this with custom CSS or overriding our
-                                default variables. It's also worth noting that
-                                just about any HTML can go within the{" "}
-                                <code>.accordion-body</code>, though the
-                                transition does limit overflow.
+                                O <strong>PMAPP</strong> é o aplicativo perfeito
+                                para músicos que querem criar, gravar e
+                                colaborar sem custos. Totalmente gratuito, ele
+                                oferece todas as ferramentas que você precisa
+                                para levar sua música ao próximo nível, sem
+                                precisar gastar nada. Comece a criar hoje mesmo
+                                com o PMAPP!
                             </div>
                         </div>
                     </div>
@@ -79,7 +74,8 @@ export default () => {
                                 aria-expanded="false"
                                 aria-controls="collapseTwo"
                             >
-                                Accordion Item #2
+                                Posso utilizar o site mesmo sendo um musico
+                                inexperiente?
                             </button>
                         </h2>
                         <div
@@ -88,19 +84,14 @@ export default () => {
                             data-bs-parent="#accordionExample"
                         >
                             <div className="accordion-body">
-                                <strong>
-                                    This is the second item's accordion body.
-                                </strong>{" "}
-                                It is hidden by default, until the collapse
-                                plugin adds the appropriate classes that we use
-                                to style each element. These classes control the
-                                overall appearance, as well as the showing and
-                                hiding via CSS transitions. You can modify any
-                                of this with custom CSS or overriding our
-                                default variables. It's also worth noting that
-                                just about any HTML can go within the{" "}
-                                <code>.accordion-body</code>, though the
-                                transition does limit overflow.
+                                Com o <strong>PMAPP</strong>, qualquer músico
+                                pode criar, independentemente do nível de
+                                experiência. Seja você um iniciante ou um
+                                profissional, o PMAPP oferece ferramentas
+                                simples e poderosas para todos os estilos e
+                                habilidades. Não importa se você está apenas
+                                começando ou já é um veterano, o PMAPP é para
+                                todos!
                             </div>
                         </div>
                     </div>
@@ -114,7 +105,7 @@ export default () => {
                                 aria-expanded="false"
                                 aria-controls="collapseThree"
                             >
-                                Accordion Item #3
+                                Outra pergunta?
                             </button>
                         </h2>
                         <div
@@ -146,16 +137,10 @@ export default () => {
 
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
                     <div className="col d-flex align-items-start">
-                        <svg
-                            className="bi text-body-secondary flex-shrink-0 me-3"
-                            width="1.75em"
-                            height="1.75em"
-                        >
-                            <use xlinkActuate="#bootstrap"></use>
-                        </svg>
+                        <i className="bi bi-phone-flip fs-2 me-3"></i>
                         <div>
                             <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
-                                Featured title
+                                Responsividade
                             </h3>
                             <p>
                                 Paragraph of text beneath the heading to explain
@@ -164,16 +149,10 @@ export default () => {
                         </div>
                     </div>
                     <div className="col d-flex align-items-start">
-                        <svg
-                            className="bi text-body-secondary flex-shrink-0 me-3"
-                            width="1.75em"
-                            height="1.75em"
-                        >
-                            <use xlinkActuate="#cpu-fill"></use>
-                        </svg>
+                        <i className="bi bi-speedometer fs-2 me-3"></i>
                         <div>
                             <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
-                                Featured title
+                                Peformace
                             </h3>
                             <p>
                                 Paragraph of text beneath the heading to explain
@@ -182,16 +161,10 @@ export default () => {
                         </div>
                     </div>
                     <div className="col d-flex align-items-start">
-                        <svg
-                            className="bi text-body-secondary flex-shrink-0 me-3"
-                            width="1.75em"
-                            height="1.75em"
-                        >
-                            <use xlinkActuate="#calendar3"></use>
-                        </svg>
+                        <i className="bi bi-noise-reduction fs-2 me-3"></i>
                         <div>
                             <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
-                                Featured title
+                                Novo design
                             </h3>
                             <p>
                                 Paragraph of text beneath the heading to explain
@@ -200,16 +173,10 @@ export default () => {
                         </div>
                     </div>
                     <div className="col d-flex align-items-start">
-                        <svg
-                            className="bi text-body-secondary flex-shrink-0 me-3"
-                            width="1.75em"
-                            height="1.75em"
-                        >
-                            <use xlinkActuate="#home"></use>
-                        </svg>
+                        <i className="bi bi-building-add fs-2 me-3"></i>
                         <div>
                             <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
-                                Featured title
+                                Projeto publico
                             </h3>
                             <p>
                                 Paragraph of text beneath the heading to explain
@@ -218,16 +185,10 @@ export default () => {
                         </div>
                     </div>
                     <div className="col d-flex align-items-start">
-                        <svg
-                            className="bi text-body-secondary flex-shrink-0 me-3"
-                            width="1.75em"
-                            height="1.75em"
-                        >
-                            <use xlinkActuate="#speedometer2"></use>
-                        </svg>
+                        <i className="bi bi-tools fs-2 me-3"></i>
                         <div>
                             <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
-                                Featured title
+                                Novas ferramentas
                             </h3>
                             <p>
                                 Paragraph of text beneath the heading to explain
@@ -236,16 +197,10 @@ export default () => {
                         </div>
                     </div>
                     <div className="col d-flex align-items-start">
-                        <svg
-                            className="bi text-body-secondary flex-shrink-0 me-3"
-                            width="1.75em"
-                            height="1.75em"
-                        >
-                            <use xlinkActuate="#toggles2"></use>
-                        </svg>
+                        <i className="bi bi-patch-question fs-2 me-3"></i>
                         <div>
                             <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
-                                Featured title
+                                Suporte
                             </h3>
                             <p>
                                 Paragraph of text beneath the heading to explain
@@ -254,16 +209,10 @@ export default () => {
                         </div>
                     </div>
                     <div className="col d-flex align-items-start">
-                        <svg
-                            className="bi text-body-secondary flex-shrink-0 me-3"
-                            width="1.75em"
-                            height="1.75em"
-                        >
-                            <use xlinkActuate="#geo-fill"></use>
-                        </svg>
+                        <i className="bi bi-bullseye fs-2 me-3"></i>
                         <div>
                             <h3 className="fw-bold mb-0 fs-4 text-body-emphasis">
-                                Featured title
+                                Interação
                             </h3>
                             <p>
                                 Paragraph of text beneath the heading to explain
@@ -291,162 +240,53 @@ export default () => {
                     </div>
                 </div>
             </div>
-            <footer className="pt-5 container">
-                <div className="container">
-                    <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-2 border-top">
-                        <div className="col mb-3">
-                            <a
-                                href="/"
-                                className="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"
-                            >
-                                <svg className="bi me-2" width="40" height="32">
-                                    <use xlinkActuate="#bootstrap"></use>
-                                </svg>
-                            </a>
-                            <p className="text-body-secondary">© 2024</p>
-                        </div>
 
-                        <div className="col mb-3"></div>
-
-                        <div className="col mb-3">
-                            <h5>Section</h5>
-                            <ul className="nav flex-column">
-                                <li className="nav-item mb-2">
-                                    <a
-                                        href="#"
-                                        className="nav-link p-0 text-body-secondary"
-                                    >
-                                        Home
-                                    </a>
-                                </li>
-                                <li className="nav-item mb-2">
-                                    <a
-                                        href="#"
-                                        className="nav-link p-0 text-body-secondary"
-                                    >
-                                        Features
-                                    </a>
-                                </li>
-                                <li className="nav-item mb-2">
-                                    <a
-                                        href="#"
-                                        className="nav-link p-0 text-body-secondary"
-                                    >
-                                        Pricing
-                                    </a>
-                                </li>
-                                <li className="nav-item mb-2">
-                                    <a
-                                        href="#"
-                                        className="nav-link p-0 text-body-secondary"
-                                    >
-                                        FAQs
-                                    </a>
-                                </li>
-                                <li className="nav-item mb-2">
-                                    <a
-                                        href="#"
-                                        className="nav-link p-0 text-body-secondary"
-                                    >
-                                        About
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div className="col mb-3">
-                            <h5>Section</h5>
-                            <ul className="nav flex-column">
-                                <li className="nav-item mb-2">
-                                    <a
-                                        href="#"
-                                        className="nav-link p-0 text-body-secondary"
-                                    >
-                                        Home
-                                    </a>
-                                </li>
-                                <li className="nav-item mb-2">
-                                    <a
-                                        href="#"
-                                        className="nav-link p-0 text-body-secondary"
-                                    >
-                                        Features
-                                    </a>
-                                </li>
-                                <li className="nav-item mb-2">
-                                    <a
-                                        href="#"
-                                        className="nav-link p-0 text-body-secondary"
-                                    >
-                                        Pricing
-                                    </a>
-                                </li>
-                                <li className="nav-item mb-2">
-                                    <a
-                                        href="#"
-                                        className="nav-link p-0 text-body-secondary"
-                                    >
-                                        FAQs
-                                    </a>
-                                </li>
-                                <li className="nav-item mb-2">
-                                    <a
-                                        href="#"
-                                        className="nav-link p-0 text-body-secondary"
-                                    >
-                                        About
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div className="col mb-3">
-                            <h5>Section</h5>
-                            <ul className="nav flex-column">
-                                <li className="nav-item mb-2">
-                                    <a
-                                        href="#"
-                                        className="nav-link p-0 text-body-secondary"
-                                    >
-                                        Home
-                                    </a>
-                                </li>
-                                <li className="nav-item mb-2">
-                                    <a
-                                        href="#"
-                                        className="nav-link p-0 text-body-secondary"
-                                    >
-                                        Features
-                                    </a>
-                                </li>
-                                <li className="nav-item mb-2">
-                                    <a
-                                        href="#"
-                                        className="nav-link p-0 text-body-secondary"
-                                    >
-                                        Pricing
-                                    </a>
-                                </li>
-                                <li className="nav-item mb-2">
-                                    <a
-                                        href="#"
-                                        className="nav-link p-0 text-body-secondary"
-                                    >
-                                        FAQs
-                                    </a>
-                                </li>
-                                <li className="nav-item mb-2">
-                                    <a
-                                        href="#"
-                                        className="nav-link p-0 text-body-secondary"
-                                    >
-                                        About
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </footer>
-                </div>
+            <footer className="py-3 my-4">
+                <ul className="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li className="nav-item">
+                        <Link
+                            to={`/`}
+                            className="nav-link px-2 text-body-secondary"
+                        >
+                            Home
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link
+                            to={`/`}
+                            className="nav-link px-2 text-body-secondary"
+                        >
+                            Novidades
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link
+                            to={`/`}
+                            className="nav-link px-2 text-body-secondary"
+                        >
+                            Preços
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link
+                            to={`/`}
+                            className="nav-link px-2 text-body-secondary"
+                        >
+                            FAQs
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link
+                            to={`/`}
+                            className="nav-link px-2 text-body-secondary"
+                        >
+                            Sobre
+                        </Link>
+                    </li>
+                </ul>
+                <p className="text-center text-body-secondary">
+                    © {currentYear} Company, Inc
+                </p>
             </footer>
         </>
     );

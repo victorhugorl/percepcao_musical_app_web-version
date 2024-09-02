@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 export default () => {
     return (
         <>
-            <nav className="container  navbar navbar-expand-lg">
-                <div className="container-fluid">
-                    <Link to={`/`} className="navbar-brand">
+            <nav className="navbar navbar-expand-lg bg-principal">
+                <div className="container container-fluid">
+                    <Link to={`/`} className="navbar-brand text-white">
                         PMAPP
                     </Link>
 
@@ -26,12 +26,18 @@ export default () => {
                     >
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link to={`cadastrar`} className="nav-link">
+                                <Link
+                                    to={`registro-login`}
+                                    className="nav-link text-white"
+                                >
                                     Cadastrar-se
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to={`login`} className="nav-link">
+                                <Link
+                                    to={`registro-login`}
+                                    className="nav-link text-white"
+                                >
                                     Login
                                 </Link>
                             </li>
