@@ -1,5 +1,19 @@
+import { useState } from "react";
+
 export default () => {
     const classNameSet: string = "bg-success text-white";
+
+    const [shownigPass, setShownigPass] = useState(false);
+    const [typePassword, setTypePassword] = useState("password");
+    const changeViewPassword = () => {
+        if (shownigPass) {
+            setShownigPass(false);
+            setTypePassword("password");
+        } else {
+            setShownigPass(true);
+            setTypePassword("text");
+        }
+    };
     return (
         <>
             <main
@@ -32,13 +46,22 @@ export default () => {
                         </h1>
                         <div className="text-center pb-3">
                             <aside className="d-flex justify-content-evenly">
-                                <button className="btn rounded-circle bg-secondary-subtle">
+                                <button
+                                    className="btn rounded-circle bg-secondary-subtle"
+                                    type="button"
+                                >
                                     <i className="bi bi-facebook"></i>
                                 </button>
-                                <button className="btn rounded-circle bg-secondary-subtle">
+                                <button
+                                    className="btn rounded-circle bg-secondary-subtle"
+                                    type="button"
+                                >
                                     <i className="bi bi-whatsapp"></i>
                                 </button>
-                                <button className="btn rounded-circle bg-secondary-subtle">
+                                <button
+                                    className="btn rounded-circle bg-secondary-subtle"
+                                    type="button"
+                                >
                                     <i className="bi bi-linkedin"></i>
                                 </button>
                             </aside>
@@ -56,6 +79,10 @@ export default () => {
                                     type="text"
                                     name="name"
                                     id="name"
+                                    placeholder="Nome..."
+                                    maxLength={256}
+                                    minLength={8}
+                                    required
                                 />
                             </div>
                             <div className="input-group py-2">
@@ -67,6 +94,9 @@ export default () => {
                                     type="email"
                                     name="email"
                                     id="email"
+                                    placeholder="E-mail..."
+                                    maxLength={256}
+                                    required
                                 />
                             </div>
                             <div className="input-group">
@@ -78,10 +108,24 @@ export default () => {
                                 </a>
                                 <input
                                     className="form-control"
-                                    type="password"
+                                    type={typePassword}
                                     name="password"
                                     id="password"
+                                    placeholder="Senha..."
+                                    minLength={8}
+                                    required
                                 />
+                                <a
+                                    href="#password"
+                                    className="input-group-text"
+                                    onClick={changeViewPassword}
+                                >
+                                    {shownigPass ? (
+                                        <i className="bi bi-eye-slash-fill"></i>
+                                    ) : (
+                                        <i className="bi bi-eye-fill"></i>
+                                    )}
+                                </a>
                             </div>
                         </aside>
                         <div className="text-center pt-3">
