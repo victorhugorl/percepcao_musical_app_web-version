@@ -4,6 +4,7 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import Dashboard from "./routes/Dashboard";
 import Create from "./routes/FormBase";
+import Login from "./components/LoginFormBase";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
@@ -21,8 +22,12 @@ const router = createBrowserRouter([
         element: <Dashboard />
     },
     {
-        path: "registro-login",
+        path: "registrar",
         element: <Create />
+    },
+    {
+        path: "login",
+        element: <Login />
     }
 ]);
 

@@ -1,13 +1,7 @@
 import { useState } from "react";
 
-interface FormData {
-    name: string;
-    email: string;
-    password: string;
-}
-
 export default () => {
-    const classNameSet: string = "bg-success text-white";
+    const classNameSet: string = "bg-primary text-white";
 
     const [shownigPass, setShownigPass] = useState(false);
     const [typePassword, setTypePassword] = useState("password");
@@ -20,70 +14,16 @@ export default () => {
             setTypePassword("text");
         }
     };
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
-
-    const [formData, setFormData] = useState<FormData>({
-        name: "",
-        email: "",
-        password: ""
-    });
-    const [responseMessage, setResponseMessage] = useState<string>("");
-    const loginSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-
-        try {
-            const response = await fetch("http://127.0.0.1:8000/api//", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(formData)
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                setResponseMessage("Success: " + data.message);
-            } else {
-                setResponseMessage("Error: " + response.statusText);
-            }
-        } catch (error) {
-            setResponseMessage("Error: " + error);
-        }
-    };
-
     return (
         <>
             <main
                 className="bg-secondary-subtle d-flex justify-content-center align-items-center"
                 style={{ height: "100dvh" }}
             >
-                <article
-                    className={`${classNameSet} rounded-start d-flex justify-content-center align-items-center flex-column px-5 form-article`}
-                >
-                    <h1>Bem vindo!</h1>
-                    <p className="lead">
-                        Sua primeira vez? registre-se e de graça!
-                    </p>
-                    <p className="lead">Ja tem uma conta?</p>
-                    <div>
-                        <a
-                            className="px-5 btn btn-outline-light rounded-pill"
-                            href="#"
-                        >
-                            Login
-                        </a>
-                    </div>
-                </article>
-                <article className="bg-light rounded-end px-5 d-flex justify-content-center align-items-center form-article">
+                <article className="bg-light rounded-start px-5 d-flex justify-content-center align-items-center form-article">
                     <form onSubmit={loginSubmit}>
-                        <h1 className="text-success text-center pb-2">
-                            Registrar-se
+                        <h1 className="text-primary text-center pb-2">
+                            Entrar na conta
                         </h1>
                         <div className="text-center pb-3">
                             <aside className="d-flex justify-content-evenly">
@@ -116,8 +56,6 @@ export default () => {
                                     <i className="bi bi-person"></i>
                                 </a>
                                 <input
-                                    value={formData.name}
-                                    onChange={handleChange}
                                     className="form-control"
                                     type="text"
                                     name="name"
@@ -128,23 +66,7 @@ export default () => {
                                     required
                                 />
                             </div>
-                            <div className="input-group py-2">
-                                <a href="#email" className="input-group-text">
-                                    <i className="bi bi-envelope"></i>
-                                </a>
-                                <input
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    className="form-control"
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    placeholder="E-mail..."
-                                    maxLength={256}
-                                    required
-                                />
-                            </div>
-                            <div className="input-group">
+                            <div className="input-group pt-2">
                                 <a
                                     href="#password"
                                     className="input-group-text link-underline link-underline-opacity-0"
@@ -152,8 +74,6 @@ export default () => {
                                     @
                                 </a>
                                 <input
-                                    value={formData.password}
-                                    onChange={handleChange}
                                     className="form-control"
                                     type={typePassword}
                                     name="password"
@@ -178,18 +98,29 @@ export default () => {
                         <div className="text-center pt-3">
                             <button
                                 type="submit"
-                                className="btn btn-success rounded-pill px-5"
+                                className="btn btn-primary rounded-pill px-5"
                             >
-                                <strong>CRIAR</strong>
+                                <strong>LOGIN</strong>
                             </button>
-                            <div
-                                className="alert alert-success mt-2"
-                                role="alert"
-                            >
-                                {responseMessage}
-                            </div>
                         </div>
                     </form>
+                </article>
+                <article
+                    className={`${classNameSet} rounded-end d-flex justify-content-center align-items-center flex-column px-5 form-article`}
+                >
+                    <h1>Ola de novo!</h1>
+                    <p className="lead">
+                        Sua primeira vez? registre-se e de graça!
+                    </p>
+                    <p className="lead">Não tem uma conta?</p>
+                    <div>
+                        <a
+                            className="px-5 btn btn-outline-light rounded-pill"
+                            href="#"
+                        >
+                            Cadastre-se
+                        </a>
+                    </div>
                 </article>
             </main>
         </>
