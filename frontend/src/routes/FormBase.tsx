@@ -14,6 +14,15 @@ export default () => {
             setTypePassword("text");
         }
     };
+
+    const [changeChosedForm, setchangeChosedForm] = useState(false);
+    const changeForm = () => {
+        if (shownigPass) {
+            setchangeChosedForm(false);
+        } else {
+            setchangeChosedForm(true);
+        }
+    };
     return (
         <>
             <main
@@ -27,14 +36,13 @@ export default () => {
                     <p className="lead">
                         Sua primeira vez? registre-se e de graça!
                     </p>
-                    <p className="lead">
-                        Ja tem uma conta? Faça{" "}
-                        <a href="#" className="text-light">
-                            Login
-                        </a>
-                    </p>
+                    <p className="lead">Ja tem uma conta?</p>
                     <div>
-                        <button className="px-5 btn btn-outline-light rounded-pill">
+                        <button
+                            className="px-5 btn btn-outline-light rounded-pill"
+                            type="button"
+                            onClick={changeForm}
+                        >
                             Login
                         </button>
                     </div>
