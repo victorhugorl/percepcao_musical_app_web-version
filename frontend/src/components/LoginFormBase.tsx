@@ -21,7 +21,7 @@ export default () => {
                 style={{ height: "100dvh" }}
             >
                 <article className="bg-light rounded-start px-5 d-flex justify-content-center align-items-center form-article">
-                    <form onSubmit={loginSubmit}>
+                    <form>
                         <h1 className="text-primary text-center pb-2">
                             Entrar na conta
                         </h1>

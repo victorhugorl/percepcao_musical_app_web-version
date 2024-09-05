@@ -21,7 +21,7 @@ export default () => {
         }
     };
 
-    const pathCreateUrl: string | undefined = process.env.REACT_APP_API_URL;
+    const pathCreateUrl = process.env.REACT_APP_API_URL;
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
@@ -40,7 +40,7 @@ export default () => {
         e.preventDefault();
 
         try {
-            const response = await fetch(pathCreateUrl, {
+            const response = await fetch(`${pathCreateUrl}}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
