@@ -21,7 +21,7 @@ export default () => {
         }
     };
 
-    const pathCreateUrl = process.env.REACT_APP_API_URL;
+    const pathCreateUrl = process.env.REACT_APP_BACKEND_API_CREATE_URL;
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
