@@ -1,14 +1,13 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface FormData {
-    name: string;
+    user: string;
     email: string;
     password: string;
 }
 
 export default () => {
-    const classNameSet: string = "bg-success text-white";
-
     const [shownigPass, setShownigPass] = useState(false);
     const [typePassword, setTypePassword] = useState("password");
     const changeViewPassword = () => {
@@ -21,6 +20,8 @@ export default () => {
         }
     };
 
+    const pathCreateUrl = import.meta.env.VITE_BACKEND_API_CREATE_URL;
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
             ...formData,
@@ -29,7 +30,7 @@ export default () => {
     };
 
     const [formData, setFormData] = useState<FormData>({
-        name: "",
+        user: "",
         email: "",
         password: ""
     });
@@ -38,7 +39,7 @@ export default () => {
         e.preventDefault();
 
         try {
-            const response = await fetch("http://127.0.0.1:8000/api//", {
+            const response = await fetch(pathCreateUrl, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -63,21 +64,19 @@ export default () => {
                 className="bg-secondary-subtle d-flex justify-content-center align-items-center"
                 style={{ height: "100dvh" }}
             >
-                <article
-                    className={`${classNameSet} rounded-start d-flex justify-content-center align-items-center flex-column px-5 form-article`}
-                >
+                <article className="bg-success text-white rounded-start d-flex justify-content-center align-items-center flex-column px-5 form-article">
                     <h1>Bem vindo!</h1>
                     <p className="lead">
                         Sua primeira vez? registre-se e de graça!
                     </p>
                     <p className="lead">Ja tem uma conta?</p>
                     <div>
-                        <a
+                        <Link
+                            to={`login`}
                             className="px-5 btn btn-outline-light rounded-pill"
-                            href="#"
                         >
                             Login
-                        </a>
+                        </Link>
                     </div>
                 </article>
                 <article className="bg-light rounded-end px-5 d-flex justify-content-center align-items-center form-article">
@@ -116,15 +115,15 @@ export default () => {
                                     <i className="bi bi-person"></i>
                                 </a>
                                 <input
-                                    value={formData.name}
+                                    value={formData.user}
                                     onChange={handleChange}
                                     className="form-control"
                                     type="text"
-                                    name="name"
-                                    id="name"
+                                    name="user"
+                                    id="user"
                                     placeholder="Nome..."
                                     maxLength={256}
-                                    minLength={8}
+                                    minLength={3}
                                     required
                                 />
                             </div>
@@ -182,12 +181,16 @@ export default () => {
                             >
                                 <strong>CRIAR</strong>
                             </button>
-                            <div
-                                className="alert alert-success mt-2"
-                                role="alert"
-                            >
-                                {responseMessage}
-                            </div>
+                            {responseMessage ? (
+                                <div
+                                    className="alert alert-danger mt-2"
+                                    role="alert"
+                                >
+                                    {responseMessage}
+                                </div>
+                            ) : (
+                                <div></div>
+                            )}
                         </div>
                     </form>
                 </article>

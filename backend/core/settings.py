@@ -142,3 +142,6 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+# padrão e true
+APPEND_SLASH = False
