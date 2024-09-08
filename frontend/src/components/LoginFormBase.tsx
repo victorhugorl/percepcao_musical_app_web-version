@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default () => {
     const classNameSet: string = "bg-primary text-white";
@@ -114,12 +115,12 @@ export default () => {
                     </p>
                     <p className="lead">Não tem uma conta?</p>
                     <div>
-                        <a
+                        <Link
+                            to={`/registrar`}
                             className="px-5 btn btn-outline-light rounded-pill"
-                            href="#"
                         >
                             Cadastre-se
-                        </a>
+                        </Link>
                     </div>
                 </article>
             </main>

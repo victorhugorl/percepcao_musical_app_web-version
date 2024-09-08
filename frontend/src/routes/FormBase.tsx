@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 
 interface FormData {
     user: string;
@@ -50,6 +50,7 @@ export default () => {
             if (response.ok) {
                 const data = await response.json();
                 setResponseMessage("Success: " + data.message);
+                return redirect("/login");
             } else {
                 setResponseMessage("Error: " + response.statusText);
             }
@@ -72,7 +73,7 @@ export default () => {
                     <p className="lead">Ja tem uma conta?</p>
                     <div>
                         <Link
-                            to={`login`}
+                            to={`/login`}
                             className="px-5 btn btn-outline-light rounded-pill"
                         >
                             Login
