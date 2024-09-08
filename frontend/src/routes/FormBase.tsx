@@ -35,7 +35,7 @@ export default () => {
         password: ""
     });
     const [responseMessage, setResponseMessage] = useState<string>("");
-    const loginSubmit = async (e: React.FormEvent) => {
+    const CreateSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
         try {
@@ -81,7 +81,7 @@ export default () => {
                     </div>
                 </article>
                 <article className="bg-light rounded-end px-5 d-flex justify-content-center align-items-center form-article">
-                    <form onSubmit={loginSubmit}>
+                    <form onSubmit={CreateSubmit}>
                         <h1 className="text-success text-center pb-2">
                             Registrar-se
                         </h1>
