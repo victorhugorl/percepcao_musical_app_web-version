@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 
 interface FormData {
     user: string;
@@ -35,7 +35,7 @@ export default () => {
         password: ""
     });
     const [responseMessage, setResponseMessage] = useState<string>("");
-    const loginSubmit = async (e: React.FormEvent) => {
+    const CreateSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
         try {
@@ -50,6 +50,7 @@ export default () => {
             if (response.ok) {
                 const data = await response.json();
                 setResponseMessage("Success: " + data.message);
+                return redirect("/login");
             } else {
                 setResponseMessage("Error: " + response.statusText);
             }
@@ -72,7 +73,7 @@ export default () => {
                     <p className="lead">Ja tem uma conta?</p>
                     <div>
                         <Link
-                            to={`login`}
+                            to={`/login`}
                             className="px-5 btn btn-outline-light rounded-pill"
                         >
                             Login
@@ -80,7 +81,7 @@ export default () => {
                     </div>
                 </article>
                 <article className="bg-light rounded-end px-5 d-flex justify-content-center align-items-center form-article">
-                    <form onSubmit={loginSubmit}>
+                    <form onSubmit={CreateSubmit}>
                         <h1 className="text-success text-center pb-2">
                             Registrar-se
                         </h1>

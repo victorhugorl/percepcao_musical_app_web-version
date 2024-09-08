@@ -1,8 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
+interface FormData {
+    user: string;
+    password: string;
+}
 
 export default () => {
-    const classNameSet: string = "bg-primary text-white";
-
     const [shownigPass, setShownigPass] = useState(false);
     const [typePassword, setTypePassword] = useState("password");
     const changeViewPassword = () => {
@@ -14,6 +18,44 @@ export default () => {
             setTypePassword("text");
         }
     };
+
+    const pathToLoginUrl = import.meta.env.VITE_BACKEND_API_LOGIN_URL;
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const [formData, setFormData] = useState<FormData>({
+        user: "",
+        password: ""
+    });
+    const [responseMessage, setResponseMessage] = useState<string>("");
+    const loginSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetch(pathToLoginUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                setResponseMessage("Success: " + data.message);
+            } else {
+                setResponseMessage("Error: " + response.statusText);
+            }
+        } catch (error) {
+            setResponseMessage("Error: " + error);
+        }
+    };
+
     return (
         <>
             <main
@@ -21,7 +63,7 @@ export default () => {
                 style={{ height: "100dvh" }}
             >
                 <article className="bg-light rounded-start px-5 d-flex justify-content-center align-items-center form-article">
-                    <form>
+                    <form onSubmit={loginSubmit}>
                         <h1 className="text-primary text-center pb-2">
                             Entrar na conta
                         </h1>
@@ -56,10 +98,12 @@ export default () => {
                                     <i className="bi bi-person"></i>
                                 </a>
                                 <input
+                                    value={formData.user}
+                                    onChange={handleChange}
                                     className="form-control"
                                     type="text"
-                                    name="name"
-                                    id="name"
+                                    name="user"
+                                    id="user"
                                     placeholder="Nome..."
                                     maxLength={256}
                                     minLength={8}
@@ -74,6 +118,8 @@ export default () => {
                                     @
                                 </a>
                                 <input
+                                    value={formData.password}
+                                    onChange={handleChange}
                                     className="form-control"
                                     type={typePassword}
                                     name="password"
@@ -102,24 +148,32 @@ export default () => {
                             >
                                 <strong>LOGIN</strong>
                             </button>
+                            {responseMessage ? (
+                                <div
+                                    className="alert alert-danger mt-2"
+                                    role="alert"
+                                >
+                                    {responseMessage}
+                                </div>
+                            ) : (
+                                <div></div>
+                            )}
                         </div>
                     </form>
                 </article>
-                <article
-                    className={`${classNameSet} rounded-end d-flex justify-content-center align-items-center flex-column px-5 form-article`}
-                >
+                <article className="bg-primary text-white rounded-end d-flex justify-content-center align-items-center flex-column px-5 form-article">
                     <h1>Ola de novo!</h1>
                     <p className="lead">
                         Sua primeira vez? registre-se e de graça!
                     </p>
                     <p className="lead">Não tem uma conta?</p>
                     <div>
-                        <a
+                        <Link
+                            to={`/registrar`}
                             className="px-5 btn btn-outline-light rounded-pill"
-                            href="#"
                         >
                             Cadastre-se
-                        </a>
+                        </Link>
                     </div>
                 </article>
             </main>
