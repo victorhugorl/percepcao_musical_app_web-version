@@ -16,11 +16,11 @@ export default () => {
             </header>
             <main className="container pt-3">
                 <article className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-5 border rounded shadow p-3">
                         <h3>Textinho</h3>
                         <p>Alguma informação aqui</p>
                     </div>
-                    <div className="col-md-6">2</div>
+                    <div className="col-md-5">2</div>
                 </article>
             </main>
         </>
