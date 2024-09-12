@@ -10,6 +10,10 @@
     background-color: var(--common-blue);
 }
 
+.bg-dark-blue {
+    background-color: var(--darker-blue);
+}
+
 .form-article {
     height: 500px;
 }
