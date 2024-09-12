@@ -20,7 +20,10 @@ export default () => {
                         <h3>Textinho</h3>
                         <p>Alguma informação aqui</p>
                     </div>
-                    <div className="col-md-5">2</div>
+                    <div className="col-md-5 p-3 text-end">
+                        <h3>Textinho 2</h3>
+                        <p>Alguma informação aqui 2</p>
+                    </div>
                 </article>
             </main>
         </>
