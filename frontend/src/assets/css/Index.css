@@ -17,3 +17,18 @@
 .form-article {
     height: 500px;
 }
+
+/*Estilizando menu game*/
+
+.level {
+    position: relative;
+    cursor: pointer;
+    width: 90px;
+    height: 90px;
+    background-color: red;
+}
+
+.level.level-disabled {
+    cursor: default;
+    background-color: blue;
+}

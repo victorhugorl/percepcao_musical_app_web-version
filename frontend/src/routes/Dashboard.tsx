@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import LevelDesign from "../components/LevelDesign";
 
 export default () => {
+    const levelNumber: number = 0;
+
     return (
         <>
             <header className="bg-dark-blue p-2 text-light">
@@ -17,7 +20,7 @@ export default () => {
             <main className="container pt-3">
                 <article className="row">
                     <div className="col-md-5 border rounded shadow p-3">
-                        <h3>Textinho</h3>
+                        <h3>Nivel {levelNumber}</h3>
                         <p>Alguma informação aqui</p>
                     </div>
                     <div className="col-md-5 p-3 text-end">
@@ -25,6 +28,7 @@ export default () => {
                         <p>Alguma informação aqui 2</p>
                     </div>
                 </article>
+                <LevelDesign />
             </main>
         </>
     );
