@@ -26,6 +26,8 @@ export default () => {
                     <div className="col-md-5 p-3 text-end">
                         <h3>Textinho 2</h3>
                         <p>Alguma informação aqui 2</p>
+                        <p>Outras medidas de texto</p>
+                        <p>Talvez uso de uma lista simples</p>
                     </div>
                 </article>
                 <LevelDesign />
