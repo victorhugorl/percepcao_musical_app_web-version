@@ -5,6 +5,23 @@
     --common-blue: #219ebc;
     --light-blue: #8ecae6;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 /*Estilizando o nav*/
 .bg-principal {
     background-color: var(--common-blue);
@@ -16,4 +33,19 @@
 
 .form-article {
     height: 500px;
+}
+
+/*Estilizando menu game*/
+
+.level {
+    position: relative;
+    cursor: pointer;
+    width: 90px;
+    height: 90px;
+    background-color: red;
+}
+
+.level.level-disabled {
+    cursor: default;
+    background-color: blue;
 }
