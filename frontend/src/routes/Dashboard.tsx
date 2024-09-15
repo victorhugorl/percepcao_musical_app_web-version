@@ -4,6 +4,7 @@ import LevelDesign from "../components/LevelDesign";
 export default () => {
     // preciso fazer um get em uma URL para coletar as informações basicas do user
     const levelNumber: number = 0;
+    const dayNumber: number = 0;
 
     return (
         <>
@@ -22,11 +23,15 @@ export default () => {
                 <article className="row">
                     <div className="col-md-5 border rounded shadow p-3">
                         <h3>Nivel {levelNumber}</h3>
-                        <p>Alguma informação aqui</p>
+                        <p>Alguma informação sobre o nivel atual</p>
                     </div>
                     <div className="col-md-5 p-3 text-end">
-                        <h3>Textinho 2</h3>
-                        <p>Alguma informação aqui 2</p>
+                        <h3>
+                            Dias{" "}
+                            <span className="text-body-secondary">
+                                consecutivos {dayNumber}
+                            </span>
+                        </h3>
                     </div>
                 </article>
                 <LevelDesign />
