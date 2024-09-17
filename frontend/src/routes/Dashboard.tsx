@@ -29,7 +29,7 @@ export default () => {
                         <h3>
                             Dias{" "}
                             <span className="text-body-secondary">
-                                consecutivos {dayNumber}
+                                {dayNumber}
                             </span>
                         </h3>
                     </div>
