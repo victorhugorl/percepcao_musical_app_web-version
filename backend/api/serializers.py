@@ -17,7 +17,6 @@ class GameTypeSerializer(serializers.ModelSerializer):
         model = GameType
         fields = '__all__'
 
-
     
 class UserSerializer(serializers.ModelSerializer):
 
