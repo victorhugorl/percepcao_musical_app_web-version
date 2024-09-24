@@ -15,6 +15,7 @@ class WeeklyInformation(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    consecutive_days = models.BigIntegerField(default=0)
     level = models.BigIntegerField(default=0)
     level_percentage = models.IntegerField(default=0)
     actual_level = models.CharField(max_length=100, blank=True)
